@@ -5,4 +5,6 @@
     <string name="prevenci_de_riscos">prevenció de riscos</string>
     <string name="consultar_poblaci_de_risc">Consultar població de risc</string>
     <string name="informaci_rellevant">Informació rellevant</string>
+    <string name="consultar_informaci">Consultar informació</string>
+    <string name="menu_inicial">Menú inicial</string>
 </resources>

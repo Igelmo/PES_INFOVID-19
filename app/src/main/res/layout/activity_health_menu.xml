@@ -54,7 +54,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/go_back_icon"
-        app:title="@string/informaci_rellevant" />
+        app:title="@string/informaci_rellevant"
+        app:titleTextColor="@android:color/background_light" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

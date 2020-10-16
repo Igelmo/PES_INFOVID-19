@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PES_INFOVID19</string>
+    <string name="mites_sobre_el_covid">Mites sobre el Covid</string>
+    <string name="proves_de_detecci_del_virus">proves de detecció del virus</string>
+    <string name="prevenci_de_riscos">prevenció de riscos</string>
+    <string name="consultar_poblaci_de_risc">Consultar població de risc</string>
+    <string name="informaci_rellevant">Informació rellevant</string>
 </resources>

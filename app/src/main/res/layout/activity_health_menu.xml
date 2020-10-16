@@ -6,29 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.HealthMenuActivity">
 
-    <ImageButton
-        android:id="@+id/goBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/go_back_icon"
-        android:text="@string/mites_sobre_el_covid"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/texTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/informaci_rellevant"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@id/mitesCovid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goBackButton"
-        tools:ignore="MissingConstraints" />
-
-
     <Button
         android:id="@+id/mitesCovid"
         android:layout_width="wrap_content"
@@ -37,7 +14,7 @@
         android:text="@string/mites_sobre_el_covid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/texTitle" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <Button
         android:id="@+id/provesDeteccio"
@@ -68,5 +45,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/prevencioRiscos" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/go_back_icon"
+        app:title="@string/informaci_rellevant" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

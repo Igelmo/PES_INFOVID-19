@@ -2,60 +2,60 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginEnd="286dp"
-        android:layout_marginBottom="599dp"
-        android:text="@string/tv1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+    tools:context=".ui.main.HealthMenuActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/mitesCovid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="276dp"
-        android:onClick="siguiente"
-        android:text="@string/BotonErte"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_margin="100dp"
+        android:text="@string/mites_sobre_el_covid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-    tools:context=".MainActivity">
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <Button
-        android:id="@+id/buttonConsultarInfo"
+        android:id="@+id/provesDeteccio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/consultar_informaci"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+        android:text="@string/proves_de_detecci_del_virus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarMain" />
+        app:layout_constraintTop_toBottomOf="@id/mitesCovid" />
+
+    <Button
+        android:id="@+id/prevencioRiscos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/prevenci_de_riscos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/provesDeteccio" />
+
+    <Button
+        android:id="@+id/consultarPoblacioRisc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/consultar_poblaci_de_risc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prevencioRiscos" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarMain"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/menu_inicial"
+        app:navigationIcon="@drawable/go_back_icon"
+        app:title="@string/informaci_rellevant"
         app:titleTextColor="@android:color/background_light" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

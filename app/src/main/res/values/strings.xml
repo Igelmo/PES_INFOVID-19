@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">PES_INFOVID19</string>
     <string name="BotonErte">Erte </string>
-    <string name="tv1">Boton_Erte </string>
-    <string name="BotonAnterior">Anterior </string>
-    <string name="tv2">Boton_Vuelve </string>
     <string name="okErte">Aceptar </string>
     <string name="email_label">Email</string>
     <string name="mites_sobre_el_covid">Mites sobre el Covid</string>
@@ -13,4 +10,12 @@
     <string name="informaci_rellevant">Informació rellevant</string>
     <string name="consultar_informaci">Consultar informació</string>
     <string name="menu_inicial">Menú inicial</string>
+    <string name="name_label">Nom</string>
+    <string name="surname_label">Cognoms</string>
+    <string name="dni_label">DNI</string>
+    <string name="company_label">Empresa</string>
+    <string name="country_label">Localitat</string>
+    <string name="region_label">Provincia</string>
+    <string name="postalCode_label">Codi Postal</string>
+
 </resources>

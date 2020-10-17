@@ -1,21 +1,22 @@
 package edu.upc.fib.pes_infovid19
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_health_menu.*
 
 class ErteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_erte)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    //Método return
-    fun anterior(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     fun guarda(view: View) {

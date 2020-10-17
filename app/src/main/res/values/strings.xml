@@ -17,5 +17,5 @@
     <string name="country_label">Localitat</string>
     <string name="region_label">Provincia</string>
     <string name="postalCode_label">Codi Postal</string>
-
+    <string name="pdf_text">futuroTexto</string>
 </resources>

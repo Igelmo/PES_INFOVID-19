@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VulnerableTestActivity"></activity>
         <activity
-            android:name=".TestVulnerable"
-            android:label="@string/title_activity_test_vulnerable" />
+            android:name=".VulnerableTestActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".ui.main.HealthMenuActivity"
             android:exported="true"></activity>

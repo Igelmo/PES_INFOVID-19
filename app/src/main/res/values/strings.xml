@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PES_INFOVID19</string>
+    <string name="BotonErte">Erte </string>
+    <string name="tv1">Boton_Erte </string>
+    <string name="BotonAnterior">Anterior </string>
+    <string name="tv2">Boton_Vuelve </string>
+    <string name="okErte">Aceptar </string>
+    <string name="email_label">Email</string>
 </resources>

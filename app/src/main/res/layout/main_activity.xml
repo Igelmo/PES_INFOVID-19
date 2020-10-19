@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:text="@string/tittleMainMenu"
         android:textAlignment="center"
-        android:textSize="43sp"
+        android:layout_marginTop="16dp"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbarMain" />
@@ -22,7 +23,7 @@
         android:id="@+id/subTitleMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="8dp"
         android:text="@string/subTitleMainMenu"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -32,18 +33,23 @@
 
     <Button
         android:id="@+id/buttonConsultarInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="100dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
         android:text="@string/consultar_informaci"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleMainMenu" />
+        app:layout_constraintTop_toBottomOf="@id/subTitleMainMenu" />
 
     <Button
         android:id="@+id/buttonCentreHospitalari"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:text="@string/centre_hospitalari_m_s_proper"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +58,11 @@
 
     <Button
         android:id="@+id/buttonTestContagi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_baseline_coronavirus_24"
         android:text="@string/fer_test_de_probabilitat_de_contagi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +70,11 @@
 
     <Button
         android:id="@+id/buttonObrirTestVulnerable"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_baseline_groups_24"
         android:text="@string/obrir_test_de_vulnerabilitat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,12 +82,27 @@
 
     <Button
         android:id="@+id/buttonERTE"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_baseline_description_24"
         android:text="@string/preparar_reclamaci_erte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonObrirTestVulnerable" />
+
+    <Button
+        android:id="@+id/buttonProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_baseline_edit_24"
+        android:text="Perfil d'usuari"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonERTE" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMain"
@@ -95,6 +122,8 @@
         android:layout_margin="16dp"
         android:contentDescription="@string/fab_xat_descriptor"
         android:src="@drawable/ic_baseline_chat_bubble_24"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        app:maxImageSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

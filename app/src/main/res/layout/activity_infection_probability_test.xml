@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.CentreHospitalariActivity">
-
+    tools:context=".ui.main.InfectionProbabilityTestActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarCentreHospitalari"
+        android:id="@+id/toolbarInfectionTest"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/go_back_icon"
-        app:title="@string/centre_hospitalari_m_s_proper"
+        app:title="@string/fer_test_de_probabilitat_de_contagi"
         app:titleTextColor="@android:color/background_light" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,4 +29,5 @@
     <string name="tittleMainMenu"><![CDATA[Benvingut/da <Usuari>]]></string>
     <string name="subTitleMainMenu">Que vols fer?</string>
     <string name="fab_xat_descriptor">Xat</string>
+    <string name="perfil_d_usuari">Perfil usuari</string>
 </resources>

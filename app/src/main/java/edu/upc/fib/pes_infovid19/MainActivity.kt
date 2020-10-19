@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.ui.main.HealthMenuActivity
 import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
 import edu.upc.fib.pes_infovid19.ui.main.InfectionProbabilityTestActivity
+import edu.upc.fib.pes_infovid19.ui.main.UserProfileActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         buttonTestContagi.setOnClickListener {
             val intent = Intent(this, InfectionProbabilityTestActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonProfile.setOnClickListener {
+            val intent = Intent(this, UserProfileActivity::class.java)
             startActivity(intent)
         }
 

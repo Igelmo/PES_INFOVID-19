@@ -28,4 +28,5 @@
     <string name="preparar_reclamaci_erte">Preparar reclamació ERTE</string>
     <string name="tittleMainMenu"><![CDATA[Benvingut/da <Usuari>]]></string>
     <string name="subTitleMainMenu">Que vols fer?</string>
+    <string name="fab_xat_descriptor">Xat</string>
 </resources>

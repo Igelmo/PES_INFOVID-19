@@ -46,16 +46,7 @@ class ErteActivity : AppCompatActivity() {
     fun guarda(view: View) {
         val erte = rellenaErte()
         val et = findViewById<TextView>(R.id.textView)
-        et.text =
-            "El artículo 3.2 de la Ley Federal de Protección de Datos Personales del 10 de octubre de 2012, que se refiere a la obtención de información personal de clientes, usuarios y proveedores, denominado como Usuario en el futuro, determina que el uso de esta información debe de ser de manera exclusiva para  las operaciones y procesos que el Usuario ha contratado con el proveedor del servicio, denominado en el futuro como Proveedor." +
-
-                    "En el cumplimiento del artículo 1° de dicha ley que establece que ninguna persona puede comercializar, trasladar, vender, intercambiar, reglar o publicar por ningún medio escrito o electrónico conocido o por conocerse, la información que los Usuarios de sus productos o servicios le proporcionen, se establece que:" +
-
-                    "Artículo 1°: La información personal que se está solicitando es propiedad del Usuario, y el Proveedor únicamente la utiliza para dar un mejor servicio." +
-
-                    "Artículo 2°: El proveedor garantiza que todos los datos proporcionados son almacenados en una base de datos que cuenta con los niveles de seguridad de acurdo a la norma oficial vigente." +
-
-                    "Artículo 3°: En caso de que la información proporcionada al proveedor sea publicada o comercializada, el proveedor será acreedor a las sanciones que la ley estipula para este tipo de casaos en los artículos 34° fracción III, 51° Fracción II y 125° de la Ley federal de Protección de Datos Personales."
+        et.text = erte.email + " " + erte.nom + " " + erte.cognoms + " " + erte.dni + " " + erte.empresa + " " + erte.localitat + " " + erte.provincia + " " + erte.codiPostal
         et.visibility = View.VISIBLE
 
     }

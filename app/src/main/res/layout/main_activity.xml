@@ -7,24 +7,75 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonObrirTestVulnerable"
+    <TextView
+        android:id="@+id/titleMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Obrir Test de Vulnerabilitat"
+        android:text="@string/tittleMainMenu"
+        android:textAlignment="center"
+        android:textSize="43sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonConsultarInfo" />
+        app:layout_constraintTop_toBottomOf="@id/toolbarMain" />
+
+    <TextView
+        android:id="@+id/subTitleMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/subTitleMainMenu"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleMainMenu" />
 
     <Button
         android:id="@+id/buttonConsultarInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="100dp"
         android:text="@string/consultar_informaci"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarMain" />
+        app:layout_constraintTop_toBottomOf="@id/titleMainMenu" />
+
+    <Button
+        android:id="@+id/buttonCentreHospitalari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/centre_hospitalari_m_s_proper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonConsultarInfo" />
+
+
+    <Button
+        android:id="@+id/buttonTestContagi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fer_test_de_probabilitat_de_contagi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonCentreHospitalari" />
+
+    <Button
+        android:id="@+id/buttonObrirTestVulnerable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/obrir_test_de_vulnerabilitat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonTestContagi" />
+
+    <Button
+        android:id="@+id/buttonERTE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/preparar_reclamaci_erte"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonObrirTestVulnerable" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMain"
@@ -35,5 +86,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/menu_inicial"
         app:titleTextColor="@android:color/background_light" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

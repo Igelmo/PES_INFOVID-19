@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.ui.main.HealthMenuActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +20,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ErteActivity::class.java)
             startActivity(intent)
         }
-    }
 
+        buttonObrirTestVulnerable.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    VulnerableTestActivity::class.java
+                )
+            )
+        }
+    }
 }

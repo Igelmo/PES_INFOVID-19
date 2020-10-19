@@ -4,10 +4,7 @@ package edu.upc.fib.pes_infovid19
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import edu.upc.fib.pes_infovid19.ui.main.HealthMenuActivity
-import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
-import edu.upc.fib.pes_infovid19.ui.main.InfectionProbabilityTestActivity
-import edu.upc.fib.pes_infovid19.ui.main.UserProfileActivity
+import edu.upc.fib.pes_infovid19.ui.main.*
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        fab.setOnClickListener {
+            val intent = Intent(this, ChatActivity::class.java)
+            startActivity(intent)
+        }
+
         buttonObrirTestVulnerable.setOnClickListener {
             startActivity(
                 Intent(
@@ -42,9 +44,6 @@ class MainActivity : AppCompatActivity() {
                     VulnerableTestActivity::class.java
                 )
             )
-        }
-
-        fab.setOnClickListener {
         }
     }
 }

@@ -11,6 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.MythsActivity"></activity>
         <activity
+            android:name=".VulnerableTestActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".ui.main.HealthMenuActivity"
             android:exported="true" />
         <activity android:name=".MainActivity">

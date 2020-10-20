@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">PES_INFOVID19</string>
+    <string name="app_name">PES_INFOVID19</string>
     <string name="title_activity_open_test_vulnerable">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -22,6 +22,14 @@
     <string name="P3Vulnerable">Tens algún familiar que visqui prop de la teva \nresidència?</string>
     <string name="P2Vulnerable">Vius sol/a?</string>
     <string name="P1Vulnerable">T\'has quedat sense feina o la teva empresa \nha tancat?</string>
+    <string name="centre_hospitalari_m_s_proper">Centre hospitalari més proper</string>
+    <string name="fer_test_de_probabilitat_de_contagi">Fer test de probabilitat de contagi</string>
+    <string name="fer_test_de_vulnerabilitat">Fer test de Vulnerabilitat</string>
+    <string name="preparar_reclamaci_erte">Preparar reclamació ERTE</string>
+    <string name="tittleMainMenu"><![CDATA[Benvingut/da <Usuari>]]></string>
+    <string name="subTitleMainMenu">Que vols fer?</string>
+    <string name="fab_xat_descriptor">Xat</string>
+    <string name="perfil_d_usuari">Perfil usuari</string>
     <string name="l_all_prev_el_contagi">L\'all prevé el contagi</string>
     <string name="contentQuestionGarlic">Hola!</string>
 </resources>

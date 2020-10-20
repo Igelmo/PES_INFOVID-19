@@ -10,12 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ErteActivity"></activity>
+        <activity android:name=".ui.main.ChatActivity"></activity>
+        <activity android:name=".ui.main.UserProfileActivity" />
+        <activity android:name=".ui.main.InfectionProbabilityTestActivity" />
+        <activity android:name=".ui.main.HospitalCenterActivity" />
         <activity
             android:name=".VulnerableTestActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ui.main.HealthMenuActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

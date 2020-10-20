@@ -24,7 +24,7 @@
     <string name="P1Vulnerable">T\'has quedat sense feina o la teva empresa \nha tancat?</string>
     <string name="centre_hospitalari_m_s_proper">Centre hospitalari més proper</string>
     <string name="fer_test_de_probabilitat_de_contagi">Fer test de probabilitat de contagi</string>
-    <string name="obrir_test_de_vulnerabilitat">Obrir Test de Vulnerabilitat</string>
+    <string name="fer_test_de_vulnerabilitat">Fer test de Vulnerabilitat</string>
     <string name="preparar_reclamaci_erte">Preparar reclamació ERTE</string>
     <string name="tittleMainMenu"><![CDATA[Benvingut/da <Usuari>]]></string>
     <string name="subTitleMainMenu">Que vols fer?</string>

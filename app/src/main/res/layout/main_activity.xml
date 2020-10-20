@@ -75,7 +75,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/ic_baseline_groups_24"
-        android:text="@string/obrir_test_de_vulnerabilitat"
+        android:text="@string/fer_test_de_vulnerabilitat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonTestContagi" />

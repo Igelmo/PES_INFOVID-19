@@ -17,8 +17,8 @@
         app:title="@string/informaci_rellevant"
         app:titleTextColor="@android:color/background_light" />
 
-    <LinearLayout
-        android:id="@+id/layoutDropDown"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMyths"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
@@ -26,21 +26,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMyths">
-
-        <hakobastvatsatryan.DropdownTextView
-            android:id="@+id/first_dropdown_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:bg_drawable_expanded="@color/design_default_color_on_secondary"
-            app:bg_drawable_regular="@color/design_default_color_primary"
-            app:content_text_color="@color/design_default_color_on_secondary"
-            app:content_text_size="30dp"
-            app:expand_duration="@integer/config_navAnimTime"
-            app:panel_padding="@dimen/arrow_default_size"
-            app:title_text_color="@color/design_default_color_primary"
-            app:title_text_size="50dp" />
-
-    </LinearLayout>
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMyths"
+        tools:itemCount="40"
+        tools:listitem="@layout/drop_down_textview_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

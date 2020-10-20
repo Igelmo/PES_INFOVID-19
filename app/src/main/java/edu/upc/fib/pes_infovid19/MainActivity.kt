@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        buttonERTE.setOnClickListener {
+            val intent = Intent(this, ErteActivity::class.java)
+            startActivity(intent)
+        }
+
         buttonObrirTestVulnerable.setOnClickListener {
             startActivity(
                 Intent(

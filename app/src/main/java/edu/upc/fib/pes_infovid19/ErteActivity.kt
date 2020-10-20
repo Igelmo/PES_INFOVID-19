@@ -46,10 +46,20 @@ class ErteActivity : AppCompatActivity() {
 
     }
 
+    fun seisMeses(mes: Int): Int {
+        return mes + 6
+    }
+
     fun guarda(view: View) {
         val erte = rellenaErte()
-        val data = Date()
+        val calendar = Calendar.getInstance()
         val et = findViewById<TextView>(R.id.textView)
+        var c = 0
+        var mes = seisMeses(calendar.get(Calendar.MONTH))
+        if (mes > 12) {
+            mes %= 12
+            ++c
+        }
         et.text = "Sol·licitud col·lectiva de prestacions d'atur per suspensió" + "\n" + "\n" +
                 "Cognoms: " + erte.cognoms + "\n" +
                 "Nom: " + erte.nom + "\n" +
@@ -58,8 +68,8 @@ class ErteActivity : AppCompatActivity() {
                 "Número de telefon: " + erte.num_telefon + "\n" +
                 "Número de compte: " + erte.compte_bancari + "\n" +
                 "Tipus d'erte: " + "suspensió" + "\n" +
-                "Data d'inici: " + data.time + "\n" +
-                "Data final" + data.time + 6 + "\n" +
+                "Data d'inici: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR) + "\n" +
+                "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
                 "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" +
                 "-----------------------------------------------------------------Firma" + "\n"
 

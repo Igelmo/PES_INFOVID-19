@@ -53,7 +53,7 @@ class ErteActivity : AppCompatActivity() {
     fun guarda(view: View) {
         val erte = rellenaErte()
         val calendar = Calendar.getInstance()
-        val et = findViewById<TextView>(R.id.textView)
+        val et = findViewById<TextView>(R.id.editView)
         var c = 0
         var mes = seisMeses(calendar.get(Calendar.MONTH))
         if (mes > 12) {

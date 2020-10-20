@@ -18,10 +18,12 @@
     <string name="surname_label">Cognoms</string>
     <string name="dni_label">DNI</string>
     <string name="company_label">Empresa</string>
-    <string name="country_label">Localitat</string>
-    <string name="region_label">Provincia</string>
+    <string name="bank_label">Compte bancari</string>
+    <string name="telefon_label">Número de telèfon</string>
     <string name="postalCode_label">Codi Postal</string>
+    <string name="base_reg_label">Base reguladora</string>
     <string name="pdf_text">futuroTexto</string>
+    <string name="Obrir_Test_de_Vulnerabilitat"> Test de Vulneravilitat</string>
     <string name="P11Vulnerable">Tens fills o filles?</string>
     <string name="P10Vulnerable">Coneixes els tràmits a realtizar en cas \nd\'acomidadament en la feina?</string>
     <string name="P9Vulnerable">Pots afrontar més de 3 mesos sense tenir cap \ntipus d\'ingrés?</string>

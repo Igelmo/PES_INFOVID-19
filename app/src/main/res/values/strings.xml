@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">PES_INFOVID19</string>
+    <string name="title_activity_open_test_vulnerable">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="mites_sobre_el_covid">Mites sobre el Covid</string>
+    <string name="proves_de_detecci_del_virus">proves de detecció del virus</string>
+    <string name="prevenci_de_riscos">prevenció de riscos</string>
+    <string name="consultar_poblaci_de_risc">Consultar població de risc</string>
+    <string name="informaci_rellevant">Informació rellevant</string>
+    <string name="consultar_informaci">Consultar informació</string>
+    <string name="menu_inicial">Menú inicial</string>
+    <string name="P11Vulnerable">Tens fills o filles?</string>
+    <string name="P10Vulnerable">Coneixes els tràmits a realtizar en cas \nd\'acomidadament en la feina?</string>
+    <string name="P9Vulnerable">Pots afrontar més de 3 mesos sense tenir cap \ntipus d\'ingrés?</string>
+    <string name="P8Vulnerable">Tens alguna patologia cardiovascular?</string>
+    <string name="P7Vulnerable">El teu estil de vida és sedentari?</string>
+    <string name="P6Vulnerable">Tens o has tingut problemes respiratoris?</string>
+    <string name="P5Vulnerable">Pateixes alguna malatia crònica?</string>
+    <string name="P4Vulnerable">Tens més de 65 anys?</string>
+    <string name="P3Vulnerable">Tens algún familiar que visqui prop de la teva \nresidència?</string>
+    <string name="P2Vulnerable">Vius sol/a?</string>
+    <string name="P1Vulnerable">T\'has quedat sense feina o la teva empresa \nha tancat?</string>
 </resources>

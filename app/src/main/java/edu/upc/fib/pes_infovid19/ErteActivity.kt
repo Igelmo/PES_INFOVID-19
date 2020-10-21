@@ -1,10 +1,10 @@
 package edu.upc.fib.pes_infovid19
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -12,10 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.itextpdf.text.Document
 import com.itextpdf.text.Paragraph
-import com.itextpdf.text.pdf.PdfWriter
 import kotlinx.android.synthetic.main.activity_erte.*
 import kotlinx.android.synthetic.main.activity_health_menu.toolbar
-import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -106,14 +104,16 @@ class ErteActivity : AppCompatActivity() {
 
     }
 
+
     private fun savePdf() {
         val mDoc = Document()
         val mFileName = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
-        val mFilePath = getExternalFilesDir(Context.DOWNLOAD_SERVICE).toString() + "/" + mFileName + ".pdf"
+        //getExternalStorage(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mFileName + ".pdf"
+        val mFilePath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mFileName + ".pdf"
         try {
-            PdfWriter.getInstance(mDoc, FileOutputStream(mFilePath))
+            // PdfWriter.getInstance(mDoc, FileOutputStream(mFilePath))
             mDoc.open()
-            val mText = editView.text.toString()//findViewById<TextView>(R.id.editView).text.toString()
+            val mText = editView.text.toString()
             mDoc.addAuthor("Infovid-19")
             mDoc.add(Paragraph(mText))
             mDoc.close()

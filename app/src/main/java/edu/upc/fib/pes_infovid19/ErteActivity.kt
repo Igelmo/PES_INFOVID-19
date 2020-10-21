@@ -1,14 +1,28 @@
 package edu.upc.fib.pes_infovid19
-
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_health_menu.*
+import com.itextpdf.text.Document
+import com.itextpdf.text.Paragraph
+import com.itextpdf.text.pdf.PdfWriter
+import kotlinx.android.synthetic.main.activity_erte.*
+import kotlinx.android.synthetic.main.activity_health_menu.toolbar
+import java.io.FileOutputStream
+import java.text.SimpleDateFormat
 import java.util.*
 
+
 class ErteActivity : AppCompatActivity() {
+    private val STORAGE_CODE: Int = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_erte)
@@ -50,6 +64,7 @@ class ErteActivity : AppCompatActivity() {
         return mes + 6
     }
 
+    @SuppressLint("SetTextI18n")
     fun guarda(view: View) {
         val erte = rellenaErte()
         val calendar = Calendar.getInstance()
@@ -77,5 +92,46 @@ class ErteActivity : AppCompatActivity() {
 
         et.visibility = View.VISIBLE
 
+    }
+
+    fun transformaPdf(view: View) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                requestPermissions(permissions, STORAGE_CODE)
+            } else {
+                savePdf()
+            }
+        }
+
+    }
+
+    private fun savePdf() {
+        val mDoc = Document()
+        val mFileName = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
+        val mFilePath = getExternalFilesDir(Context.DOWNLOAD_SERVICE).toString() + "/" + mFileName + ".pdf"
+        try {
+            PdfWriter.getInstance(mDoc, FileOutputStream(mFilePath))
+            mDoc.open()
+            val mText = editView.text.toString()//findViewById<TextView>(R.id.editView).text.toString()
+            mDoc.addAuthor("Infovid-19")
+            mDoc.add(Paragraph(mText))
+            mDoc.close()
+            Toast.makeText(this, "$mFileName.pdf\nis saved to\n$mFilePath", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            STORAGE_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    savePdf()
+                } else {
+                    Toast.makeText(this, "Permission denied...", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }

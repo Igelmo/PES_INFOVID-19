@@ -23,6 +23,7 @@
     <string name="postalCode_label">Codi Postal</string>
     <string name="base_reg_label">Base reguladora</string>
     <string name="pdf_text">futuroTexto</string>
+    <string name="boton_pdf">Descarga</string>
     <string name="Obrir_Test_de_Vulnerabilitat"> Test de Vulneravilitat</string>
     <string name="P11Vulnerable">Tens fills o filles?</string>
     <string name="P10Vulnerable">Coneixes els tràmits a realtizar en cas \nd\'acomidadament en la feina?</string>

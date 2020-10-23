@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "790166008189",
+    "firebase_url": "https://infovid-19-27389.firebaseio.com",
+    "project_id": "infovid-19-27389",
+    "storage_bucket": "infovid-19-27389.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790166008189:android:bd48002daebcfa9753dc14",
+        "android_client_info": {
+          "package_name": "edu.upc.fib.pes_infovid19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790166008189-m8lpdupadc0cr7hvs58cb1i5vn12bafl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwBb3Aa7EFaYgFjJDXYkTj-iOL4cJDiWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790166008189-m8lpdupadc0cr7hvs58cb1i5vn12bafl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

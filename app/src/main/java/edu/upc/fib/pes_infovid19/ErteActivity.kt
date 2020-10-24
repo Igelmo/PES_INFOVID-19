@@ -1,22 +1,21 @@
 package edu.upc.fib.pes_infovid19
+
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.itextpdf.text.Document
-import com.itextpdf.text.Paragraph
-import kotlinx.android.synthetic.main.activity_erte.*
-import kotlinx.android.synthetic.main.activity_health_menu.toolbar
-import java.text.SimpleDateFormat
+import kotlinx.android.synthetic.main.activity_health_menu.*
 import java.util.*
 
+private var erte = Erte()
 
 class ErteActivity : AppCompatActivity() {
     private val STORAGE_CODE: Int = 100
@@ -64,7 +63,7 @@ class ErteActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun guarda(view: View) {
-        val erte = rellenaErte()
+        erte = rellenaErte()
         val calendar = Calendar.getInstance()
         val et = findViewById<TextView>(R.id.editView)
         var c = 0
@@ -83,8 +82,8 @@ class ErteActivity : AppCompatActivity() {
                 "Número de telefon: " + erte.num_telefon + "\n" +
                 "Número de compte: " + erte.compte_bancari + "\n" +
                 "Tipus d'erte: " + "suspensió" + "\n" +
-                "Data d'inici: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR) + "\n" +
-                "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
+                "Data d'inici: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH) + 1 + "/" + calendar.get(Calendar.YEAR) + "\n" +
+                "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + 1 + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
                 "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" + "\n" + "\n" +
                 "-----------------------------------------------------------------Firma" + "\n"
 
@@ -106,20 +105,18 @@ class ErteActivity : AppCompatActivity() {
 
 
     private fun savePdf() {
-        val mDoc = Document()
-        val mFileName = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
-        //getExternalStorage(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mFileName + ".pdf"
-        val mFilePath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mFileName + ".pdf"
         try {
-            // PdfWriter.getInstance(mDoc, FileOutputStream(mFilePath))
-            mDoc.open()
-            val mText = editView.text.toString()
-            mDoc.addAuthor("Infovid-19")
-            mDoc.add(Paragraph(mText))
-            mDoc.close()
-            Toast.makeText(this, "$mFileName.pdf\nis saved to\n$mFilePath", Toast.LENGTH_SHORT).show()
+            val emailIntent = Intent(Intent.ACTION_SEND)
+            emailIntent.data = Uri.parse(erte.email)
+            emailIntent.type = "text/plain"
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, "InfoVid-19")
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Paper de reclamació de Erte")
+            emailIntent.putExtra(Intent.EXTRA_TEXT, findViewById<TextView>(R.id.editView).text)
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+
         } catch (e: Exception) {
-            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "There is no email client installed.", Toast.LENGTH_SHORT).show()
         }
     }
 

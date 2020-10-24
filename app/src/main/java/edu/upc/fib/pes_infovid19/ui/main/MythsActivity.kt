@@ -18,6 +18,7 @@ class MythsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_myths)
         setSupportActionBar(toolbarMyths)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val adapter = MythsAdapter(
             mutableListOf(
                 "Mite 1" to "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",

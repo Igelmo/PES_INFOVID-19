@@ -26,7 +26,7 @@
         android:text="@string/proves_de_detecci_del_virus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mitesCovid" />
+        app:layout_constraintTop_toBottomOf="@+id/mitesCovid" />
 
     <Button
         android:id="@+id/prevencioRiscos"

@@ -17,6 +17,7 @@
         <activity android:name=".ui.main.UserProfileActivity" />
         <activity android:name=".ui.main.InfectionProbabilityTestActivity" />
         <activity android:name=".ui.main.HospitalCenterActivity" />
+        <activity android:name=".ui.main.MythsActivity"></activity>
         <activity
             android:name=".VulnerableTestActivity"
             android:exported="true" />

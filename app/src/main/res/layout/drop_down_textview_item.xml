@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <hakobastvatsatryan.DropdownTextView
+        android:id="@+id/dropdown_text_view"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:bg_drawable_expanded="@color/design_default_color_primary"
+        app:bg_drawable_regular="@color/design_default_color_primary_dark"
+        app:content_text_color="@color/design_default_color_surface"
+        app:content_text_size="30dp"
+        app:expand_duration="@integer/config_navAnimTime"
+        app:layout_constraintTop_toTopOf="parent"
+        app:panel_padding="@dimen/arrow_default_size"
+        app:title_text_color="@color/design_default_color_surface"
+        app:title_text_size="50dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

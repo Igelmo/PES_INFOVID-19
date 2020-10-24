@@ -45,4 +45,7 @@
     <string name="perfil_d_usuari">Perfil usuari</string>
     <string name="l_all_prev_el_contagi">L\'all prevé el contagi</string>
     <string name="contentQuestionGarlic">Hola!</string>
+    <string name="string_button_test">Fer test de probabilitat de contagi</string>
+    <string name="string_button_chat">Demana ajuda a un voluntari</string>
+    <string name="string_button_comprovar_vulnerabilitat">Comprovar Vulnerabilitat</string>
 </resources>

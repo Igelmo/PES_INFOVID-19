@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -61,11 +62,25 @@ class ErteActivity : AppCompatActivity() {
         return mes + 6
     }
 
+    fun anterior(view: View) {
+        val et = findViewById<TextView>(R.id.editView)
+        val benvia = findViewById<Button>(R.id.button)
+        val baccept = findViewById<Button>(R.id.button3)
+        val torna = findViewById<Button>(R.id.button2)
+        et.visibility = View.INVISIBLE
+        benvia.visibility = View.INVISIBLE
+        baccept.visibility = View.VISIBLE
+        torna.visibility = View.INVISIBLE
+    }
+
     @SuppressLint("SetTextI18n")
     fun guarda(view: View) {
         erte = rellenaErte()
         val calendar = Calendar.getInstance()
         val et = findViewById<TextView>(R.id.editView)
+        val benvia = findViewById<Button>(R.id.button)
+        val baccept = findViewById<Button>(R.id.button3)
+        val torna = findViewById<Button>(R.id.button2)
         var c = 0
         var mes = seisMeses(calendar.get(Calendar.MONTH))
         if (mes > 12) {
@@ -88,7 +103,9 @@ class ErteActivity : AppCompatActivity() {
                 "-----------------------------------------------------------------Firma" + "\n"
 
         et.visibility = View.VISIBLE
-
+        benvia.visibility = View.VISIBLE
+        baccept.visibility = View.INVISIBLE
+        torna.visibility = View.VISIBLE
     }
 
     fun transformaPdf(view: View) {

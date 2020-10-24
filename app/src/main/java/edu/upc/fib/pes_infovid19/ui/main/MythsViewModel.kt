@@ -27,6 +27,9 @@ class MythsViewModel : ViewModel() {
     }
     val mythsLiveData: LiveData<List<Myth>> = _mythsLiveData
 
+    fun getListMyths(): LiveData<List<Myth>> {
+        return mythsLiveData
+    }
 }
 
 

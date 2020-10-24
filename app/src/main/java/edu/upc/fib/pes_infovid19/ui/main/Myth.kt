@@ -8,4 +8,7 @@ data class Myth(
     val text: String,
     val date: Date,
     val source: String
+
 )
+
+fun Myth() {}

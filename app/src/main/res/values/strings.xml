@@ -50,4 +50,6 @@
     <string name="string_button_test">Fer test de probabilitat de contagi</string>
     <string name="string_button_chat">Demana ajuda a un voluntari</string>
     <string name="string_button_comprovar_vulnerabilitat">Comprovar Vulnerabilitat</string>
+    <string name="string_info_ajuda_voluntari">Si has donat més d\'un 50% en un o més \ndels grups vulnerables et recomanem que \net posis en contacte amb un voluntari que \net pugui ajudar/assessorar:</string>
+    <string name="string_test_contagi">Si vols, pots fer també el test sobre \nprobabilitat de contagi</string>
 </resources>

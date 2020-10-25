@@ -39,6 +39,9 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
         val progress1 = findViewById<ProgressBar>(R.id.progressBar)
         val progress2 = findViewById<ProgressBar>(R.id.progressBar2)
         val progress3 = findViewById<ProgressBar>(R.id.progressBar3)
+        val text1 = findViewById<TextView>(R.id.textResultSalut)
+        val text2 = findViewById<TextView>(R.id.textResultEconomic)
+        val text3 = findViewById<TextView>(R.id.textResultSocial)
         if (res1 != null) {
             progress1.progress = res1
         };
@@ -48,10 +51,6 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
         if (res3 != null) {
             progress3.progress = res3
         };
-        val text1 = findViewById<TextView>(R.id.textResultSalut)
-        val text2 = findViewById<TextView>(R.id.textResultEconomic)
-        val text3 = findViewById<TextView>(R.id.textResultSocial)
-
         text1.text = "Vulnerabilitat d'un " + res1.toString() + "%\nen salut."
         text2.text = "Vulnerabilitat d'un " + res2.toString() + "%\neconòmicament."
         text3.text = "Vulnerabilitat d'un " + res3.toString() + "%\nsocialment."

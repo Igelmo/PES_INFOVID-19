@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.ui.main.ChatActivity
 import edu.upc.fib.pes_infovid19.ui.main.InfectionProbabilityTestActivity
 import kotlinx.android.synthetic.main.activity_result_vulnerable_test.*
-import kotlinx.android.synthetic.main.activity_vulnerable_test.toolbar
 
 class ResultVulnerableTestActivity : AppCompatActivity() {
 
@@ -16,7 +15,7 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result_vulnerable_test)
         PrintResult()
-        toolbar.setOnClickListener {
+        toolbarResultVulnerable.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -39,6 +38,9 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
         val progress1 = findViewById<ProgressBar>(R.id.progressBar)
         val progress2 = findViewById<ProgressBar>(R.id.progressBar2)
         val progress3 = findViewById<ProgressBar>(R.id.progressBar3)
+        progress1.progress = 0
+        progress2.progress = 0
+        progress3.progress = 0
         val text1 = findViewById<TextView>(R.id.textResultSalut)
         val text2 = findViewById<TextView>(R.id.textResultEconomic)
         val text3 = findViewById<TextView>(R.id.textResultSocial)

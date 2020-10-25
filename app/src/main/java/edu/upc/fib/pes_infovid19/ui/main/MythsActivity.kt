@@ -43,7 +43,7 @@ class MythsAdapter : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.dropdown_text_view.setTitleText(mythList[position].title)
-        holder.itemView.dropdown_text_view.setContentText(mythList[position].text)
+        holder.itemView.dropdown_text_view.setContentText(mythList[position].text + "\n \n Data: " + mythList[position].date + " \n Font: " + mythList[position].source)
     }
 
     override fun getItemCount(): Int = mythList.size

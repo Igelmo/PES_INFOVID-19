@@ -4,27 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_myths.*
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 
 class MythsActivity : AppCompatActivity() {
+    val viewModel: MythsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_myths)
         setSupportActionBar(toolbarMyths)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val listOfMyths = mutableListOf<Myth>()
-        val viewModel = ViewModelProviders.of(this)[MythsViewModel::class.java]
-        viewModel.getListMyths().observe(this, Observer { mythSnapshot ->
-            listOfMyths.clear()
-            listOfMyths.addAll(mythSnapshot)
-        })
+        val adapter = MythsAdapter()
+        recyclerViewMyths.adapter = adapter
+
+        viewModel.mythsLiveData.observe(this) { mythSnapshot ->
+            adapter.updateMyths(mythSnapshot)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -33,7 +34,8 @@ class MythsActivity : AppCompatActivity() {
     }
 }
 
-class MythsAdapter(private val mythList: MutableList<Myth>) : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
+class MythsAdapter : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
+    private var mythList = emptyList<Myth>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.drop_down_textview_item))
@@ -45,6 +47,11 @@ class MythsAdapter(private val mythList: MutableList<Myth>) : RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int = mythList.size
+
+    fun updateMyths(myths: List<Myth>) {
+        mythList = myths
+        notifyDataSetChanged()
+    }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

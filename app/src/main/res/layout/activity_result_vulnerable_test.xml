@@ -106,7 +106,7 @@
         android:id="@+id/textInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Si has donat més d'un 50% en un o més\ndels grups vulnerables et recomanem que\net posis en contacte amb un voluntari que\net pugui ajudar/assessorar:"
+        android:text="@string/string_info_ajuda_voluntari"
         app:layout_constraintBottom_toTopOf="@id/buttonChat"
         app:layout_constraintEnd_toEndOf="@id/buttonChat"
         app:layout_constraintStart_toStartOf="@id/buttonChat"
@@ -116,7 +116,7 @@
         android:id="@+id/textInfo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Si vols, pots fer també el test sobre\nprobabilitat de contagi"
+        android:text="@string/string_test_contagi"
         app:layout_constraintBottom_toTopOf="@id/buttonTest"
         app:layout_constraintStart_toStartOf="@id/textInfo"
         app:layout_constraintTop_toBottomOf="@+id/buttonChat" />

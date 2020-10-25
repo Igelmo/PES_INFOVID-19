@@ -8,7 +8,7 @@
     tools:context=".ResultVulnerableTestActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarResultVulnerable"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toTopOf="@id/progressBar2"
         app:layout_constraintEnd_toStartOf="@id/textResultSalut"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarResultVulnerable" />
 
     <ProgressBar
         android:id="@+id/progressBar2"

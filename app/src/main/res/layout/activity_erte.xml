@@ -24,7 +24,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine6"
@@ -44,7 +45,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine4" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine4"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine7"
@@ -64,7 +66,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine6" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine6"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine8"
@@ -84,7 +87,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine7"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine9"
@@ -104,7 +108,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine8" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine8"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
@@ -125,7 +130,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine9"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintVertical_bias="0.24"
+        tools:ignore="RtlCompat" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -138,19 +144,7 @@
         app:title="Formulari Erte"
         app:titleTextColor="@android:color/background_light" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="44dp"
-        android:onClick="guarda"
-        android:text="@string/okErte"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -189,7 +183,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine3"
@@ -209,7 +204,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editView"
@@ -229,5 +225,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="44dp"
+        android:onClick="guarda"
+        android:text="@string/okErte"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="transformaPdf"
+        android:text="@string/boton_pdf"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="anterior"
+        android:text="@string/anterior_erte"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

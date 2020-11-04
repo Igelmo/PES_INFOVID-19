@@ -4,32 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_myths.*
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 
 class MythsActivity : AppCompatActivity() {
+    val viewModel: MythsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_myths)
         setSupportActionBar(toolbarMyths)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val adapter = MythsAdapter(
-            mutableListOf(
-                "Mite 1" to "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                "Mite 2" to "bbbbbbbbbbbbbbbbbbbbbbb",
-                "Mite 3" to "cccccccccccccccccccc",
-                "Mite4" to "dddddddddddddddddddd",
-                "Mite 5" to "eeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-                "Mite 6" to "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-            )
-        )
+
+        val adapter = MythsAdapter()
         recyclerViewMyths.adapter = adapter
-        recyclerViewMyths.addItemDecoration(DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL))
+
+        viewModel.mythsLiveData.observe(this) { mythSnapshot ->
+            adapter.updateMyths(mythSnapshot)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -38,18 +34,24 @@ class MythsActivity : AppCompatActivity() {
     }
 }
 
-class MythsAdapter(private val mythList: MutableList<Pair<String, String>>) : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
+class MythsAdapter : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
+    private var mythList = emptyList<Myth>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.drop_down_textview_item))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.dropdown_text_view.setTitleText(mythList[position].first)
-        holder.itemView.dropdown_text_view.setContentText(mythList[position].second)
+        holder.itemView.dropdown_text_view.setTitleText(mythList[position].title)
+        holder.itemView.dropdown_text_view.setContentText(mythList[position].text + "\n \n Data: " + mythList[position].date + " \n Font: " + mythList[position].source)
     }
 
     override fun getItemCount(): Int = mythList.size
+
+    fun updateMyths(myths: List<Myth>) {
+        mythList = myths
+        notifyDataSetChanged()
+    }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

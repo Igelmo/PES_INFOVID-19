@@ -67,10 +67,12 @@ class ErteActivity : AppCompatActivity() {
         val benvia = findViewById<Button>(R.id.button)
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
+        val guarda = findViewById<Button>(R.id.button4)
         et.visibility = View.INVISIBLE
         benvia.visibility = View.INVISIBLE
         baccept.visibility = View.VISIBLE
         torna.visibility = View.INVISIBLE
+        guarda.visibility = View.INVISIBLE
     }
 
     @SuppressLint("SetTextI18n")
@@ -81,6 +83,7 @@ class ErteActivity : AppCompatActivity() {
         val benvia = findViewById<Button>(R.id.button)
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
+        val guarda = findViewById<Button>(R.id.button4)
         var c = 0
         var mes = seisMeses(calendar.get(Calendar.MONTH))
         if (mes > 12) {
@@ -107,6 +110,7 @@ class ErteActivity : AppCompatActivity() {
         benvia.visibility = View.VISIBLE
         baccept.visibility = View.INVISIBLE
         torna.visibility = View.VISIBLE
+        guarda.visibility = View.VISIBLE
     }
 
     fun transformaPdf(view: View) {

@@ -19,6 +19,5 @@ data class TestType(
 
 data class RiskPopulation(
     var id: String = "",
-    var risk: String = "",
-    var description: String = ""
+    var risk: String = ""
 )

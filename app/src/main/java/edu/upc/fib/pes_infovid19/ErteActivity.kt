@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
 import com.itextpdf.text.Document
+import com.itextpdf.text.PageSize
 import com.itextpdf.text.Paragraph
 import com.itextpdf.text.pdf.PdfWriter
 import kotlinx.android.synthetic.main.activity_health_menu.*
@@ -106,7 +107,7 @@ class ErteActivity : AppCompatActivity() {
             ++c
             ++mes
         }
-        et.text = "\n" + "Sol·licitud col·lectiva de prestacions d'atur per suspensió" + "\n" + "\n" +
+        et.text = "Sol·licitud col·lectiva de prestacions d'atur per suspensió" + "\n" + "\n" +
                 "Email: " + erte.email + "\n" +
                 "Cognoms: " + erte.cognoms + "\n" +
                 "Nom: " + erte.nom + "\n" +
@@ -118,8 +119,8 @@ class ErteActivity : AppCompatActivity() {
                 "Tipus d'erte: " + "suspensió" + "\n" +
                 "Data d'inici: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR) + "\n" +
                 "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
-                "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" + "\n" + "\n" +
-                "-----------------------------------------------------------------Firma" + "\n"
+                "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" + "\n" +
+                "------------------------------------------Firma" + "\n"
         guardaEnLaBaseDeDatos(erte)
         et.visibility = View.VISIBLE
         benvia.visibility = View.VISIBLE
@@ -129,18 +130,21 @@ class ErteActivity : AppCompatActivity() {
     }
 
     fun guardaPdf() {
-        var documento = Document()
+        val documents = Document(PageSize.A6)
         try {
-            val file = crearFichero("Erte")
-            val ficheroPdf = FileOutputStream(file?.absolutePath)
-            PdfWriter.getInstance(documento, ficheroPdf)
-            documento.open()
-            documento.add(Paragraph((findViewById<TextView>(R.id.editView).text.toString())))
-            documento.close()
-        } finally {
-            documento.close()
-        }
+            val file: File? = crearFichero("Erte")
+            val path = file?.absolutePath
+            val ficheroPdf = FileOutputStream("$path.pdf")
+            val writer = PdfWriter.getInstance(documents, ficheroPdf)
+            documents.open()
+            documents.add(Paragraph((findViewById<TextView>(R.id.editView).text.toString())))
+            documents.close()
+            writer.close()
+            Toast.makeText(this, "Erte.pdf\nis saved to \n$path", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
 
+        }
     }
 
 

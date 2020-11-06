@@ -7,17 +7,25 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
+import com.itextpdf.text.Document
+import com.itextpdf.text.Paragraph
+import com.itextpdf.text.pdf.PdfWriter
 import kotlinx.android.synthetic.main.activity_health_menu.*
+import java.io.File
+import java.io.FileOutputStream
 import java.util.*
 
 private var erte = Erte()
 
+@Suppress("DEPRECATION")
 class ErteActivity : AppCompatActivity() {
     private val STORAGE_CODE: Int = 100
 
@@ -75,6 +83,13 @@ class ErteActivity : AppCompatActivity() {
         guarda.visibility = View.INVISIBLE
     }
 
+    fun guardaEnLaBaseDeDatos(erte: Erte) {
+        val database = FirebaseDatabase.getInstance().getReference()
+        val useId = Random().nextInt(100 - 1) + 2
+        database.child("Erte").child("33").setValue(erte)
+
+    }
+
     @SuppressLint("SetTextI18n")
     fun guarda(view: View) {
         erte = rellenaErte()
@@ -105,7 +120,7 @@ class ErteActivity : AppCompatActivity() {
                 "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
                 "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" + "\n" + "\n" +
                 "-----------------------------------------------------------------Firma" + "\n"
-
+        guardaEnLaBaseDeDatos(erte)
         et.visibility = View.VISIBLE
         benvia.visibility = View.VISIBLE
         baccept.visibility = View.INVISIBLE
@@ -113,40 +128,78 @@ class ErteActivity : AppCompatActivity() {
         guarda.visibility = View.VISIBLE
     }
 
-    fun transformaPdf(view: View) {
+    fun guardaPdf() {
+        var documento = Document()
+        try {
+            val file = crearFichero("Erte")
+            val ficheroPdf = FileOutputStream(file?.absolutePath)
+            PdfWriter.getInstance(documento, ficheroPdf)
+            documento.open()
+            documento.add(Paragraph((findViewById<TextView>(R.id.editView).text.toString())))
+            documento.close()
+        } finally {
+            documento.close()
+        }
+
+    }
+
+
+    fun crearFichero(nombre: String): File? {
+        val ruta: File? = getRuta()
+        var fichero: File? = null
+        if (ruta != null) {
+            fichero = File(ruta, nombre)
+        }
+        return fichero
+    }
+
+
+    fun getRuta(): File? {
+        var ruta: File?
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            ruta = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "ErtePdfs")
+            if (ruta != null) {
+                if (!ruta.mkdirs()) {
+                    if (!ruta.exists()) {
+                        return null;
+                    }
+                }
+            }
+            return ruta;
+        }
+        return null
+    }
+
+    fun enviarErte(view: View) {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
                 val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 requestPermissions(permissions, STORAGE_CODE)
             } else {
-                savePdf()
+                guardaPdf()
+
             }
         }
 
     }
 
 
-    private fun savePdf() {
-        try {
-            val emailIntent = Intent(Intent.ACTION_SEND)
-            emailIntent.data = Uri.parse(erte.email)
-            emailIntent.type = "text/plain"
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, "InfoVid-19")
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Paper de reclamació de Erte")
-            emailIntent.putExtra(Intent.EXTRA_TEXT, findViewById<TextView>(R.id.editView).text)
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
-
-        } catch (e: Exception) {
-            Toast.makeText(this, "There is no email client installed.", Toast.LENGTH_SHORT).show()
-        }
+    fun enviaCorreu(view: View) {
+        val emailIntent = Intent(Intent.ACTION_SEND)
+        emailIntent.data = Uri.parse(erte.email)
+        emailIntent.type = "text/plain"
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, "InfoVid-19")
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Paper de reclamació de Erte")
+        emailIntent.putExtra(Intent.EXTRA_TEXT, findViewById<TextView>(R.id.editView).text)
+        startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+        finish();
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             STORAGE_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    savePdf()
+                    guardaPdf()
                 } else {
                     Toast.makeText(this, "Permission denied...", Toast.LENGTH_SHORT).show()
                 }

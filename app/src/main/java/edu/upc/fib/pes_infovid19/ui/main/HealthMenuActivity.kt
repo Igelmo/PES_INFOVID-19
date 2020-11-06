@@ -22,6 +22,12 @@ class HealthMenuActivity : AppCompatActivity() {
             val intent = Intent(this, TestTypeActivity::class.java)
             startActivity(intent)
         }
+
+        consultarPoblacioRisc.setOnClickListener {
+            val intent = Intent(this, RiskPopulationActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

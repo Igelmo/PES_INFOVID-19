@@ -12,11 +12,11 @@ class TestTypeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_type)
-        setSupportActionBar(toolbarTypeTests)
+        setSupportActionBar(toolbarTestType)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val adapter = TestTypeAdapter()
-        recyclerViewMyths.adapter = adapter
+        recyclerViewTestType.adapter = adapter
 
         viewModel.testTypeLiveData.observe(this) { testTypeSnapshot ->
             adapter.updateTestType(testTypeSnapshot)

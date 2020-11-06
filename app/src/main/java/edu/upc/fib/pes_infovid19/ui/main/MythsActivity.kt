@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
@@ -34,7 +35,9 @@ class MythsActivity : AppCompatActivity() {
     }
 }
 
+
 class MythsAdapter : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
+    private var mExpandedPosition = -1
     private var mythList = emptyList<Myth>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,8 +45,15 @@ class MythsAdapter : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.dropdown_text_view.setTitleText(mythList[position].title)
-        holder.itemView.dropdown_text_view.setContentText(mythList[position].text + "\n \n Data: " + mythList[position].date + " \n Font: " + mythList[position].source)
+        holder.itemView.titledropdown.text = mythList[position].title
+        holder.itemView.textdropdown.text = mythList[position].text + "\n \n Data: " + mythList[position].date + " \n Font: " + mythList[position].source
+        val isExpanded = position == mExpandedPosition
+        holder.itemView.textdropdown.isVisible = isExpanded
+        holder.itemView.setOnClickListener {
+            mExpandedPosition = if (isExpanded) -1
+            else position
+            notifyItemChanged(position)
+        }
     }
 
     override fun getItemCount(): Int = mythList.size

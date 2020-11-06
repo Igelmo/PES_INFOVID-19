@@ -35,7 +35,6 @@ class RiskPopulationAdapter : RecyclerView.Adapter<RiskPopulationAdapter.ViewHol
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(riskPopulation: RiskPopulation, isExpanded: Boolean) {
             itemView.titledropdown.text = riskPopulation.risk
-            itemView.textdropdown.text = riskPopulation.risk + riskPopulation.description
             itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
             itemView.textdropdown.isVisible = isExpanded
         }

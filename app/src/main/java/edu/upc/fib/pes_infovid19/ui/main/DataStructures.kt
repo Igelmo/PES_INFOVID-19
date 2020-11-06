@@ -10,8 +10,9 @@ data class Myth(
 
 data class TestType(
     var id: String = "",
-    var title: String = "",
-    var text: String = "",
+    var name: String = "",
+    var description: String = "",
+    var procedure: String = "",
     var date: String = "",
     var source: String = ""
 )

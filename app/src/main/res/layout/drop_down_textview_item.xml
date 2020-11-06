@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/titledropdown"
-            android:layout_width="match_parent"
+            android:layout_width="354dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:textSize="18sp"

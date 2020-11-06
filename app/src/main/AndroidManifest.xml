@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.upc.fib.pes_infovid19">
+    <!--storage permission-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -9,6 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ResultVulnerableTestActivity"></activity>
+        <activity android:name=".ErteActivity" />
+        <activity android:name=".ui.main.ChatActivity" />
+        <activity android:name=".ui.main.UserProfileActivity" />
+        <activity android:name=".ui.main.InfectionProbabilityTestActivity" />
+        <activity android:name=".ui.main.HospitalCenterActivity" />
+        <activity android:name=".ui.main.MythsActivity" />
+        <activity
+            android:name=".VulnerableTestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.main.HealthMenuActivity"
+            android:exported="true" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,3 +35,4 @@
     </application>
 
 </manifest>
+

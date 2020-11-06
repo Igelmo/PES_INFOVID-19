@@ -45,9 +45,10 @@ class MythsAdapter : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val isExpanded = position == mExpandedPosition
         holder.itemView.titledropdown.text = mythList[position].title
         holder.itemView.textdropdown.text = mythList[position].text + "\n \n Data: " + mythList[position].date + " \n Font: " + mythList[position].source
-        val isExpanded = position == mExpandedPosition
+        holder.itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
         holder.itemView.textdropdown.isVisible = isExpanded
         holder.itemView.setOnClickListener {
             mExpandedPosition = if (isExpanded) -1

@@ -8,7 +8,7 @@ data class Myth(
     var source: String = ""
 )
 
-data class TypeTests(
+data class TestType(
     var id: String = "",
     var title: String = "",
     var text: String = "",

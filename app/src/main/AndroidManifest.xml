@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.TypeTestsActivity"></activity>
+        <activity android:name=".ui.main.TestTypeActivity"></activity>
         <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />
         <activity android:name=".ui.main.ChatActivity" />

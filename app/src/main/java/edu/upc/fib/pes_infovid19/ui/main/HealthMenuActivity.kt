@@ -19,7 +19,7 @@ class HealthMenuActivity : AppCompatActivity() {
         }
 
         provesDeteccio.setOnClickListener {
-            val intent = Intent(this, TypeTestsActivity::class.java)
+            val intent = Intent(this, TestTypeActivity::class.java)
             startActivity(intent)
         }
     }

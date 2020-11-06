@@ -7,3 +7,11 @@ data class Myth(
     var date: String = "",
     var source: String = ""
 )
+
+data class TypeTests(
+    var id: String = "",
+    var title: String = "",
+    var text: String = "",
+    var date: String = "",
+    var source: String = ""
+)

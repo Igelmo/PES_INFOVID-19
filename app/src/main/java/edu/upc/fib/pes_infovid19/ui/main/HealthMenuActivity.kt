@@ -17,6 +17,11 @@ class HealthMenuActivity : AppCompatActivity() {
             val intent = Intent(this, MythsActivity::class.java)
             startActivity(intent)
         }
+
+        provesDeteccio.setOnClickListener {
+            val intent = Intent(this, TypeTestsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

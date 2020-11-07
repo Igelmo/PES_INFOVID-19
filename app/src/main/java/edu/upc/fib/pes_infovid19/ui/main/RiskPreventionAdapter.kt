@@ -27,15 +27,13 @@ class RiskPreventionAdapter : RecyclerView.Adapter<RiskPreventionAdapter.ViewHol
 
     override fun getItemCount(): Int = adviceList.size
 
-    fun updateMyths(advice: List<RiskPrevention>) {
+    fun updateRiskPrevention(advice: List<RiskPrevention>) {
         adviceList = advice
         notifyDataSetChanged()
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(advice: RiskPrevention, isExpanded: Boolean) {
-            itemView.titledropdown.text = advice.advice
-            itemView.textdropdown.text = advice.info
             itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
             itemView.textdropdown.isVisible = isExpanded
         }

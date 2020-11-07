@@ -37,7 +37,6 @@ class RiskPreventionAdapter : RecyclerView.Adapter<RiskPreventionAdapter.ViewHol
         fun bind(riskPrevention: RiskPrevention, isExpanded: Boolean) {
             itemView.titledropdown2.text = riskPrevention.title
             itemView.arrowDropDown2.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
-            itemView.textdropdown.isVisible = isExpanded
         }
     }
 }

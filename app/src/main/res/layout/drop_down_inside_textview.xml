@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDropDownPrimaryBackground"
-    tools:context=".ui.main.MythsActivity">
+    tools:context=".ui.main.RiskPreventionActivity">
 
     <TextView
         android:id="@+id/titledropdown2"

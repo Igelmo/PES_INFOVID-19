@@ -6,7 +6,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.ui.main.ChatActivity
-import edu.upc.fib.pes_infovid19.ui.main.InfectionProbabilityTestActivity
 import kotlinx.android.synthetic.main.activity_result_vulnerable_test.*
 
 class ResultVulnerableTestActivity : AppCompatActivity() {

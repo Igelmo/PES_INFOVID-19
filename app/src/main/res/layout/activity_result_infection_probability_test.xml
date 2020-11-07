@@ -1,8 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundTint="#FFFFFF"
     tools:context=".ResultInfectionProbabilityTestActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarResultInfecion"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/go_back_icon"
+        app:title="Resultat test probabilitat de contagi"
+        app:titleTextColor="@android:color/background_light" />
+
+
+    <Button
+        android:id="@+id/buttonNearestCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:text="@string/string_button_centre"
+        app:layout_constraintBottom_toTopOf="@id/textInfo3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInfo2" />
+
+    <Button
+        android:id="@+id/buttonCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:text="@string/string_button_061"
+        app:layout_constraintBottom_toTopOf="@id/textInfo4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInfo3" />
+
+    <Button
+        android:id="@+id/buttonTestVulnerable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_groups_24"
+        android:text="@string/string_button_vulnerable_test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInfo4" />
+
+
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="La teva probabilitat d'haver-te contagiat és"
+        app:layout_constraintBottom_toTopOf="@id/textResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarResultInfecion" />
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@id/textInfo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInfo" />
+
+
+    <TextView
+        android:id="@+id/textInfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_text_info2_infection"
+        app:layout_constraintBottom_toTopOf="@id/buttonNearestCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResult" />
+
+    <TextView
+        android:id="@+id/textInfo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_text_info3_infection"
+        app:layout_constraintBottom_toTopOf="@id/buttonCall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNearestCenter" />
+
+    <TextView
+        android:id="@+id/textInfo4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Si vols, pots fer també el test per veure\nsi ets vulnerable"
+        app:layout_constraintBottom_toTopOf="@id/buttonTestVulnerable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCall" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,4 +64,9 @@
     <string name="P10Infection">Presentes erupcions cutànies a la pell?</string>
     <string name="P11Infection">Presentes algun símptoma de refredat, com mal\nde cap, mal de gola, secresió nasal, etc.?</string>
     <string name="string_button_comprovar_probabilitat">Comprovar probabilitat</string>
+    <string name="string_button_centre">Centre hospitalari més proper</string>
+    <string name="string_button_vulnerable_test">Fer test de vulnerabilitat</string>
+    <string name="string_button_061">061</string>
+    <string name="string_text_info2_infection">Si tens una probabilitat normal o superior et\nrecomanem contactar amb el centre hospitalari\nmés proper a la teva localització</string>
+    <string name="string_text_info3_infection">o truquis al</string>
 </resources>

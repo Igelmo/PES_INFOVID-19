@@ -16,7 +16,7 @@ class InfectionProbabilityTestActivity : AppCompatActivity() {
         }
     }
 
-    fun GenerateResult(View: View) {
+    fun generateInfectionResult(View: View) {
         var percent = 0.0
         if (switch1.isChecked) percent += 7.5
         if (switch2.isChecked) percent += 6

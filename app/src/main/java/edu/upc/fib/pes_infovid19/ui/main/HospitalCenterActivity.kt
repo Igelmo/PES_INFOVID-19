@@ -1,6 +1,7 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_hospital_center.*
@@ -18,5 +19,8 @@ class HospitalCenterActivity : AppCompatActivity() {
         return true
     }
 
+    fun cerca(view: View) {
+
+    }
 
 }

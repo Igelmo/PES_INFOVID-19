@@ -6,14 +6,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
 import kotlinx.android.synthetic.main.activity_result_infection_probability_test.*
-import kotlinx.android.synthetic.main.activity_result_vulnerable_test.*
 
 class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_result_vulnerable_test)
+        setContentView(R.layout.activity_result_infection_probability_test)
         PrintInfectionResult()
-        toolbarResultVulnerable.setOnClickListener {
+        toolbarResultInfecion.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -34,10 +33,10 @@ class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
     private fun PrintInfectionResult() {
         val perc = intent.extras?.getDouble("percent")
 
-        val textResultat = findViewById<TextView>(R.id.textResult)
+        val textResultat = findViewById<TextView>(R.id.textResultInfection)
 
         if (perc != null) {
-            if (perc >= 0.0 && perc <= 12.0)
+            if (perc in 0.0..12.0)
                 textResultat.text = "Molt baixa"
         }
         if (perc != null) {

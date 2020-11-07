@@ -58,13 +58,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="La teva probabilitat d'haver-te contagiat és"
-        app:layout_constraintBottom_toTopOf="@id/textResult"
+        app:layout_constraintBottom_toTopOf="@id/textResultInfection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarResultInfecion" />
 
     <TextView
-        android:id="@+id/textResult"
+        android:id="@+id/textResultInfection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -86,7 +86,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonNearestCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textResult" />
+        app:layout_constraintTop_toBottomOf="@+id/textResultInfection" />
 
     <TextView
         android:id="@+id/textInfo3"

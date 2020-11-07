@@ -4,6 +4,7 @@
     <!-- storage permission -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultInfectionProbabilityTestActivity"></activity>
+        <activity android:name=".ResultInfectionProbabilityTestActivity" />
         <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />
         <activity android:name=".ui.main.ChatActivity" />

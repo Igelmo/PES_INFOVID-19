@@ -20,16 +20,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMyths"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="40dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="16dp"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@+id/toolbarMyths"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:itemCount="40"
         tools:listitem="@layout/drop_down_textview_item" />
 

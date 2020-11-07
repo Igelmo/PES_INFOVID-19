@@ -102,7 +102,7 @@
         android:id="@+id/textInfo4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Si vols, pots fer també el test per veure\nsi ets vulnerable"
+        android:text="@string/string_text_info4_infection"
         app:layout_constraintBottom_toTopOf="@id/buttonTestVulnerable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

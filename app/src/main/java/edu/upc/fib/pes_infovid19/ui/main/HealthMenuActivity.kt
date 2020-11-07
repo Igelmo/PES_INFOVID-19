@@ -28,6 +28,10 @@ class HealthMenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        prevencioRiscos.setOnClickListener {
+            val intent = Intent(this, RiskPreventionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

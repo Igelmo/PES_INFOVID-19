@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.RiskPopulationActivity"></activity>
+        <activity android:name=".ui.main.RiskPreventionActivity"></activity>
+        <activity android:name=".ui.main.RiskPopulationActivity" />
         <activity android:name=".ui.main.TestTypeActivity" />
         <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />

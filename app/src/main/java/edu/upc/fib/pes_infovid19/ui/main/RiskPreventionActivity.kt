@@ -11,6 +11,9 @@ class RiskPreventionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_risk_prevention)
         setSupportActionBar(toolbarRiskPrevention)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val adapter = RiskPreventionAdapter()
+        recyclerViewRiskPrevention.adapter = adapter
     }
 
 

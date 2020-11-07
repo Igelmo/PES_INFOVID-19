@@ -1,10 +1,8 @@
-package edu.upc.fib.pes_infovid19.ui.main
+package edu.upc.fib.pes_infovid19
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import edu.upc.fib.pes_infovid19.MainActivity
-import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_infection_probability_test.*
 
 class InfectionProbabilityTestActivity : AppCompatActivity() {

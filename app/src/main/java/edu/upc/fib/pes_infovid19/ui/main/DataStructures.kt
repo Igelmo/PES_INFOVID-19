@@ -31,7 +31,7 @@ data class Prevention(
 data class RiskPrevention(
     var date: String = "",
     var image: String = "",
-    var recomanacions: HashMap<String,Prevention> = HashMap(),
+    var recomanacions: Map<String, Prevention> = emptyMap(),
     var source: String = "",
     var title: String = ""
 )

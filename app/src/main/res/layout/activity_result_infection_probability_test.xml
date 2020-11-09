@@ -30,16 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInfo2" />
 
-    <Button
-        android:id="@+id/buttonCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_baseline_info_24"
-        android:text="@string/string_button_061"
-        app:layout_constraintBottom_toTopOf="@id/textInfo4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInfo3" />
+
 
     <Button
         android:id="@+id/buttonTestVulnerable"
@@ -107,6 +98,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonCall" />
+
+    <Button
+        android:id="@+id/buttonCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/ic_menu_call"
+        android:text="@string/string_button_061"
+        app:layout_constraintBottom_toTopOf="@id/textInfo4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInfo3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,4 +53,22 @@
     <string name="string_button_comprovar_vulnerabilitat">Comprovar Vulnerabilitat</string>
     <string name="string_info_ajuda_voluntari">Si has donat més d\'un 50% en un o més \ndels grups vulnerables et recomanem que \net posis en contacte amb un voluntari que \net pugui ajudar/assessorar:</string>
     <string name="string_test_contagi">Si vols, pots fer també el test sobre \nprobabilitat de contagi</string>
+    <string name="P1Infection">Tens o has tingut més de 37º de febre?</string>
+    <string name="P2Infection">Tens tos seca?</string>
+    <string name="P3Infection">Tens sensació de fatiga?</string>
+    <string name="P4Infection">Presentes dificultat per respirar o sensació de falta\nd\'aire?</string>
+    <string name="P5Infection">Tens o has tingut diarrea?</string>
+    <string name="P6Infection">Tens dolor abdominal?</string>
+    <string name="P7Infection">Tens dolor o sents pressió al pit?</string>
+    <string name="P8Infection">Et sents incapaç o tens dificultats per parlar o moure\'t?</string>
+    <string name="P9Infection">Sents pèrdua de l\'olfacte o del gust?</string>
+    <string name="P10Infection">Presentes erupcions cutànies a la pell?</string>
+    <string name="P11Infection">Presentes algun símptoma de refredat, com mal\nde cap, mal de gola, secresió nasal, etc.?</string>
+    <string name="string_button_comprovar_probabilitat">Comprovar probabilitat</string>
+    <string name="string_button_centre">Centre hospitalari més proper</string>
+    <string name="string_button_vulnerable_test">Fer test de vulnerabilitat</string>
+    <string name="string_button_061">061</string>
+    <string name="string_text_info2_infection">Si tens una probabilitat normal o superior et\nrecomanem contactar amb el centre hospitalari\nmés proper a la teva localització</string>
+    <string name="string_text_info3_infection">o truquis al</string>
+    <string name="string_text_info4_infection">Si vols, pots fer també el test per veure\nsi ets vulnerable</string>
 </resources>

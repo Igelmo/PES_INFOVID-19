@@ -249,7 +249,7 @@
         android:layout_marginStart="170dp"
         android:layout_marginEnd="153dp"
         android:layout_marginBottom="28dp"
-        android:onClick="transformaPdf"
+        android:onClick="enviaCorreu"
         android:text="@string/boton_pdf"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -274,6 +274,22 @@
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="42dp"
+        android:text="@string/guardadPdf"
+        android:visibility="gone"
+        android:onClick="enviarErte"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

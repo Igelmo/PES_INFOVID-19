@@ -26,7 +26,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="162dp"
         android:onClick="cerca"
-        android:text="Button"
+        android:text="@string/cerca_centre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine10" />
@@ -41,11 +41,12 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:text="@string/direccio_centre"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarCentreHospitalari"
-        tools:text="@string/direccio_centre" />
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine10"
@@ -62,16 +63,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine5" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine5"
+        tools:ignore="RtlCompat" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
-        android:layout_width="279dp"
-        android:layout_height="233dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="105dp"
+        android:layout_width="237dp"
+        android:layout_height="244dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="86dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

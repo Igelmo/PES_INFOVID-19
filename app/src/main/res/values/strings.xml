@@ -74,4 +74,5 @@
     <string name="string_text_info2_infection">Si tens una probabilitat normal o superior et\nrecomanem contactar amb el centre hospitalari\nmés proper a la teva localització</string>
     <string name="string_text_info3_infection">o truquis al</string>
     <string name="string_text_info4_infection">Si vols, pots fer també el test per veure\nsi ets vulnerable</string>
+    <string name="title_activity_center">Map</string>
 </resources>

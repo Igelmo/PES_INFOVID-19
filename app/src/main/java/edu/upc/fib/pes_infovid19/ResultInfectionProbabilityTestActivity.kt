@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
+import edu.upc.fib.pes_infovid19.ui.main.CenterActivity
 import kotlinx.android.synthetic.main.activity_result_infection_probability_test.*
 
 class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
@@ -17,7 +17,7 @@ class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
             startActivity(intent)
         }
         buttonNearestCenter.setOnClickListener {
-            val intent = Intent(this, HospitalCenterActivity::class.java)
+            val intent = Intent(this, CenterActivity::class.java)
             startActivity(intent)
         }
         buttonCall.setOnClickListener {

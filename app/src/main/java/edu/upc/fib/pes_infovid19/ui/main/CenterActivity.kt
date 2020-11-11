@@ -5,6 +5,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -33,17 +34,17 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
         setSupportActionBar(toolbar5)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        getLocation()
+        fetchLocation()
 
 
     }
 
-    private fun getLocation() {
+    private fun fetchLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
@@ -57,16 +58,27 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
                 currentLocation = location
                 Toast.makeText(applicationContext, currentLocation.latitude.toString() + " " + currentLocation.longitude, Toast.LENGTH_SHORT).show()
                 val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)!!
+
                 supportMapFragment.getMapAsync(this)
             }
         }
+
     }
 
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+    }
+
+    fun buscam(view: View) {
+        val pos = LatLng(currentLocation.latitude, currentLocation.longitude)
+        mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 20.0f));
+    }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
         when (requestCode) {
             101 -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getLocation()
+                fetchLocation()
             }
         }
     }
@@ -77,21 +89,5 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
         return true
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
 
-        val pos = LatLng(currentLocation.latitude, currentLocation.altitude)
-        // Add a marker in Sydney and move the camera
-        mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
-    }
 }

@@ -14,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.TestTypeActivity"></activity>
+        <activity android:name=".ui.main.RiskPopulationActivity"></activity>
         <activity android:name=".ResultInfectionProbabilityTestActivity"></activity>
-        <activity android:name=".ResultVulnerableTestActivity"></activity>
+        <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />
         <activity android:name=".ui.main.ChatActivity" />
         <activity android:name=".ui.main.UserProfileActivity" />

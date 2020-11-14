@@ -27,7 +27,7 @@ class RiskPopulationAdapter : RecyclerView.Adapter<RiskPopulationAdapter.ViewHol
 
     override fun getItemCount(): Int = riskPopulationList.size
 
-    fun updateTestType(testTypeTests: List<RiskPopulation>) {
+    fun updateRiskPopulation(testTypeTests: List<RiskPopulation>) {
         riskPopulationList = testTypeTests
         notifyDataSetChanged()
     }

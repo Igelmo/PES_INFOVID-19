@@ -12,8 +12,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarLogin"
@@ -66,7 +68,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Registrar-se" />
+                    android:background="@drawable/button_rounded_color"
+                    android:text="Registrar-se"
+                    android:textColor="@android:color/white" />
 
                 <Space
                     android:layout_width="8dp"
@@ -78,7 +82,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Iniciar Sessió" />
+                    android:background="@drawable/button_rounded_color"
+                    android:text="Iniciar Sessió"
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
 
@@ -91,15 +97,13 @@
                 android:id="@+id/googlebutton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
+                android:background="@drawable/button_rounded"
                 android:drawableStart="@drawable/googleg_standard_color_18"
                 android:paddingStart="16dp"
                 android:text="Registrar-se amb Google"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                app:layout_constraintTop_toBottomOf="@id/toolbarLogin"
-
-                />
+                app:layout_constraintTop_toBottomOf="@id/toolbarLogin" />
 
         </LinearLayout>
 

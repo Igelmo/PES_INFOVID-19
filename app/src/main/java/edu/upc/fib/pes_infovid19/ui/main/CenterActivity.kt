@@ -3,6 +3,8 @@ package edu.upc.fib.pes_infovid19.ui.main
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.view.View
@@ -71,9 +73,17 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun buscam(view: View) {
         val pos = LatLng(currentLocation.latitude, currentLocation.longitude)
+        val geocoder: Geocoder = Geocoder(this)
+
+        val addressList: List<Address> = geocoder.getFromLocationName("Plaza España, Barcelona", 1)
+        val address = addressList[0]
+        val pos2 = LatLng(address.latitude, address.longitude)
         mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 20.0f));
+        mMap.addMarker(MarkerOptions().position(pos2).title("Destí"))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos2, 20.0f));
+
     }
+
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
         when (requestCode) {

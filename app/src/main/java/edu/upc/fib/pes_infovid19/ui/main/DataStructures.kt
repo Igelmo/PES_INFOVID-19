@@ -21,3 +21,17 @@ data class RiskPopulation(
     var id: String = "",
     var risk: String = ""
 )
+
+data class Prevention(
+    var image: String = "",
+    var text: String = "",
+    var title: String = ""
+)
+
+data class RiskPrevention(
+    var date: String = "",
+    var image: String = "",
+    var recomanacions: List<Prevention> = emptyList<Prevention>(),
+    var source: String = "",
+    var title: String = ""
+)

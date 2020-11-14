@@ -5,29 +5,28 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import edu.upc.fib.pes_infovid19.R
-import kotlinx.android.synthetic.main.activity_myths.*
+import kotlinx.android.synthetic.main.activity_test_type.*
 
-class MythsActivity : AppCompatActivity() {
-    private val viewModel: MythsViewModel by viewModels()
+class TestTypeActivity : AppCompatActivity() {
+    private val viewModel: TestTypeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_myths)
-        setSupportActionBar(toolbarMyths)
+        setContentView(R.layout.activity_test_type)
+        setSupportActionBar(toolbarTestType)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = MythsAdapter()
-        recyclerViewMyths.adapter = adapter
+        val adapter = TestTypeAdapter()
+        recyclerViewTestType.adapter = adapter
 
-        viewModel.mythsLiveData.observe(this) { mythSnapshot ->
-            adapter.updateMyths(mythSnapshot)
+        viewModel.testTypeLiveData.observe(this) { testTypeSnapshot ->
+            adapter.updateTestType(testTypeSnapshot)
         }
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
 }
-
-
 

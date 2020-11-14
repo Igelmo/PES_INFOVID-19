@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.upc.fib.pes_infovid19">
+    <!--storage permission-->
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -12,6 +13,7 @@
     <!-- storage permission -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -42,6 +44,8 @@
             android:name=".ui.main.CenterActivity"
             android:label="@string/title_activity_center" />
         <activity android:name=".ResultInfectionProbabilityTestActivity" />
+        <activity android:name=".ui.main.RiskPreventionActivity"></activity>
+        <activity android:name=".ui.main.TestTypeActivity" />
         <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />
         <activity android:name=".ui.main.ChatActivity" />

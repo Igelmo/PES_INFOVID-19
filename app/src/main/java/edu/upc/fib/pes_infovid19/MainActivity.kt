@@ -4,7 +4,10 @@ package edu.upc.fib.pes_infovid19
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import edu.upc.fib.pes_infovid19.ui.main.*
+import edu.upc.fib.pes_infovid19.ui.main.ChatActivity
+import edu.upc.fib.pes_infovid19.ui.main.HealthMenuActivity
+import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
+import edu.upc.fib.pes_infovid19.ui.main.UserProfileActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +42,11 @@ class MainActivity : AppCompatActivity() {
 
         buttonERTE.setOnClickListener {
             val intent = Intent(this, ErteActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonlogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

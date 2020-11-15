@@ -1,12 +1,12 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_myths.*
-
 class MythsActivity : AppCompatActivity() {
     private val viewModel: MythsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +14,11 @@ class MythsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_myths)
         setSupportActionBar(toolbarMyths)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        manageMythsButton.setOnClickListener {
+            val intent = Intent(this, ManageMythsActivity::class.java)
+            startActivity(intent)
+        }
 
         val adapter = MythsAdapter()
         recyclerViewMyths.adapter = adapter
@@ -27,7 +32,10 @@ class MythsActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
+
 }
+
 
 
 

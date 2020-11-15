@@ -15,7 +15,7 @@ class RiskPopulationActivity : AppCompatActivity() {
         setSupportActionBar(toolbarRiskPopulation)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = RiskPopulationAdapter()
+        val adapter = RiskPopulationAdapter(false)
         recyclerViewRiskPopulation.adapter = adapter
 
         viewModel.riskPopulationLiveData.observe(this) { riskPopulationSnapshot ->

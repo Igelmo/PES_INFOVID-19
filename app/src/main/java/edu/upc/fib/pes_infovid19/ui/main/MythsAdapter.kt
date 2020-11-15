@@ -40,6 +40,8 @@ class MythsAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<MythsAda
             } else {
                 itemView.titledropdown.text = myth.title
             }
+            itemView.editButton.isVisible = admin
+            itemView.deleteButton.isVisible = admin
             itemView.arrowDropDown.isVisible = !admin
             itemView.textdropdown.isVisible = !admin && isExpanded
         }

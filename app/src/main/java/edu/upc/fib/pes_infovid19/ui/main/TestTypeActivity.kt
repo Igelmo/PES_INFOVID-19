@@ -15,7 +15,7 @@ class TestTypeActivity : AppCompatActivity() {
         setSupportActionBar(toolbarTestType)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = TestTypeAdapter()
+        val adapter = TestTypeAdapter(false)
         recyclerViewTestType.adapter = adapter
 
         viewModel.testTypeLiveData.observe(this) { testTypeSnapshot ->

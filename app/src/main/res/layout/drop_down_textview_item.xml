@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/titledropdown"
-            android:layout_width="354dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:textSize="18sp"
@@ -46,8 +46,7 @@
             android:id="@+id/imageDropDown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="36dp"
-            android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textdropdown" />

@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,11 @@ class ManageMythsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_manage_myths)
         setSupportActionBar(toolbarManageMyths)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        fabCreateNewMyth.setOnClickListener {
+            val intent = Intent(this, CreateMythActivity::class.java)
+            startActivity(intent)
+        }
 
         val adapter = MythsAdapter(true)
         recyclerViewMyths.adapter = adapter

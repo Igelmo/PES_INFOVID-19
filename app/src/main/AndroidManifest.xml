@@ -44,7 +44,8 @@
             android:name=".ui.main.CenterActivity"
             android:label="@string/title_activity_center" />
         <activity android:name=".ResultInfectionProbabilityTestActivity" />
-        <activity android:name=".ui.main.RiskPreventionActivity"></activity>
+        <activity android:name=".ui.main.RiskPreventionActivity" />
+        <activity android:name=".ui.main.RiskPopulationActivity" />
         <activity android:name=".ui.main.TestTypeActivity" />
         <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />

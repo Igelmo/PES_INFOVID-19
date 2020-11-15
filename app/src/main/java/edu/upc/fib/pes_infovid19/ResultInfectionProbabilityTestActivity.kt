@@ -8,9 +8,8 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import edu.upc.fib.pes_infovid19.ui.main.CenterActivity
 import androidx.core.app.ActivityCompat
-import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
+import edu.upc.fib.pes_infovid19.ui.main.CenterActivity
 import kotlinx.android.synthetic.main.activity_result_infection_probability_test.*
 
 class ResultInfectionProbabilityTestActivity : AppCompatActivity() {

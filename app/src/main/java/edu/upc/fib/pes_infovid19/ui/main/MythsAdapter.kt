@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -20,6 +21,11 @@ class MythsAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<MythsAda
             expandedPosition = if (isExpanded) -1
             else position
             notifyItemChanged(position)
+        }
+        holder.itemView.editButton.setOnClickListener {
+            val context = it.context
+            val intent = Intent(context, EditMythActivity::class.java)
+            context.startActivity(intent)
         }
     }
 

@@ -17,6 +17,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".ui.main.TestTypeActivity" />
         <activity android:name=".ui.main.RiskPopulationActivity" />
+        <activity android:name=".ui.main.RiskPreventionActivity" />
         <activity android:name=".ResultInfectionProbabilityTestActivity" />
         <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />

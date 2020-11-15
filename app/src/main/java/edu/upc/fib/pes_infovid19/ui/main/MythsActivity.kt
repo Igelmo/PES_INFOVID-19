@@ -20,7 +20,7 @@ class MythsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val adapter = MythsAdapter()
+        val adapter = MythsAdapter(false)
         recyclerViewMyths.adapter = adapter
 
         viewModel.mythsLiveData.observe(this) { mythSnapshot ->

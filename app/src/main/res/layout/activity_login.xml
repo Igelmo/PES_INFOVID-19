@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:navigationIcon="@drawable/go_back_icon"
-            app:title="Login"
+            android:paddingStart="16dp"
+            app:title="INFOVID-19"
             app:titleTextColor="@android:color/background_light" />
 
         <LinearLayout
@@ -58,35 +58,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="8dp" />
 
-            <LinearLayout
+            <Button
+                android:id="@+id/loginbutton"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded_color"
+                android:text="Iniciar Sessió"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@id/toolbarLogin" />
 
-                <Button
-                    android:id="@+id/signupbutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_rounded_color"
-                    android:text="Registrar-se"
-                    android:textColor="@android:color/white" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleX="1.1"
+                android:scaleY="1.1"
+                android:text="O també pots"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
 
-                <Button
-                    android:id="@+id/loginbutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_rounded_color"
-                    android:text="Iniciar Sessió"
-                    android:textColor="@android:color/white" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1" />
 
-            </LinearLayout>
+            <Button
+                android:id="@+id/signupbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded_color"
+                android:text="Registrar-se"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@id/toolbarLogin" />
 
             <Space
                 android:layout_width="wrap_content"

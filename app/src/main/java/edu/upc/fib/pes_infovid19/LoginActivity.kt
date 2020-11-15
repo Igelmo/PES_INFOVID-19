@@ -12,10 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 
-enum class ProviderType {
-    GOOGLE
-}
-
 class LoginActivity : AppCompatActivity() {
 
     private val GOOGLE_SIGN_IN = 100
@@ -36,18 +32,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setup() {
+
         signupbutton.setOnClickListener {
-            if (emailEditText.text.isNotEmpty() && PasswordEditText.text.isNotEmpty()) {
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailEditText.text.toString(), PasswordEditText.text.toString()).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        showAlert()
-                    }
-                }
-            }
+            val intent = Intent(this, SigninActivity::class.java)
+            startActivity(intent)
         }
+
         loginbutton.setOnClickListener {
             if (emailEditText.text.isNotEmpty() && PasswordEditText.text.isNotEmpty()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(), PasswordEditText.text.toString()).addOnCompleteListener {

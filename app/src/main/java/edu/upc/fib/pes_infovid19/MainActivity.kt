@@ -45,10 +45,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        buttonlogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
 
         buttonObrirTestVulnerable.setOnClickListener {
             startActivity(

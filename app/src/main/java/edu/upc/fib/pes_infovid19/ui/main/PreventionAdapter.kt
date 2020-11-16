@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 

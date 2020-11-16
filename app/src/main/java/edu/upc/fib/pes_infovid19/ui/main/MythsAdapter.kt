@@ -24,10 +24,16 @@ class MythsAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<MythsAda
         }
         holder.itemView.editButton.setOnClickListener {
             val context = it.context
+            var title = holder.itemView.titledropdown.text
+            var text = holder.itemView.textdropdown.text
             val intent = Intent(context, EditMythActivity::class.java)
+            intent.putExtra("title",title);
+            intent.putExtra("text",text);
             context.startActivity(intent)
         }
     }
+
+
 
     override fun getItemCount(): Int = mythList.size
 
@@ -45,6 +51,7 @@ class MythsAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<MythsAda
                 itemView.textdropdown.isVisible = isExpanded
             } else {
                 itemView.titledropdown.text = myth.title
+                itemView.textdropdown.text = myth.text + "\n \n Data: " + myth.date + " \n Font: " + myth.source
             }
             itemView.editButton.isVisible = admin
             itemView.deleteButton.isVisible = admin

@@ -14,11 +14,30 @@ class EditMythActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_myth)
         setSupportActionBar(toolbarEditMyth)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        var infoMyth : List<String?> =  getInfo()
+        println("INFO MYTH: " + infoMyth.get(1))
+        setInfo(infoMyth)
         editMythButton.setOnClickListener {
             val intent = Intent(this, ManageMythsActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    fun getInfo(): List<String?> {
+        var title = intent.getStringExtra("title")
+        var text = intent.getStringExtra("text")
+        var info = listOf(title,text)
+        return info
+    }
+
+    fun setInfo(infoMyth:List<String?>){
+        titleTextEditMyth.setText(infoMyth.get(0))
+        var text = infoMyth.get(1)?.split("Data")?.get(0)
+        var date = infoMyth.get(1)?.split("Data:")?.get(1)?.split("Font:")?.get(0)
+        var font = infoMyth.get(1)?.split("Font:")?.get(1)
+        textEditMyth.setText(text)
+        dateEditMyth.setText(date)
+        sourceEditMyth.setText(font)
     }
 
     override fun onSupportNavigateUp(): Boolean {

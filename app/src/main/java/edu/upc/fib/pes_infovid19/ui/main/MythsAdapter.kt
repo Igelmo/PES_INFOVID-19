@@ -26,9 +26,12 @@ class MythsAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<MythsAda
             val context = it.context
             var title = holder.itemView.titledropdown.text
             var text = holder.itemView.textdropdown.text
+            var id = mythList[position].id
+            println("myth id:" + id)
             val intent = Intent(context, EditMythActivity::class.java)
             intent.putExtra("title",title);
             intent.putExtra("text",text);
+            intent.putExtra("id", id)
             context.startActivity(intent)
         }
     }

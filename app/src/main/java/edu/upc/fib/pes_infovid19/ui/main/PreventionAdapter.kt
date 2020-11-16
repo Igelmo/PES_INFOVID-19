@@ -31,9 +31,10 @@ class PreventionAdapter(val preventions: List<Prevention>, private val isAdmin: 
             if (!admin) {
                 itemView.titledropdown.text = prevention.title
                 itemView.textdropdown.text = prevention.text
+                itemView.imageDropDown.load(prevention.image)
                 itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
                 itemView.textdropdown.isVisible = isExpanded
-
+                itemView.imageDropDown.isVisible = isExpanded
             }
             itemView.editButton.isVisible = admin
             itemView.deleteButton.isVisible = admin

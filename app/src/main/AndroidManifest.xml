@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.upc.fib.pes_infovid19">
+    <!-- storage permission -->
     <!--storage permission-->
 
     <!--
@@ -9,9 +10,6 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!-- storage permission -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -46,6 +44,8 @@
         <activity android:name=".ResultInfectionProbabilityTestActivity" />
         <activity android:name=".ui.main.RiskPreventionActivity" />
         <activity android:name=".ui.main.RiskPopulationActivity" />
+        <activity android:name=".SigninActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".ui.main.TestTypeActivity" />
         <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />
@@ -59,7 +59,7 @@
         <activity
             android:name=".ui.main.HealthMenuActivity"
             android:exported="true" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

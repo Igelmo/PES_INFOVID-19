@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.ArrayList
 
 private const val MYTHS_NAME = "myths"
 
@@ -16,8 +17,14 @@ class MythsViewModel : ViewModel() {
     private val _mythsLiveData = MutableLiveData<List<Myth>>().also { data ->
         mythsReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(Myth::class.java) }.toList()
+                var items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(Myth::class.java)}.toList()
                 else emptyList()
+                val ids: MutableList<String> = ArrayList()
+                for(snap in snapshot.children){
+                    ids.add(snap.key.toString())
+                }
+                println("tots els ids:" + ids)
+                items = setMythId(items, ids)
                 data.postValue(items)
             }
 
@@ -26,6 +33,14 @@ class MythsViewModel : ViewModel() {
         })
     }
     val mythsLiveData: LiveData<List<Myth>> = _mythsLiveData
+}
+fun setMythId(items: List<Myth>, ids: List<String>): List<Myth> {
+    var i = 0
+    for(item in items ){
+        item.id = ids.get(i)
+        i += 1
+    }
+    return items
 }
 
 

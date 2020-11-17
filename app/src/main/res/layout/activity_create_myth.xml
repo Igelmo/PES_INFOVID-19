@@ -41,6 +41,7 @@
 
     <EditText
         android:id="@+id/dateMyth"
+        android:text = "Data: "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -52,6 +53,7 @@
 
     <EditText
         android:id="@+id/sourceMyth"
+        android:text = "Font: "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"

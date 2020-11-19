@@ -15,18 +15,17 @@ class CreateMythActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         createNewMythButton.setOnClickListener {
             val myth = constructNewMyth()
-            viewModel.addMyth(myth)
             onSupportNavigateUp()
         }
     }
 
-    fun constructNewMyth(): Myth {
+    fun constructNewMyth() {
         val myth = Myth()
         myth.title = titleTextMyth.text.toString()
         myth.text = textMyth.text.toString()
         myth.date = dateMyth.text.toString()
         myth.source = sourceMyth.text.toString()
-        return myth
+        viewModel.addMyth(myth)
     }
 
     override fun onSupportNavigateUp(): Boolean {

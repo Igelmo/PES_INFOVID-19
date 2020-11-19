@@ -13,10 +13,10 @@ import edu.upc.fib.pes_infovid19.ui.main.RiskPopulation
 private const val RISK_NAME = "riskPopulations"
 
 class RiskPopulationFirebaseRepository : RiskPopulationRepository {
-    private val riskPopulationReference = Firebase.database.reference.child(RISK_NAME)
+    private val database = Firebase.database.reference.child(RISK_NAME)
 
     private val _riskPopulationLiveData = MutableLiveData<List<RiskPopulation>>().also { data ->
-        riskPopulationReference.addValueEventListener(object : ValueEventListener {
+        database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(RiskPopulation::class.java) }.toList()
                 else emptyList()

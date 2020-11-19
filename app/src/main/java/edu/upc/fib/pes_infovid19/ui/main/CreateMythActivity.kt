@@ -1,41 +1,32 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
-import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_create_myth.*
-import kotlinx.android.synthetic.main.activity_edit_myth.*
-import java.util.ArrayList
 
 class CreateMythActivity : AppCompatActivity() {
-    private lateinit var database: DatabaseReference
+    private val viewModel: MythsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_myth)
         setSupportActionBar(toolbarCreateMyth)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        database = Firebase.database.reference
         createNewMythButton.setOnClickListener {
-            val newMyth = getInfoNewMyth()
-            saveNewMyth(newMyth)
-            val intent = Intent(this, ManageMythsActivity::class.java)
-            startActivity(intent)
+            val myth = constructNewMyth()
+            viewModel.addMyth(myth)
+            onSupportNavigateUp()
         }
     }
-    fun getInfoNewMyth(): Myth {
-        val t = titleTextMyth.text.toString()
-        val txt = textMyth.text.toString()
-        val d = dateMyth.text.toString()
-        val f = sourceMyth.text.toString()
-        val myth = Myth("",t, txt,d,f)
+
+    fun constructNewMyth(): Myth {
+        val myth = Myth()
+        myth.title = titleTextMyth.text.toString()
+        myth.text = textMyth.text.toString()
+        myth.date = dateMyth.text.toString()
+        myth.source = sourceMyth.text.toString()
         return myth
-    }
-    fun saveNewMyth(newMyth: Myth){
-        database.child("myths").push().setValue(newMyth)
     }
 
     override fun onSupportNavigateUp(): Boolean {

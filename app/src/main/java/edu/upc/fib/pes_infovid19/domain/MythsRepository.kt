@@ -7,5 +7,5 @@ interface MythsRepository {
     fun getMyths(): LiveData<List<Myth>>
     fun removeMyth(id: String)
     fun modifyMyth(id: String, myth: Myth)
-    fun addMyth(myth: Myth)
+    fun createMyth(myth: Myth)
 }

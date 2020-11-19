@@ -43,8 +43,8 @@ class MythFirebaseRepository : MythsRepository {
         database.child(id).setValue(myth)
     }
 
-    override fun addMyth(myth: Myth) {
-        TODO("Not yet implemented")
+    override fun createMyth(myth: Myth) {
+        database.push().setValue(myth)
     }
 
     private fun setMythId(items: List<Myth>, ids: List<String>): List<Myth> {

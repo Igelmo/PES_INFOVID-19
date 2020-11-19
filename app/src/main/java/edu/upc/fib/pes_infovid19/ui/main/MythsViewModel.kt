@@ -12,6 +12,7 @@ class MythsViewModel : ViewModel() {
 
     fun deleteMyth(id: String) = repository.removeMyth(id)
     fun modifyMyth(id: String, myth: Myth) = repository.modifyMyth(id, myth)
+    fun addMyth(myth: Myth) = repository.createMyth(myth)
 
     val mythsLiveData: LiveData<List<Myth>> = repository.getMyths()
 }

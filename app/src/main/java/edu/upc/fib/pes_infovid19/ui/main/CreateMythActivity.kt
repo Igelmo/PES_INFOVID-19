@@ -14,7 +14,7 @@ class CreateMythActivity : AppCompatActivity() {
         setSupportActionBar(toolbarCreateMyth)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         createNewMythButton.setOnClickListener {
-            val myth = constructNewMyth()
+            constructNewMyth()
             onSupportNavigateUp()
         }
     }

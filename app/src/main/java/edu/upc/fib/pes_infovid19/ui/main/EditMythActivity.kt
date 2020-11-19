@@ -13,48 +13,47 @@ const val MYTH_EXTRA = "MYTH_EXTRA"
 
 class EditMythActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_myth)
         setSupportActionBar(toolbarEditMyth)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         database = Firebase.database.reference
-        var infoMyth : List<String?> =  getInfo()
+        val infoMyth: List<String?> = getInfo()
         setInfo(infoMyth)
         editMythButton.setOnClickListener {
-            saveChanges(infoMyth.get(0))
+            saveChanges(infoMyth[0])
             val intent = Intent(this, ManageMythsActivity::class.java)
             startActivity(intent)
         }
     }
 
-    fun saveChanges(id:String?){
+    private fun saveChanges(id: String?) {
         val t = titleTextEditMyth.text.toString()
         val txt = textEditMyth.text.toString()
         val d = dateEditMyth.text.toString()
         val f = sourceEditMyth.text.toString()
-        val myth = Myth(id as String,t, txt,d,f)
+        val myth = Myth(id as String, t, txt, d, f)
         database.child("myths").child(id).setValue(myth)
 
 
     }
 
-    fun getInfo(): List<String?> {
+    private fun getInfo(): List<String?> {
         val title = intent.getStringExtra("title")
         val text = intent.getStringExtra("text")
         val date = intent.getStringExtra("date")
         val source = intent.getStringExtra("source")
         val id = intent.getStringExtra("id")
-        println("myth id:" + id)
-        val info = listOf(id,title,text,date,source)
-        return info
+        return listOf(id, title, text, date, source)
     }
 
-    fun setInfo(infoMyth:List<String?>) {
-        titleTextEditMyth.setText(infoMyth.get(1))
-        textEditMyth.setText(infoMyth.get(2))
-        dateEditMyth.setText(infoMyth.get(3))
-        sourceEditMyth.setText(infoMyth.get(4))
+    private fun setInfo(infoMyth: List<String?>) {
+        titleTextEditMyth.setText(infoMyth[1])
+        textEditMyth.setText(infoMyth[2])
+        dateEditMyth.setText(infoMyth[3])
+        sourceEditMyth.setText(infoMyth[4])
     }
 
     override fun onSupportNavigateUp(): Boolean {

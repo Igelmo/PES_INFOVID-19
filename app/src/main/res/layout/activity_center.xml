@@ -35,12 +35,17 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="287dp"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar5"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="99dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="#5E44BF"
         android:onClick="buscam"
-        android:text="Button" />
+        android:text="@string/cerca_centre" />
 
 
 </RelativeLayout>

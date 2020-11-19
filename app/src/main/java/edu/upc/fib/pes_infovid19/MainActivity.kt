@@ -4,6 +4,7 @@ package edu.upc.fib.pes_infovid19
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import edu.upc.fib.pes_infovid19.ui.main.CenterActivity
 import edu.upc.fib.pes_infovid19.ui.main.ChatActivity
 import edu.upc.fib.pes_infovid19.ui.main.HealthMenuActivity
 import edu.upc.fib.pes_infovid19.ui.main.UserProfileActivity

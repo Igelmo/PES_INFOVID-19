@@ -3,7 +3,6 @@ package edu.upc.fib.pes_infovid19.ui.main
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.view.View
@@ -17,7 +16,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.Task
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_center.*
@@ -72,12 +70,15 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun buscam(view: View) {
         val pos = LatLng(currentLocation.latitude, currentLocation.longitude)
-        val geocoder: Geocoder = Geocoder(this)
 
-        //val addressList: List<Address> = geocoder.getFromLocationName("Barcelona", 1)
-        //val address = addressList[0]
-        //val pos2 = LatLng(address.latitude, address.longitude)
-        mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
+        //val geo: Geocoder = Geocoder(applicationContext, Locale.getDefault())
+        // val uri = "${currentLocation.latitude},${currentLocation.longitude}?q=hospitals"
+        // val addressList: List<Address> = geo.getFromLocation(currentLocation.latitude, currentLocation.longitude, 6)
+        // val address = addressList[0]
+        // val pos2 = LatLng(address.latitude, address.longitude)
+
+
+        //mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
         //mMap.addMarker(MarkerOptions().position(pos2).title("Destí"))
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 20.0f));
 

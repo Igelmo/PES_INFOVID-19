@@ -11,6 +11,8 @@ class MythsViewModel : ViewModel() {
     private val repository: MythsRepository = MythFirebaseRepository()
 
     fun deleteMyth(id: String) = repository.removeMyth(id)
+    fun modifyMyth(id: String, myth: Myth) = repository.modifyMyth(id, myth)
+
     val mythsLiveData: LiveData<List<Myth>> = repository.getMyths()
 }
 

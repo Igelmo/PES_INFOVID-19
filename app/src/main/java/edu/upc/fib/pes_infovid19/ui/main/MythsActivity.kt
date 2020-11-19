@@ -20,26 +20,12 @@ class MythsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val adapter = MythsAdapter(false, { editMyth(it) }) { viewModel.deleteMyth(it) }
+        val adapter = MythsAdapter(false)
         recyclerViewMyths.adapter = adapter
 
         viewModel.mythsLiveData.observe(this) { mythSnapshot ->
             adapter.updateMyths(mythSnapshot)
         }
-    }
-
-    private fun editMyth(myth: Myth) {
-        val title = myth.title
-        val text = myth.text
-        val date = myth.date
-        val source = myth.source
-        val intent = Intent(this, EditMythActivity::class.java)
-        intent.putExtra("title", title);
-        intent.putExtra("text", text);
-        intent.putExtra("id", myth.id)
-        intent.putExtra("date", date)
-        intent.putExtra("source", source)
-        startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 
-class MythsAdapter(private val isAdmin: Boolean, private val onEditListener: (Myth) -> Unit, private val onDeleteListener: (id: String) -> Unit) : RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
+class MythsAdapter(private val isAdmin: Boolean, private val onEditListener: (Myth) -> Unit = {}, private val onDeleteListener: (id: String) -> Unit = {}) :
+    RecyclerView.Adapter<MythsAdapter.ViewHolder>() {
     private var expandedPosition = -1
     private var mythList = emptyList<Myth>()
 

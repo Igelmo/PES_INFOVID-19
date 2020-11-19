@@ -36,11 +36,11 @@ class MythFirebaseRepository : MythsRepository {
     override fun getMyths(): LiveData<List<Myth>> = _mythsLiveData
 
     override fun removeMyth(id: String) {
-        database.child(MYTHS_NAME).child(id).removeValue()
+        database.child(id).removeValue()
     }
 
     override fun modifyMyth(id: String, myth: Myth) {
-        TODO("Not yet implemented")
+        database.child(id).setValue(myth)
     }
 
     override fun addMyth(myth: Myth) {

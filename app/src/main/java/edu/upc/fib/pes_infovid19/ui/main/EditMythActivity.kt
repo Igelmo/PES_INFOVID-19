@@ -1,6 +1,5 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -21,8 +20,7 @@ class EditMythActivity : AppCompatActivity() {
         setInfo(myth)
         editMythButton.setOnClickListener {
             saveChanges(myth.id)
-            val intent = Intent(this, ManageMythsActivity::class.java)
-            startActivity(intent)
+            onSupportNavigateUp()
         }
     }
 

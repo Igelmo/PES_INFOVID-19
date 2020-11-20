@@ -36,7 +36,8 @@ class TestTypeAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<TestT
         fun bind(type: TestType, isExpanded: Boolean, admin: Boolean) {
             if (!admin) {
                 itemView.titledropdown.text = type.name
-                itemView.textdropdown.text = type.description + "\n \n Procediment: " + type.procedure + "\n \n Data: " + type.date + " \n Font: " + type.source
+                itemView.textdropdown.text = type.description
+                itemView.datedropdown.text =  "\n \n Procediment: " + type.procedure + "\n \n Data: " + type.date + " \n Font: " + type.source
                 itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
                 itemView.textdropdown.isVisible = isExpanded
             }
@@ -44,6 +45,8 @@ class TestTypeAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<TestT
             itemView.deleteButton.isVisible = admin
             itemView.arrowDropDown.isVisible = !admin
             itemView.textdropdown.isVisible = !admin && isExpanded
+            itemView.datedropdown.isVisible = !admin && isExpanded
+            itemView.sourcedropdown.isVisible = !admin && isExpanded
         }
     }
 }

@@ -29,35 +29,32 @@ class EditMythActivity : AppCompatActivity() {
     }
 
     fun saveChanges(id:String?){
-        var t = titleTextEditMyth.text.toString()
-        var txt = textEditMyth.text.toString()
-        var d = dateEditMyth.text.toString()
-        var f = sourceEditMyth.text.toString()
-        println("title modified:" + t)
-        val myth = Myth(t, txt,d,f)
-        database.child("myths").child("myth1").child("title").setValue(t)
-        database.child("myths").child("myth1").child("text").setValue(txt)
-        database.child("myths").child("myth1").child("date").setValue(d)
-        database.child("myths").child("myth1").child("source").setValue(f)
+        val t = titleTextEditMyth.text.toString()
+        val txt = textEditMyth.text.toString()
+        val d = dateEditMyth.text.toString()
+        val f = sourceEditMyth.text.toString()
+        val myth = Myth(id as String,t, txt,d,f)
+        database.child("myths").child(id).setValue(myth)
+
 
     }
 
     fun getInfo(): List<String?> {
-        var title = intent.getStringExtra("title")
-        var text = intent.getStringExtra("text")
-        var id = intent.getStringExtra("id")
-        var info = listOf(id,title,text)
+        val title = intent.getStringExtra("title")
+        val text = intent.getStringExtra("text")
+        val date = intent.getStringExtra("date")
+        val source = intent.getStringExtra("source")
+        val id = intent.getStringExtra("id")
+        println("myth id:" + id)
+        val info = listOf(id,title,text,date,source)
         return info
     }
 
     fun setInfo(infoMyth:List<String?>) {
         titleTextEditMyth.setText(infoMyth.get(1))
-        var text = infoMyth.get(2)?.split("Data")?.get(0)
-        var date = infoMyth.get(2)?.split("Data:")?.get(1)?.split("Font:")?.get(0)
-        var font = infoMyth.get(2)?.split("Font:")?.get(1)
-        textEditMyth.setText(text)
-        dateEditMyth.setText(date)
-        sourceEditMyth.setText(font)
+        textEditMyth.setText(infoMyth.get(2))
+        dateEditMyth.setText(infoMyth.get(3))
+        sourceEditMyth.setText(infoMyth.get(4))
     }
 
     override fun onSupportNavigateUp(): Boolean {

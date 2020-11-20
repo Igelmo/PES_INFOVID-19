@@ -43,6 +43,8 @@ class RiskPopulationAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter
             itemView.deleteButton.isVisible = admin
             itemView.arrowDropDown.isVisible = !admin
             itemView.textdropdown.isVisible = !admin && isExpanded
+            itemView.datedropdown.isVisible = !admin && isExpanded
+            itemView.sourcedropdown.isVisible = !admin && isExpanded
         }
     }
 }

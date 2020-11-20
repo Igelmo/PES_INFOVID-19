@@ -40,6 +40,8 @@ class PreventionAdapter(val preventions: List<Prevention>, private val isAdmin: 
             itemView.deleteButton.isVisible = admin
             itemView.arrowDropDown.isVisible = !admin
             itemView.textdropdown.isVisible = !admin && isExpanded
+            itemView.datedropdown.isVisible = !admin && isExpanded
+            itemView.sourcedropdown.isVisible = !admin && isExpanded
         }
     }
 }

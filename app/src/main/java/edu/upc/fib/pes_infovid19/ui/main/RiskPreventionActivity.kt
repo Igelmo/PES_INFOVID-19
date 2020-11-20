@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -8,16 +9,21 @@ import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_risk_prevention.*
 
 class RiskPreventionActivity : AppCompatActivity() {
-    private val viewModel: PrevencioViewModel by viewModels()
+    private val viewModelRisk: RiskPreventionViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_risk_prevention)
         setSupportActionBar(toolbarRiskPrevention)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-3
-        val adapter = RiskPreventionAdapter()
+        3
+        manageRiskPreventionButton.setOnClickListener {
+            val intent = Intent(this, ManageRiskPreventionActivity::class.java)
+            startActivity(intent)
+        }
+
+        val adapter = RiskPreventionAdapter(false)
         recyclerViewRiskPrevention.adapter = adapter
-        viewModel.preventionLiveData.observe(this) { riskPreventionSnapshot ->
+        viewModelRisk.preventionLiveData.observe(this) { riskPreventionSnapshot ->
             adapter.updateRiskPrevention(riskPreventionSnapshot)
         }
 

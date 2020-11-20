@@ -82,4 +82,5 @@
     <string name="descripci_del_tipus_de_prova_m_dica">descripció del tipus de prova mèdica</string>
     <string name="nom_de_la_prova_m_dica">Nom de la prova mèdica</string>
     <string name="crear_nova_prova_m_dica">crear nova prova mèdica</string>
+    <string name="administrar_prevenci_de_riscos">Administrar prevenció de riscos</string>
 </resources>

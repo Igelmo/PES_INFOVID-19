@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_inside_textview.view.*
 
-class RiskPreventionAdapter : RecyclerView.Adapter<RiskPreventionAdapter.ViewHolder>() {
+class RiskPreventionAdapter(private val isAdmin: Boolean, private val onEditListener: (RiskPrevention) -> Unit = {}, private val onDeleteListener: (id: String) -> Unit = {}) :
+    RecyclerView.Adapter<RiskPreventionAdapter.ViewHolder>() {
     private var expandedPosition = -1
     private var adviceList = emptyList<RiskPrevention>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -16,7 +17,7 @@ class RiskPreventionAdapter : RecyclerView.Adapter<RiskPreventionAdapter.ViewHol
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val isExpanded = position == expandedPosition
-        holder.bind(adviceList[position], isExpanded)
+        holder.bind(adviceList[position], isExpanded, isAdmin)
         holder.itemView.setOnClickListener {
             expandedPosition = if (isExpanded) -1
             else position
@@ -32,12 +33,18 @@ class RiskPreventionAdapter : RecyclerView.Adapter<RiskPreventionAdapter.ViewHol
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(riskPrevention: RiskPrevention, isExpanded: Boolean) {
+        fun bind(riskPrevention: RiskPrevention, isExpanded: Boolean, admin: Boolean) {
             itemView.titledropdown2.text = riskPrevention.title
             val recyclerAdapter = PreventionAdapter(riskPrevention.recomanacions.values.toList(), false)
             itemView.recyclerViewDropdown.adapter = recyclerAdapter
-            itemView.arrowDropDown2.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
-            itemView.recyclerViewDropdown.isVisible = isExpanded
+            if (!admin) {
+                itemView.arrowDropDown2.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
+                itemView.recyclerViewDropdown.isVisible = isExpanded
+            }
+            itemView.editButton2.isVisible = admin
+            itemView.deleteButton2.isVisible = admin
+            itemView.recyclerViewDropdown.isVisible = !admin && isExpanded
+            itemView.arrowDropDown2.isVisible = !admin
         }
     }
 }

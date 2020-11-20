@@ -17,7 +17,7 @@ class RiskPreventionActivity : AppCompatActivity() {
 3
         val adapter = RiskPreventionAdapter()
         recyclerViewRiskPrevention.adapter = adapter
-        viewModel.prevencioLiveData.observe(this) { riskPreventionSnapshot ->
+        viewModel.preventionLiveData.observe(this) { riskPreventionSnapshot ->
             adapter.updateRiskPrevention(riskPreventionSnapshot)
         }
 

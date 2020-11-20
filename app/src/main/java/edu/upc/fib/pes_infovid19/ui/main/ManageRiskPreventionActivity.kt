@@ -24,7 +24,7 @@ class ManageRiskPreventionActivity : AppCompatActivity() {
         }
 
         fabCreateNewRiskPrevention.setOnClickListener {
-            val intent = Intent(this, CreateTestTypeActivity::class.java)
+            val intent = Intent(this, CreateRiskPreventionActivity::class.java)
             startActivity(intent)
         }
     }

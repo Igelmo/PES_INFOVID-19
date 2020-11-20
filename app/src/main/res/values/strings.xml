@@ -83,4 +83,6 @@
     <string name="nom_de_la_prova_m_dica">Nom de la prova mèdica</string>
     <string name="crear_nova_prova_m_dica">crear nova prova mèdica</string>
     <string name="administrar_prevenci_de_riscos">Administrar prevenció de riscos</string>
+    <string name="crear_nova_prevenci">Crear nova prevenció</string>
+    <string name="titol_de_la_prevenci_de_risc">Titol de la prevenció de risc</string>
 </resources>

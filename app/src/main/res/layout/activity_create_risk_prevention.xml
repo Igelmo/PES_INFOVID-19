@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCreateRiskPrevention"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/go_back_icon"
+        app:title="@string/crear_nova_prevenci"
+        app:titleTextColor="@android:color/background_light" />
+
+    <EditText
+        android:id="@+id/titleTextRiskPrevention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/titol_de_la_prevenci_de_risc"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewManageRiskPrevention"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCreateRiskPrevention" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewManageRiskPrevention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/createNewRiskPreventionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextRiskPrevention" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCreateNewPrevention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="@string/fab_xat_descriptor"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewManageRiskPrevention"
+        app:maxImageSize="40dp" />
+
+    <Button
+        android:id="@+id/createNewRiskPreventionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="32dp"
+        android:text="@string/crear_nova_prevenci"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewManageRiskPrevention" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

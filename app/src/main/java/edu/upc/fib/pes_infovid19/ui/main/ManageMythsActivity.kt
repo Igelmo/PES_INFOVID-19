@@ -22,7 +22,7 @@ class ManageMythsActivity : AppCompatActivity() {
         }
 
         val adapter = MythsAdapter(true, { editMyth(it) }, { viewModel.deleteMyth(it) })
-        recyclerViewMyths.adapter = adapter
+        recyclerManageViewMyths.adapter = adapter
 
         viewModel.mythsLiveData.observe(this) { mythSnapshot ->
             adapter.updateMyths(mythSnapshot)

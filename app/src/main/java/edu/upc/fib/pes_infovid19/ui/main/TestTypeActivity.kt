@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,11 @@ class TestTypeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test_type)
         setSupportActionBar(toolbarTestType)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        manageTestTypeButton.setOnClickListener {
+            val intent = Intent(this, ManageTestTypeActivity::class.java)
+            startActivity(intent)
+        }
 
         val adapter = TestTypeAdapter(false)
         recyclerViewTestType.adapter = adapter

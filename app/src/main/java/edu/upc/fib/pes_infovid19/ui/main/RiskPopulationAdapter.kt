@@ -19,31 +19,32 @@ class RiskPopulationAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val isExpanded = position == expandedPosition
-        holder.bind(riskPopulationList[position], isExpanded, isAdmin)
+        val riskPopulation = riskPopulationList[position]
+        holder.bind(riskPopulation, isExpanded, isAdmin)
         holder.itemView.setOnClickListener {
             expandedPosition = if (isExpanded) -1 else position
             notifyItemChanged(position)
+        }
+        holder.itemView.editButton.setOnClickListener {
+            onEditListener(riskPopulation)
         }
     }
 
 
     override fun getItemCount(): Int = riskPopulationList.size
 
-    fun updateRiskPopulation(testTypeTests: List<RiskPopulation>) {
-        riskPopulationList = testTypeTests
+    fun updateRiskPopulation(riskPopulation: List<RiskPopulation>) {
+        riskPopulationList = riskPopulation
         notifyDataSetChanged()
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(riskPopulation: RiskPopulation, isExpanded: Boolean, admin: Boolean) {
             itemView.titledropdown.text = riskPopulation.risk
-            itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
-            if (!admin) {
-                itemView.textdropdown.isVisible = isExpanded
-            }
+            itemView.textdropdown.isVisible = false
             itemView.editButton.isVisible = admin
             itemView.deleteButton.isVisible = admin
-            itemView.arrowDropDown.isVisible = !admin
+            itemView.arrowDropDown.isVisible = false
             itemView.textdropdown.isVisible = !admin && isExpanded
             itemView.datedropdown.isVisible = !admin && isExpanded
             itemView.sourcedropdown.isVisible = !admin && isExpanded

@@ -29,7 +29,10 @@ class ManageRiskPopulationActivity() : AppCompatActivity() {
         }
     }
 
-    private fun editRiskPopulation(RiskPopulation: RiskPopulation) {
+    private fun editRiskPopulation(riskPopulation: RiskPopulation) {
+        val intent = Intent(this, EditRiskPopulationActivity::class.java)
+        intent.putExtra(RISKPOPULATION_EXTRA, riskPopulation)
+        startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -14,11 +14,18 @@ class CreateTestTypeActivity : AppCompatActivity() {
         setSupportActionBar(toolbarCreateTestType)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         createNewTestTypeButton.setOnClickListener {
+            constructNewTestType()
             onSupportNavigateUp()
         }
     }
 
     fun constructNewTestType() {
+        val testType = TestType()
+        testType.name = titleTextTestType.text.toString()
+        testType.description = textTestType.text.toString()
+        testType.date = dateTestType.text.toString()
+        testType.source = sourceTestType.text.toString()
+        viewModel.addTestType(testType)
 
     }
 

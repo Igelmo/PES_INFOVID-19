@@ -27,6 +27,9 @@ class TestTypeAdapter(private val isAdmin: Boolean, private val onEditListener: 
         holder.itemView.editButton.setOnClickListener {
             onEditListener(testType)
         }
+        holder.itemView.deleteButton.setOnClickListener {
+            onDeleteListener(testType.id)
+        }
     }
 
 

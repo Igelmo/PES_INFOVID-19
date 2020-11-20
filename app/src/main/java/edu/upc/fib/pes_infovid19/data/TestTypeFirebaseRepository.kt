@@ -9,6 +9,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import edu.upc.fib.pes_infovid19.domain.TestTypeRepository
 import edu.upc.fib.pes_infovid19.ui.main.TestType
+import java.util.*
 
 private const val TEST_NAME = "typeTests"
 
@@ -18,8 +19,13 @@ class TestTypeFirebaseRepository : TestTypeRepository {
     private val _testTypeLiveData = MutableLiveData<List<TestType>>().also { data ->
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(TestType::class.java) }.toList()
+                var items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(TestType::class.java) }.toList()
                 else emptyList()
+                val ids: MutableList<String> = ArrayList()
+                for (snap in snapshot.children) {
+                    ids.add(snap.key.toString())
+                }
+                items = setTestTypeId(items, ids)
                 data.postValue(items)
             }
 
@@ -31,16 +37,23 @@ class TestTypeFirebaseRepository : TestTypeRepository {
     override fun getTestTypes(): LiveData<List<TestType>> = _testTypeLiveData
 
     override fun removeTestType(id: String) {
-        TODO("Not yet implemented")
+        database.child(id).removeValue()
     }
 
     override fun modifyTestType(id: String, testType: TestType) {
-        TODO("Not yet implemented")
+        database.child(id).setValue(testType)
     }
 
     override fun createTestType(testType: TestType) {
-        TODO("Not yet implemented")
+        database.push().setValue(testType)
     }
+}
 
-
+private fun setTestTypeId(items: List<TestType>, ids: List<String>): List<TestType> {
+    var i = 0
+    for (item in items) {
+        item.id = ids.get(i)
+        i += 1
+    }
+    return items
 }

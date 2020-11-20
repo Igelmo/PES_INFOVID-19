@@ -82,4 +82,10 @@
     <string name="descripci_del_tipus_de_prova_m_dica">descripció del tipus de prova mèdica</string>
     <string name="nom_de_la_prova_m_dica">Nom de la prova mèdica</string>
     <string name="crear_nova_prova_m_dica">crear nova prova mèdica</string>
+    <string name="administrar_prevenci_de_riscos">Administrar prevenció de riscos</string>
+    <string name="crear_nova_prevenci">Crear nova prevenció</string>
+    <string name="titol_de_la_prevenci_de_risc">Titol de la prevenció de risc</string>
+    <string name="titol_de_la_prevenci">Titol de la prevenció</string>
+    <string name="url_de_la_imatge_que_es_vulgui_adjuntar">URL de la imatge que es vulgui adjuntar</string>
+    <string name="modifica_prevenci_de_riscos">Modifica prevenció de riscos</string>
 </resources>

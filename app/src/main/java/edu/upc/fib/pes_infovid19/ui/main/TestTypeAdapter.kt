@@ -19,7 +19,7 @@ class TestTypeAdapter(private val isAdmin: Boolean, private val onEditListener: 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val isExpanded = position == expandedPosition
         val testType = typeTestsList[position]
-        holder.bind(typeTestsList[position], isExpanded, isAdmin)
+        holder.bind(testType, isExpanded, isAdmin)
         holder.itemView.setOnClickListener {
             expandedPosition = if (isExpanded) -1 else position
             notifyItemChanged(position)

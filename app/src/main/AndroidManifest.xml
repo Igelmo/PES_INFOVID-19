@@ -13,7 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.EditTestTypeActivity"></activity>
+        <activity android:name=".ui.main.EditPreventionActivity"></activity>
+        <activity android:name=".ui.main.EditRiskPreventionActivity" />
+        <activity android:name=".ui.main.CreatePreventionActivity" />
+        <activity android:name=".ui.main.CreateRiskPreventionActivity" />
+        <activity android:name=".ui.main.ManageRiskPreventionActivity" />
+        <activity android:name=".ui.main.EditTestTypeActivity" />
         <activity android:name=".ui.main.CreateTestTypeActivity" />
         <activity android:name=".ui.main.ManageTestTypeActivity" />
         <activity android:name=".ui.main.EditMythActivity" />

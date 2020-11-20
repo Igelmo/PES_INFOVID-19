@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import edu.upc.fib.pes_infovid19.data.RiskPreventionFirebaseRepository
 import edu.upc.fib.pes_infovid19.domain.RiskPreventionRepository
 
-private const val PREVENCIO_NAME = "prevencio"
+private const val PREVENTION_NAME = "prevencio"
 
-class PrevencioViewModel : ViewModel() {
+class RiskPreventionViewModel : ViewModel() {
     private val repository: RiskPreventionRepository = RiskPreventionFirebaseRepository()
     val preventionLiveData: LiveData<List<RiskPrevention>> = repository.getRiskPrevention()
 }

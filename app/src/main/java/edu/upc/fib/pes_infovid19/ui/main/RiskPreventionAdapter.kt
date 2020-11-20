@@ -17,11 +17,15 @@ class RiskPreventionAdapter(private val isAdmin: Boolean, private val onEditList
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val isExpanded = position == expandedPosition
-        holder.bind(adviceList[position], isExpanded, isAdmin)
+        val riskPrevention = adviceList[position]
+        holder.bind(riskPrevention, isExpanded, isAdmin)
         holder.itemView.setOnClickListener {
             expandedPosition = if (isExpanded) -1
             else position
             notifyItemChanged(position)
+        }
+        holder.itemView.editButton2.setOnClickListener {
+            onEditListener(riskPrevention)
         }
     }
 

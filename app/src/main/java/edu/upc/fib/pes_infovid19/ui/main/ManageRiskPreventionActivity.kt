@@ -16,7 +16,7 @@ class ManageRiskPreventionActivity : AppCompatActivity() {
         setSupportActionBar(toolbarManageRiskPrevention)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = RiskPreventionAdapter(true, { }, { })
+        val adapter = RiskPreventionAdapter(true, { editRiskPrevention(it) }, { })
         recyclerManageViewRiskPrevention.adapter = adapter
 
         viewModel.preventionLiveData.observe(this) { riskPreventionSnapshot ->
@@ -30,8 +30,8 @@ class ManageRiskPreventionActivity : AppCompatActivity() {
     }
 
     private fun editRiskPrevention(riskPrevention: RiskPrevention) {
-        val intent = Intent(this, EditTestTypeActivity::class.java)
-        intent.putExtra(TESTTYPE_EXTRA, riskPrevention)
+        val intent = Intent(this, EditRiskPreventionActivity::class.java)
+        intent.putExtra(RISKPREVENTION_EXTRA, riskPrevention)
         startActivity(intent)
     }
 

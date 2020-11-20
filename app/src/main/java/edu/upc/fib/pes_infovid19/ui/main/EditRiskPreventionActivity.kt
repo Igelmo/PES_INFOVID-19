@@ -17,6 +17,11 @@ class EditRiskPreventionActivity : AppCompatActivity() {
         setSupportActionBar(toolbareditRiskPrevention)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val riskPrevention = intent.getSerializableExtra(RISKPREVENTION_EXTRA) as RiskPrevention
+        val listPreventions = riskPrevention.recomanacions.values.toList()
+
+        val adapter = PreventionAdapter(listPreventions, true, { editPrevention(it) }, { })
+        editRecyclerViewManageRiskPrevention.adapter = adapter
+
         setInfo(riskPrevention)
         editNewRiskPreventionButton.setOnClickListener {
             onSupportNavigateUp()
@@ -29,10 +34,16 @@ class EditRiskPreventionActivity : AppCompatActivity() {
 
     private fun setInfo(riskPrevention: RiskPrevention) {
         editTitleTextRiskPrevention.setText(riskPrevention.title)
-        editRecyclerViewManageRiskPrevention.adapter = PreventionAdapter(riskPrevention.recomanacions.values.toList(), true)
         editDateRiskPrevention.setText(riskPrevention.date)
         editSourceRiskPrevention.setText(riskPrevention.source)
     }
+
+    private fun editPrevention(prevention: Prevention) {
+        val intent = Intent(this, EditPreventionActivity::class.java)
+        intent.putExtra(PREVENTION_EXTRA, prevention)
+        startActivity(intent)
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

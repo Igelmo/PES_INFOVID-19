@@ -9,10 +9,7 @@ import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 
 class PreventionAdapter(
-    val preventions: List<Prevention>,
-    private val isAdmin: Boolean,
-    private val onEditListener: (Prevention) -> Unit = {},
-    private val onDeleteListener: (id: String) -> Unit = {}
+    val preventions: List<Prevention>, private val isAdmin: Boolean, private val onEditListener: (Prevention) -> Unit = {}, private val onDeleteListener: (id: String) -> Unit = {}
 ) : RecyclerView.Adapter<PreventionAdapter.ViewHolder>() {
     private var expandedPosition = -1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,11 +18,15 @@ class PreventionAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val isExpanded = position == expandedPosition
-        holder.bind(preventions[position], isExpanded, isAdmin)
+        val prevention = preventions[position]
+        holder.bind(prevention, isExpanded, isAdmin)
         holder.itemView.setOnClickListener {
             expandedPosition = if (isExpanded) -1
             else position
             notifyItemChanged(position)
+        }
+        holder.itemView.editButton.setOnClickListener {
+            onEditListener(prevention)
         }
     }
 

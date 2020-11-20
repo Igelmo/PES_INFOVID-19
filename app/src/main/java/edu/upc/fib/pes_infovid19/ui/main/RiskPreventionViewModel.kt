@@ -10,6 +10,12 @@ private const val PREVENTION_NAME = "prevencio"
 class RiskPreventionViewModel : ViewModel() {
     private val repository: RiskPreventionRepository = RiskPreventionFirebaseRepository()
     val preventionLiveData: LiveData<List<RiskPrevention>> = repository.getRiskPrevention()
+
+    fun deleteRiskPrevention(id: String) = repository.removeRiskPrevention(id)
+    fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention) = repository.modifyRiskPrevention(id, riskPrevention)
+    fun addRiskPrevention(riskPrevention: RiskPrevention) = repository.createRiskPrevention(riskPrevention)
+
+
 }
 
 

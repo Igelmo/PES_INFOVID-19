@@ -27,6 +27,9 @@ class RiskPreventionAdapter(private val isAdmin: Boolean, private val onEditList
         holder.itemView.editButton2.setOnClickListener {
             onEditListener(riskPrevention)
         }
+        holder.itemView.deleteButton2.setOnClickListener {
+            onDeleteListener(riskPrevention.id)
+        }
     }
 
     override fun getItemCount(): Int = adviceList.size

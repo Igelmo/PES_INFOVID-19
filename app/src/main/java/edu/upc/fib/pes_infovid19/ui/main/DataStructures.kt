@@ -25,12 +25,14 @@ data class RiskPopulation(
 ) : Serializable
 
 data class Prevention(
+    var id: String = "",
     var image: String = "",
     var text: String = "",
     var title: String = ""
 ) : Serializable
 
 data class RiskPrevention(
+    var id: String = "",
     var date: String = "",
     var image: String = "",
     var recomanacions: Map<String, Prevention> = emptyMap(),

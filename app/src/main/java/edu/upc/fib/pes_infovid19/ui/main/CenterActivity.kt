@@ -16,9 +16,13 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.Task
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_center.*
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONObject
 
 
 class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -70,17 +74,16 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun buscam(view: View) {
         val pos = LatLng(currentLocation.latitude, currentLocation.longitude)
-
         //val geo: Geocoder = Geocoder(applicationContext, Locale.getDefault())
         // val uri = "${currentLocation.latitude},${currentLocation.longitude}?q=hospitals"
-        // val addressList: List<Address> = geo.getFromLocation(currentLocation.latitude, currentLocation.longitude, 6)
-        // val address = addressList[0]
-        // val pos2 = LatLng(address.latitude, address.longitude)
-
-
-        //mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
+        //var addressList: List<Address>? = null
+        //addressList = geo.getFromLocation(currentLocation.latitude, currentLocation.longitude, 6)
+        //val address = addressList[0]
+        //val pos2 = LatLng(address.latitude, address.longitude)
+        mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
         //mMap.addMarker(MarkerOptions().position(pos2).title("Destí"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 20.0f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 20.0f))
+        //"AIzaSyA2w3XflVrsGhOdqkY1aGDDVUJgb60ytWc"
 
     }
 

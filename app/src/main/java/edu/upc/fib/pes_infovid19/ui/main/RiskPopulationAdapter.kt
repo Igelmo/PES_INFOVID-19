@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 
-class RiskPopulationAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<RiskPopulationAdapter.ViewHolder>() {
+class RiskPopulationAdapter(
+    private val isAdmin: Boolean, private val onEditListener: (RiskPopulation) -> Unit = {}, private val onDeleteListener: (id: String) -> Unit = {}
+) : RecyclerView.Adapter<RiskPopulationAdapter.ViewHolder>() {
     private var expandedPosition = -1
     private var riskPopulationList = emptyList<RiskPopulation>()
 
@@ -34,9 +36,9 @@ class RiskPopulationAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(riskPopulation: RiskPopulation, isExpanded: Boolean, admin: Boolean) {
+            itemView.titledropdown.text = riskPopulation.risk
+            itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
             if (!admin) {
-                itemView.titledropdown.text = riskPopulation.risk
-                itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
                 itemView.textdropdown.isVisible = isExpanded
             }
             itemView.editButton.isVisible = admin

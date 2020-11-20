@@ -16,7 +16,7 @@ class ManageTestTypeActivity : AppCompatActivity() {
         setSupportActionBar(toolbarManageTestType)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = TestTypeAdapter(true, { }, { })
+        val adapter = TestTypeAdapter(true, { editTestType(it) }, { })
         recyclerManageViewTestType.adapter = adapter
 
         viewModel.testTypeLiveData.observe(this) { testTypeSnapshot ->
@@ -27,6 +27,12 @@ class ManageTestTypeActivity : AppCompatActivity() {
             val intent = Intent(this, CreateTestTypeActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun editTestType(testType: TestType) {
+        val intent = Intent(this, EditTestTypeActivity::class.java)
+        intent.putExtra(TESTTYPE_EXTRA, testType)
+        startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

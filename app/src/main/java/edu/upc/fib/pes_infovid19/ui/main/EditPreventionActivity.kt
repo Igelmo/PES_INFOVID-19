@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_edit_prevention.*
-import kotlinx.android.synthetic.main.drop_down_textview_item.*
 
 const val PREVENTION_EXTRA = "PREVENTION_EXTRA"
 
@@ -16,7 +15,7 @@ class EditPreventionActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val prevention = intent.getSerializableExtra(PREVENTION_EXTRA) as Prevention
         setInfo(prevention)
-        editButton.setOnClickListener {
+        editPreventionButton.setOnClickListener {
             onSupportNavigateUp()
         }
     }

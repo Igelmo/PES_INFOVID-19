@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.R
@@ -13,6 +14,10 @@ class CreateRiskPreventionActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         createNewRiskPreventionButton.setOnClickListener {
             onSupportNavigateUp()
+        }
+        fabCreateNewPrevention.setOnClickListener {
+            val intent = Intent(this, CreatePreventionActivity::class.java)
+            startActivity(intent)
         }
     }
 

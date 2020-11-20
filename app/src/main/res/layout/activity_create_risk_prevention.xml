@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/go_back_icon"
-        app:title="@string/crear_nova_prevenci"
+        app:title="Crear nova prevenció de risc"
         app:titleTextColor="@android:color/background_light" />
 
     <EditText
@@ -21,10 +21,34 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:hint="@string/titol_de_la_prevenci_de_risc"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewManageRiskPrevention"
+        app:layout_constraintBottom_toTopOf="@+id/dateRiskPrevention"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbarCreateRiskPrevention" />
+
+    <EditText
+        android:id="@+id/dateRiskPrevention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/data_de_publicaci"
+        android:text="Data: "
+        app:layout_constraintBottom_toTopOf="@id/sourceRiskPrevention"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextRiskPrevention" />
+
+    <EditText
+        android:id="@+id/sourceRiskPrevention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/font_de_la_publicaci"
+        android:text="Font: "
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewManageRiskPrevention"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateRiskPrevention" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewManageRiskPrevention"
@@ -37,7 +61,7 @@
         app:layout_constraintBottom_toTopOf="@id/createNewRiskPreventionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextRiskPrevention" />
+        app:layout_constraintTop_toBottomOf="@id/sourceRiskPrevention" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCreateNewPrevention"
@@ -50,6 +74,7 @@
         android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewManageRiskPrevention"
+        app:layout_constraintBottom_toTopOf="@id/createNewRiskPreventionButton"
         app:maxImageSize="40dp" />
 
     <Button
@@ -62,6 +87,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewManageRiskPrevention" />
+        app:layout_constraintTop_toBottomOf="@+id/fabCreateNewPrevention" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

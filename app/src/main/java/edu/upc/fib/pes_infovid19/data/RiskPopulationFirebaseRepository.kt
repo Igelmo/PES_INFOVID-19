@@ -9,6 +9,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import edu.upc.fib.pes_infovid19.domain.RiskPopulationRepository
 import edu.upc.fib.pes_infovid19.ui.main.RiskPopulation
+import java.util.*
 
 private const val RISK_NAME = "riskPopulations"
 
@@ -18,8 +19,13 @@ class RiskPopulationFirebaseRepository : RiskPopulationRepository {
     private val _riskPopulationLiveData = MutableLiveData<List<RiskPopulation>>().also { data ->
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(RiskPopulation::class.java) }.toList()
+                var items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(RiskPopulation::class.java) }.toList()
                 else emptyList()
+                val ids: MutableList<String> = ArrayList()
+                for (snap in snapshot.children) {
+                    ids.add(snap.key.toString())
+                }
+                items = setRiskPopulationId(items, ids)
                 data.postValue(items)
             }
 
@@ -31,15 +37,24 @@ class RiskPopulationFirebaseRepository : RiskPopulationRepository {
     override fun getRiskPopulation(): LiveData<List<RiskPopulation>> = _riskPopulationLiveData
 
     override fun removeRiskPopulation(id: String) {
-        TODO("Not yet implemented")
+        database.child(id).removeValue()
     }
 
     override fun modifyRiskPopulation(id: String, riskPopulation: RiskPopulation) {
-        TODO("Not yet implemented")
+        database.child(id).setValue(riskPopulation)
     }
 
     override fun createRiskPopulation(riskPopulation: RiskPopulation) {
-        TODO("Not yet implemented")
+        database.push().setValue(riskPopulation)
+    }
+
+    private fun setRiskPopulationId(items: List<RiskPopulation>, ids: List<String>): List<RiskPopulation> {
+        var i = 0
+        for (item in items) {
+            item.id = ids.get(i)
+            i += 1
+        }
+        return items
     }
 
 

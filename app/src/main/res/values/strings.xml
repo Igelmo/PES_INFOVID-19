@@ -78,4 +78,5 @@
     <string name="data_de_publicaci">Data de publicació</string>
     <string name="font_de_la_publicaci">Font de la publicació</string>
     <string name="guardar_canvis">Guardar canvis</string>
+    <string name="administrar_tipus_de_proves">Administrar tipus de proves</string>
 </resources>

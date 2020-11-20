@@ -4,23 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.TestTypeActivity">
+    tools:context=".ui.main.MythsActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTestType"
+        android:id="@+id/toolbarManageTestType"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/go_back_icon"
-        app:title="@string/proves_de_detecci_del_virus"
+        app:title="@string/administrar_mites"
         app:titleTextColor="@android:color/background_light" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTestType"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="42dp"
         android:orientation="vertical"
         android:paddingTop="16dp"
         android:scrollbars="vertical"
@@ -28,21 +29,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTestType"
-        app:layout_constraintBottom_toTopOf="@+id/manageTestTypeButton"
-        tools:itemCount="40"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarManageTestType"
         tools:listitem="@layout/drop_down_textview_item" />
 
-    <Button
-        android:id="@+id/manageTestTypeButton"
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCreateNewTestType"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="32dp"
-        android:text="@string/administrar_tipus_de_proves"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="@string/fab_xat_descriptor"
+        android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewTestType" />
+        app:maxImageSize="40dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

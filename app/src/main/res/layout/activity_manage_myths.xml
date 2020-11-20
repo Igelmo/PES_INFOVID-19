@@ -18,7 +18,7 @@
         app:titleTextColor="@android:color/background_light" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMyths"
+        android:id="@+id/recyclerManageViewMyths"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"

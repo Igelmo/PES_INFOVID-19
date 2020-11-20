@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.ManageRiskPopulationActivity"></activity>
+        <activity android:name=".ui.main.CreateRiskPopulationActivity"></activity>
+        <activity android:name=".ui.main.ManageRiskPopulationActivity" />
         <activity android:name=".ui.main.EditPreventionActivity" />
         <activity android:name=".ui.main.EditRiskPreventionActivity" />
         <activity android:name=".ui.main.CreatePreventionActivity" />

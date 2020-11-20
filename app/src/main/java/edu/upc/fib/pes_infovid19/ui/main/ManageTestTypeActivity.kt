@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,8 @@ class ManageTestTypeActivity : AppCompatActivity() {
         }
 
         fabCreateNewTestType.setOnClickListener {
+            val intent = Intent(this, CreateTestTypeActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -72,4 +72,9 @@
     <string name="string_text_info3_infection">o truquis al</string>
     <string name="string_text_info4_infection">Si vols, pots fer també el test per veure\nsi ets vulnerable</string>
     <string name="administrar_mites">Administrar mites</string>
+    <string name="crear_nou_mite">Crear nou mite</string>
+    <string name="titol_del_mite">Titol del mite</string>
+    <string name="descripci_del_mite">Descripció del mite</string>
+    <string name="data_de_publicaci">Data de publicació</string>
+    <string name="font_de_la_publicaci">Font de la publicació</string>
 </resources>

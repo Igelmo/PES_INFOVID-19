@@ -16,7 +16,7 @@ class ManageTestTypeActivity : AppCompatActivity() {
         setSupportActionBar(toolbarManageTestType)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = TestTypeAdapter(true, { editTestType(it) }, { })
+        val adapter = TestTypeAdapter(true, { editTestType(it) }, { viewModel.deleteTestType(it) })
         recyclerManageViewTestType.adapter = adapter
 
         viewModel.testTypeLiveData.observe(this) { testTypeSnapshot ->

@@ -19,8 +19,18 @@ class EditTestTypeActivity : AppCompatActivity() {
         val testType = intent.getSerializableExtra(TESTTYPE_EXTRA) as TestType
         setInfo(testType)
         editTestTypeButton.setOnClickListener {
+            saveChanges(testType.id)
             onSupportNavigateUp()
         }
+    }
+
+    private fun saveChanges(id: String?) {
+        val name = titleTextEditTestType.text.toString()
+        val description = textEditTestType.text.toString()
+        val date = dateEditTestType.text.toString()
+        val source = sourceEditTestType.text.toString()
+        val testType = TestType(id as String, name, description, "", date, source)
+        viewModel.modifyTestType(id, testType)
     }
 
     private fun setInfo(testType: TestType) {

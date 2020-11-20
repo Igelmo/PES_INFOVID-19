@@ -28,6 +28,9 @@ class RiskPopulationAdapter(
         holder.itemView.editButton.setOnClickListener {
             onEditListener(riskPopulation)
         }
+        holder.itemView.deleteButton.setOnClickListener {
+            onDeleteListener(riskPopulation.id)
+        }
     }
 
 

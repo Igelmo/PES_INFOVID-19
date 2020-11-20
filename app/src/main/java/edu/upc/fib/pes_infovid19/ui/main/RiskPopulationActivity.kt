@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,12 @@ class RiskPopulationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_risk_population)
         setSupportActionBar(toolbarRiskPopulation)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        manageRiskPopulationButton.setOnClickListener {
+            val intent = Intent(this, ManageRiskPopulationActivity::class.java)
+            startActivity(intent)
+        }
+
 
         val adapter = RiskPopulationAdapter(false)
         recyclerViewRiskPopulation.adapter = adapter

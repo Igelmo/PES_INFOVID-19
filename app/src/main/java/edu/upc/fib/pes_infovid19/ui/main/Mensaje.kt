@@ -1,6 +1,17 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
-open class Mensaje(var nombre: String, var mensaje: String, var data: String) {
+open class Mensaje {
+
+    lateinit var nombre: String
+    lateinit var mensaje: String
+    var data: String = "hla"
+
+    fun Mensaje(nombre: String, mensaje: String, data: String) {
+        this.nombre = nombre
+        this.mensaje = mensaje
+        this.data = data
+
+    }
 
     fun getnombre1(): String {
         return nombre

@@ -94,8 +94,10 @@ class ChatActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat("hh:mm")
         val currentDate = sdf.format(Date())
         var m: Mensaje = Mensaje()
-        m.Mensaje(nombre.text.toString(), textmensaje.text.toString(), currentDate)
-        databaseReference.push().setValue(m)
+        if (textmensaje.text.toString() != "") {
+            m.Mensaje(nombre.text.toString(), textmensaje.text.toString(), currentDate)
+            databaseReference.push().setValue(m)
+        }
         textmensaje.setText("")
     }
 }

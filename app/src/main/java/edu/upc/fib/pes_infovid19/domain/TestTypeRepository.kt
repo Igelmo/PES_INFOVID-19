@@ -1,7 +1,7 @@
 package edu.upc.fib.pes_infovid19.domain
 
 import androidx.lifecycle.LiveData
-import edu.upc.fib.pes_infovid19.ui.main.TestType
+import edu.upc.fib.pes_infovid19.ui.TestType
 
 interface TestTypeRepository {
     fun getTestTypes(): LiveData<List<TestType>>

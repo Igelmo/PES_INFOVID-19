@@ -8,7 +8,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import edu.upc.fib.pes_infovid19.domain.MythsRepository
-import edu.upc.fib.pes_infovid19.ui.main.Myth
+import edu.upc.fib.pes_infovid19.ui.Myth
 import java.util.*
 
 private const val MYTHS_NAME = "myths"

@@ -8,7 +8,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import edu.upc.fib.pes_infovid19.domain.RiskPreventionRepository
-import edu.upc.fib.pes_infovid19.ui.main.RiskPrevention
+import edu.upc.fib.pes_infovid19.ui.RiskPrevention
 
 private const val PREVENTION_NAME = "prevencio"
 

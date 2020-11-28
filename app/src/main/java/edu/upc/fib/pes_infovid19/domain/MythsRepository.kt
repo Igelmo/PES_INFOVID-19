@@ -1,7 +1,7 @@
 package edu.upc.fib.pes_infovid19.domain
 
 import androidx.lifecycle.LiveData
-import edu.upc.fib.pes_infovid19.ui.main.Myth
+import edu.upc.fib.pes_infovid19.ui.Myth
 
 interface MythsRepository {
     fun getMyths(): LiveData<List<Myth>>

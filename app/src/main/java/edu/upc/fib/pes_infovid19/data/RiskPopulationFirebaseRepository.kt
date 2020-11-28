@@ -8,7 +8,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import edu.upc.fib.pes_infovid19.domain.RiskPopulationRepository
-import edu.upc.fib.pes_infovid19.ui.main.RiskPopulation
+import edu.upc.fib.pes_infovid19.ui.RiskPopulation
 import java.util.*
 
 private const val RISK_NAME = "riskPopulations"

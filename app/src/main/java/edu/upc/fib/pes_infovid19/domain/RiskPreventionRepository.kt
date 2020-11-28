@@ -1,7 +1,7 @@
 package edu.upc.fib.pes_infovid19.domain
 
 import androidx.lifecycle.LiveData
-import edu.upc.fib.pes_infovid19.ui.main.RiskPrevention
+import edu.upc.fib.pes_infovid19.ui.RiskPrevention
 
 interface RiskPreventionRepository {
     fun getRiskPrevention(): LiveData<List<RiskPrevention>>

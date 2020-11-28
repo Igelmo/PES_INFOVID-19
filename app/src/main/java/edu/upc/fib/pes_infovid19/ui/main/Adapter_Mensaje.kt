@@ -24,23 +24,19 @@ class Adapter_Mensaje(val c: Context) : RecyclerView.Adapter<Adapter_Mensaje.Hol
         return Holder_mensaje(v)
     }
 
-    override fun getItemCount(): Int {
-        return ListaMensajes.size
-    }
+    override fun getItemCount(): Int = ListaMensajes.size
 
     override fun onBindViewHolder(holder: Adapter_Mensaje.Holder_mensaje, position: Int) {
         holder.getnombre().setText(ListaMensajes.get(position).getnombre1())
         holder.getmensaje().setText(ListaMensajes.get(position).getmensaje1())
-        holder.gethora().setText(ListaMensajes.get(position).gethora1())
     }
 
     class Holder_mensaje(view: View) : RecyclerView.ViewHolder(view) {
         lateinit var nombre: TextView
         lateinit var mensaje: TextView
-        lateinit var hora: TextView
+
         fun holdermensaje(view: View) {
             super.itemView
-
         }
 
         fun getnombre(): TextView {
@@ -51,9 +47,6 @@ class Adapter_Mensaje(val c: Context) : RecyclerView.Adapter<Adapter_Mensaje.Hol
             return itemView.textMessage
         }
 
-        fun gethora(): TextView {
-            return itemView.dateMessage
-        }
 
         fun setnombre(nombre: TextView) {
             this.nombre = nombre
@@ -61,10 +54,6 @@ class Adapter_Mensaje(val c: Context) : RecyclerView.Adapter<Adapter_Mensaje.Hol
 
         fun setmensaje(mensaje: TextView) {
             this.mensaje = mensaje
-        }
-
-        fun sethora(hora: TextView) {
-            this.hora = hora
         }
 
     }

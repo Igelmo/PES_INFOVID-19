@@ -60,31 +60,33 @@ class ChatActivity : AppCompatActivity() {
             override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
             override fun onCancelled(databaseError: DatabaseError) {}
         })
-        ScrollToTopDataObserver(l, recicleview)
+        ScrollToTopDataObserver(l, recicleview, adapter)
+    }
 
+    class ScrollToTopDataObserver(val layoutManager: LinearLayoutManager, val recyclerView: RecyclerView, val adapter: Adapter_Mensaje) : RecyclerView.AdapterDataObserver() {
+        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+            setScrollbar()
+            super.onItemRangeInserted(positionStart, itemCount)
+            val lastVisiblePosition = layoutManager.findLastCompletelyVisibleItemPosition()
+
+            // If the recycler view is initially being loaded or the user is at the bottom of the
+            // list, scroll to the bottom of the list to show the newly added message.
+            if (lastVisiblePosition == -1 || positionStart >= itemCount - 1 && lastVisiblePosition == positionStart - 1) {
+                recyclerView.scrollToPosition(positionStart)
+            }
+        }
+
+        private fun setScrollbar() {
+            recyclerView.scrollToPosition(adapter.getItemCount() - 1)
+        }
     }
 
     fun onClick() {
-        println("username: ")
-        println(nombre.text.toString())
-        databaseReference.push().setValue(Mensaje(nombre.text.toString(), textmensaje.text.toString(), "00:00"))
+        //var sdf = SimpleDateFormat("hh:mm")
+        //var localdate = LocalDate
 
-    }
-
-}
-
-class ScrollToTopDataObserver(
-    val layoutManager: LinearLayoutManager,
-    val recyclerView: RecyclerView
-) : RecyclerView.AdapterDataObserver() {
-    override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-        super.onItemRangeInserted(positionStart, itemCount)
-        val lastVisiblePosition = layoutManager.findLastCompletelyVisibleItemPosition()
-
-        // If the recycler view is initially being loaded or the user is at the bottom of the
-        // list, scroll to the bottom of the list to show the newly added message.
-        if (lastVisiblePosition == -1 || positionStart >= itemCount - 1 && lastVisiblePosition == positionStart - 1) {
-            recyclerView.scrollToPosition(positionStart)
-        }
+        //databaseReference.push().setValue(Mensaje(nombre.text.toString(), textmensaje.text.toString(), sdf.format(localdate)))
+        textmensaje.setText("")
     }
 }
+

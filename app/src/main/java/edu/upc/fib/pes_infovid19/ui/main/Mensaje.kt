@@ -1,17 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
-class Mensaje {
-    lateinit var nombre: String
-    lateinit var mensaje: String
-    lateinit var hora: String
-
-    constructor() {}
-
-    constructor(nombre: String, mensaje: String, hora: String) {
-        this.nombre = nombre
-        this.mensaje = mensaje
-        this.hora = hora
-    }
+open class Mensaje(var nombre: String, var mensaje: String, var data: String) {
 
     fun getnombre1(): String {
         return nombre
@@ -21,8 +10,8 @@ class Mensaje {
         return mensaje
     }
 
-    fun gethora1(): String {
-        return hora
+    fun getdata1(): String {
+        return data
     }
 
     fun setnombre1(nombre: String) {
@@ -33,7 +22,7 @@ class Mensaje {
         this.mensaje = mensaje
     }
 
-    fun sethora1(hora: String) {
-        this.hora = hora
+    fun setdata1(data: String) {
+        this.data = data
     }
 }

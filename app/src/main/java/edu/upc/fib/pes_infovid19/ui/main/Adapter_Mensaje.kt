@@ -29,9 +29,9 @@ class Adapter_Mensaje(val c: Context) : RecyclerView.Adapter<Adapter_Mensaje.Hol
     }
 
     override fun onBindViewHolder(holder: Adapter_Mensaje.Holder_mensaje, position: Int) {
-        holder.getnombre().setText(ListaMensajes.get(position).getnombre())
-        holder.getmensaje().setText(ListaMensajes.get(position).getmensaje())
-        holder.gethora().setText(ListaMensajes.get(position).gethora())
+        holder.getnombre().setText(ListaMensajes.get(position).getnombre1())
+        holder.getmensaje().setText(ListaMensajes.get(position).getmensaje1())
+        holder.gethora().setText(ListaMensajes.get(position).gethora1())
     }
 
     class Holder_mensaje(view: View) : RecyclerView.ViewHolder(view) {

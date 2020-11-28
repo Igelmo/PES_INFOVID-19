@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "319363198631",
+    "firebase_url": "https://xatinfovid19.firebaseio.com",
+    "project_id": "xatinfovid19",
+    "storage_bucket": "xatinfovid19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319363198631:android:74a3bb42e9a5b87b65b582",
+        "android_client_info": {
+          "package_name": "edu.upc.fib.pes_infovid19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319363198631-0vtrrub5ch7tnead8lunbhuvectqf1mj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnd9Z1UGF24kZbUuJN_yB4QTqppcf58VU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319363198631-0vtrrub5ch7tnead8lunbhuvectqf1mj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

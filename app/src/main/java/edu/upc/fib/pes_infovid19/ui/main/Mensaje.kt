@@ -5,9 +5,7 @@ class Mensaje {
     lateinit var mensaje: String
     lateinit var hora: String
 
-    constructor() {
-
-    }
+    constructor() {}
 
     constructor(nombre: String, mensaje: String, hora: String) {
         this.nombre = nombre
@@ -15,27 +13,27 @@ class Mensaje {
         this.hora = hora
     }
 
-    fun getnombre(): String {
+    fun getnombre1(): String {
         return nombre
     }
 
-    fun getmensaje(): String {
+    fun getmensaje1(): String {
         return mensaje
     }
 
-    fun gethora(): String {
+    fun gethora1(): String {
         return hora
     }
 
-    fun setnombre(nombre: String) {
+    fun setnombre1(nombre: String) {
         this.nombre = nombre
     }
 
-    fun setmensaje(mensaje: String) {
+    fun setmensaje1(mensaje: String) {
         this.mensaje = mensaje
     }
 
-    fun sethora(hora: String) {
+    fun sethora1(hora: String) {
         this.hora = hora
     }
 }

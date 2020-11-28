@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import edu.upc.fib.pes_infovid19.MainActivity
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_chat.*
+
 
 class ChatActivity : AppCompatActivity() {
     lateinit var nombre: TextView
@@ -37,7 +37,7 @@ class ChatActivity : AppCompatActivity() {
         botoneviar = findViewById<Button>(R.id.btnEnviar)
         adapter = Adapter_Mensaje(this)
         database = FirebaseDatabase.getInstance()
-        databaseReference = database.getReference("Chat") ///// SE HA DE CAMBIAR
+        databaseReference = database.getReference("xatinfovid19") ///// SE HA DE CAMBIAR
 
 
         var l: LinearLayoutManager = LinearLayoutManager(this)
@@ -47,13 +47,30 @@ class ChatActivity : AppCompatActivity() {
         botoneviar.setOnClickListener {
             onClick()
         }
+        databaseReference.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
+                val m: Mensaje? = dataSnapshot.getValue(Mensaje::class.java)
+                if (m != null) {
+                    adapter.Add_mensajes(m)
+                }
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {}
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
         ScrollToTopDataObserver(l, recicleview)
 
     }
 
     fun onClick() {
+        println("username: ")
+        println(nombre.text.toString())
         databaseReference.push().setValue(Mensaje(nombre.text.toString(), textmensaje.text.toString(), "00:00"))
+
     }
+
 }
 
 class ScrollToTopDataObserver(

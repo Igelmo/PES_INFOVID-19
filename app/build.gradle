@@ -9,6 +9,7 @@ android {
 
     defaultConfig {
         applicationId "edu.upc.fib.pes_infovid19"
+        applicationId "edu.upc.fib.xatInfovid19"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

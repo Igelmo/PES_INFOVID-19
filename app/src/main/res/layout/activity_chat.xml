@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/constraint_chat"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:orientation="vertical"
+    android:padding="0sp"
     tools:context=".ui.main.ChatActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -13,54 +13,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:navigationIcon="@drawable/go_back_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/go_back_icon"
         app:title="Xat"
         app:titleTextColor="@android:color/background_light" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/nombre"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:text="Kevin"
-        android:paddingTop="16dp"
-        android:textSize="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_activity_chat" />
+        android:orientation="horizontal"
+        android:padding="15sp">
+
+        <TextView
+            android:id="@+id/nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Futuro nombre de la persona con la que hablas"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_height="0dp"
         android:id="@+id/rvMensajes"
         android:layout_width="match_parent"
-        android:paddingTop="16dp"
-        android:scrollbars="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre">
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
 
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <EditText
-        android:paddingTop="20dp"
-        android:id="@+id/txtMensaje"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Escribe un mensaje"
-        app:layout_constraintEnd_toStartOf="@id/btnEnviar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvMensajes" />
 
-    <Button
-        android:paddingTop="20dp"
-        android:id="@+id/btnEnviar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enviar"
-        app:layout_constraintEnd_toEndOf="@id/txtMensaje"
-        app:layout_constraintTop_toBottomOf="@id/rvMensajes" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtMensaje"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Escribe un mensaje" />
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enviar" />
+    </LinearLayout>
+</LinearLayout>

@@ -4,7 +4,7 @@ open class Mensaje {
 
     lateinit var nombre: String
     lateinit var mensaje: String
-    var data: String = "hla"
+    var data: String = ""
 
     fun Mensaje(nombre: String, mensaje: String, data: String) {
         this.nombre = nombre

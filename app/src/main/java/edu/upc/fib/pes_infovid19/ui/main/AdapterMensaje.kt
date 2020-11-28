@@ -14,13 +14,13 @@ class AdapterMensaje(val c: Context) : RecyclerView.Adapter<AdapterMensaje.Holde
 
     private var ListaMensajes: MutableList<Mensaje> = ArrayList<Mensaje>()
 
-    public fun addMessage(m: Mensaje) {
+    fun addMessage(m: Mensaje) {
         ListaMensajes.add(m)
         notifyItemInserted(ListaMensajes.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holdermensaje {
-        var v: View = LayoutInflater.from(c).inflate(R.layout.tarjeta_mensaje, parent, false)
+        val v: View = LayoutInflater.from(c).inflate(R.layout.tarjeta_mensaje, parent, false)
         return Holdermensaje(v)
     }
 

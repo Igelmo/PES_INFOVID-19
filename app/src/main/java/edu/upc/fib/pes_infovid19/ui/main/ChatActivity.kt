@@ -46,7 +46,7 @@ class ChatActivity : AppCompatActivity() {
         databaseReference = database.getReference("xatinfovid19") ///// SE HA DE CAMBIAR
 
 
-        var l: LinearLayoutManager = LinearLayoutManager(this)
+        val l: LinearLayoutManager = LinearLayoutManager(this)
         recicleview.layoutManager = l
 
         recicleview.adapter = adapter
@@ -71,16 +71,16 @@ class ChatActivity : AppCompatActivity() {
 
     class ScrollToTopDataObserver(val layoutManager: LinearLayoutManager, val recyclerView: RecyclerView, val adapter: AdapterMensaje) : RecyclerView.AdapterDataObserver() {
         override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-            setScrollbar()
+
             super.onItemRangeInserted(positionStart, itemCount)
             val lastVisiblePosition = layoutManager.findLastCompletelyVisibleItemPosition()
 
-            // If the recycler view is initially being loaded or the user is at the bottom of the
-            // list, scroll to the bottom of the list to show the newly added message.
+
             if (lastVisiblePosition == -1 || positionStart >= itemCount - 1 && lastVisiblePosition == positionStart - 1) {
                 recyclerView.scrollToPosition(positionStart)
 
             }
+            setScrollbar()
         }
 
         private fun setScrollbar() {
@@ -95,7 +95,7 @@ class ChatActivity : AppCompatActivity() {
         val currentDate = sdf.format(Date())
         var m: Mensaje = Mensaje()
         if (textmensaje.text.toString() != "") {
-            m.Mensaje(nombre.text.toString(), textmensaje.text.toString(), currentDate)
+            m.Mensaje("temporal", textmensaje.text.toString(), currentDate)
             databaseReference.push().setValue(m)
         }
         textmensaje.setText("")

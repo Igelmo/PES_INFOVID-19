@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.upc.fib.pes_infovid19">
-    <!--storage permission-->
+    <!-- storage permission -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +13,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultVulnerableTestActivity"></activity>
+        <activity android:name=".ui.main.EditRiskPopulationActivity"></activity>
+        <activity android:name=".ui.main.CreateRiskPopulationActivity" />
+        <activity android:name=".ui.main.ManageRiskPopulationActivity" />
+        <activity android:name=".ui.main.EditPreventionActivity" />
+        <activity android:name=".ui.main.EditRiskPreventionActivity" />
+        <activity android:name=".ui.main.CreatePreventionActivity" />
+        <activity android:name=".ui.main.CreateRiskPreventionActivity" />
+        <activity android:name=".ui.main.ManageRiskPreventionActivity" />
+        <activity android:name=".ui.main.EditTestTypeActivity" />
+        <activity android:name=".ui.main.CreateTestTypeActivity" />
+        <activity android:name=".ui.main.ManageTestTypeActivity" />
+        <activity android:name=".ui.main.EditMythActivity" />
+        <activity android:name=".ui.main.CreateMythActivity" />
+        <activity android:name=".ui.main.ManageMythsActivity" />
+        <activity android:name=".SigninActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.main.TestTypeActivity" />
+        <activity android:name=".ui.main.RiskPopulationActivity" />
+        <activity android:name=".ui.main.RiskPreventionActivity" />
+        <activity android:name=".ResultInfectionProbabilityTestActivity" />
+        <activity android:name=".ResultVulnerableTestActivity" />
         <activity android:name=".ErteActivity" />
         <activity android:name=".ui.main.ChatActivity" />
         <activity android:name=".ui.main.UserProfileActivity" />
-        <activity android:name=".ui.main.InfectionProbabilityTestActivity" />
+        <activity android:name=".InfectionProbabilityTestActivity" />
         <activity android:name=".ui.main.HospitalCenterActivity" />
         <activity android:name=".ui.main.MythsActivity" />
         <activity
@@ -25,7 +46,7 @@
         <activity
             android:name=".ui.main.HealthMenuActivity"
             android:exported="true" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,4 +56,3 @@
     </application>
 
 </manifest>
-

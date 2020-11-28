@@ -27,22 +27,22 @@ class AdapterMensaje(val c: Context) : RecyclerView.Adapter<AdapterMensaje.Holde
     override fun getItemCount(): Int = ListaMensajes.size
 
     override fun onBindViewHolder(holder: Holdermensaje, position: Int) {
-        holder.getnombre().text = ListaMensajes[position].getnombre1()
-        holder.getmensaje().text = ListaMensajes[position].getmensaje1()
-        holder.gethora().text = ListaMensajes[position].getdata1()
+        holder.getn().text = ListaMensajes[position].nombre
+        holder.getm().text = ListaMensajes[position].mensaje
+        holder.geth().text = ListaMensajes[position].data
     }
 
     class Holdermensaje(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun getnombre(): TextView {
+        fun getn(): TextView {
             return itemView.authorName
         }
 
-        fun getmensaje(): TextView {
+        fun getm(): TextView {
             return itemView.textMessage
         }
 
-        fun gethora(): TextView {
+        fun geth(): TextView {
             return itemView.dateMessage
         }
 

@@ -51,7 +51,7 @@ class ChatActivity : AppCompatActivity() {
 
         recicleview.adapter = adapter
         botoneviar.setOnClickListener {
-            onClick()
+            onClick(l)
         }
         databaseReference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
@@ -66,7 +66,7 @@ class ChatActivity : AppCompatActivity() {
             override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
             override fun onCancelled(databaseError: DatabaseError) {}
         })
-        ScrollToTopDataObserver(l, recicleview, adapter)
+
     }
 
     class ScrollToTopDataObserver(val layoutManager: LinearLayoutManager, val recyclerView: RecyclerView, val adapter: AdapterMensaje) : RecyclerView.AdapterDataObserver() {
@@ -90,13 +90,15 @@ class ChatActivity : AppCompatActivity() {
 
 
     @SuppressLint("SimpleDateFormat")
-    fun onClick() {
+    fun onClick(l: LinearLayoutManager) {
+
         val sdf = SimpleDateFormat("hh:mm")
         val currentDate = sdf.format(Date())
         var m: Mensaje = Mensaje()
         if (textmensaje.text.toString() != "") {
             m.Mensaje("temporal", textmensaje.text.toString(), currentDate)
             databaseReference.push().setValue(m)
+            recicleview.scrollToPosition(adapter.itemCount - 1)
         }
         textmensaje.setText("")
     }

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.main.ChatActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,47 +20,48 @@
         app:titleTextColor="@android:color/background_light" />
 
     <TextView
+        android:layout_width="match_parent"
         android:id="@+id/nombre"
-        android:layout_width="wrap_content"
+        android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text="Kevin"
-        app:layout_constraintBottom_toTopOf="@+id/rvMensajes"
+        android:paddingTop="16dp"
+        android:textSize="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_activity_chat" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="0dp"
         android:id="@+id/rvMensajes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="match_parent"
+        android:paddingTop="16dp"
+        android:scrollbars="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/txtMensaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombre">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <EditText
+        android:paddingTop="20dp"
         android:id="@+id/txtMensaje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:hint="Escribe un mensaje"
-        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnEnviar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvMensajes" />
 
     <Button
+        android:paddingTop="20dp"
         android:id="@+id/btnEnviar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enviar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/constraint_chat"
-        app:layout_constraintStart_toEndOf="@id/txtMensaje"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+        app:layout_constraintEnd_toEndOf="@id/txtMensaje"
+        app:layout_constraintTop_toBottomOf="@id/rvMensajes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.google.firebase.database.*
 import edu.upc.fib.pes_infovid19.MainActivity
 import edu.upc.fib.pes_infovid19.R
@@ -66,26 +67,14 @@ class ChatActivity : AppCompatActivity() {
             override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
             override fun onCancelled(databaseError: DatabaseError) {}
         })
-
-    }
-
-    class ScrollToTopDataObserver(val layoutManager: LinearLayoutManager, val recyclerView: RecyclerView, val adapter: AdapterMensaje) : RecyclerView.AdapterDataObserver() {
-        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-
-            super.onItemRangeInserted(positionStart, itemCount)
-            val lastVisiblePosition = layoutManager.findLastCompletelyVisibleItemPosition()
-
-
-            if (lastVisiblePosition == -1 || positionStart >= itemCount - 1 && lastVisiblePosition == positionStart - 1) {
-                recyclerView.scrollToPosition(positionStart)
-
+        adapter.registerAdapterDataObserver(object : AdapterDataObserver() {
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+                recicleview.scrollToPosition(adapter.itemCount - 1)
             }
-            setScrollbar()
-        }
+        })
 
-        private fun setScrollbar() {
-            recyclerView.scrollToPosition(adapter.itemCount - 1)
-        }
+
     }
 
 
@@ -98,7 +87,6 @@ class ChatActivity : AppCompatActivity() {
         if (textmensaje.text.toString() != "") {
             m.Mensaje("temporal", textmensaje.text.toString(), currentDate)
             databaseReference.push().setValue(m)
-            recicleview.scrollToPosition(adapter.itemCount - 1)
         }
         textmensaje.setText("")
     }

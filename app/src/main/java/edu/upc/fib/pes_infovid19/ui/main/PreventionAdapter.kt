@@ -28,6 +28,9 @@ class PreventionAdapter(
         holder.itemView.editButton.setOnClickListener {
             onEditListener(prevention)
         }
+        holder.itemView.deleteButton.setOnClickListener {
+            onDeleteListener(prevention.id)
+        }
     }
 
     override fun getItemCount() = preventions.size

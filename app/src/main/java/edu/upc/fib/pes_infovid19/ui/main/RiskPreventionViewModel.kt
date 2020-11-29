@@ -12,10 +12,13 @@ class RiskPreventionViewModel : ViewModel() {
     val preventionLiveData: LiveData<List<RiskPrevention>> = repository.getRiskPrevention()
 
     fun deleteRiskPrevention(id: String) = repository.removeRiskPrevention(id)
+    fun deletePrevention(id: String) = repository.removePrevention(id)
+
     fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention) = repository.modifyRiskPrevention(id, riskPrevention)
+    fun modifyPrevention(id: String, prevention: Prevention) = repository.modifyPrevention(id, prevention)
+
     fun addRiskPrevention(riskPrevention: RiskPrevention) = repository.createRiskPrevention(riskPrevention)
-
-
+    fun addPrevention(prevention: Prevention) = repository.createPrevention(prevention)
 }
 
 

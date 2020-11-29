@@ -8,10 +8,12 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import edu.upc.fib.pes_infovid19.domain.RiskPreventionRepository
+import edu.upc.fib.pes_infovid19.ui.main.Prevention
 import edu.upc.fib.pes_infovid19.ui.main.RiskPrevention
 import java.util.*
 
 private const val PREVENTION_NAME = "prevencio"
+private const val RECOMENDATION_NAME = "recomanacions"
 
 class RiskPreventionFirebaseRepository : RiskPreventionRepository {
     private val database = Firebase.database.reference.child(PREVENTION_NAME)
@@ -39,12 +41,24 @@ class RiskPreventionFirebaseRepository : RiskPreventionRepository {
         database.child(id).removeValue()
     }
 
+    override fun removePrevention(id: String) {
+        database.child(RECOMENDATION_NAME).child(id)
+    }
+
     override fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention) {
         database.child(id).setValue(riskPrevention)
     }
 
+    override fun modifyPrevention(id: String, prevention: Prevention) {
+        database.child(RECOMENDATION_NAME).child(id).setValue(prevention)
+    }
+
     override fun createRiskPrevention(riskPrevention: RiskPrevention) {
         database.push().setValue(riskPrevention)
+    }
+
+    override fun createPrevention(prevention: Prevention) {
+        database.child(RECOMENDATION_NAME).push().setValue(prevention)
     }
 
     private fun setRiskPreventionId(items: List<RiskPrevention>, ids: List<String>): List<RiskPrevention> {
@@ -56,5 +70,13 @@ class RiskPreventionFirebaseRepository : RiskPreventionRepository {
         return items
     }
 
+    private fun setPreventionId(items: List<Prevention>, ids: List<String>): List<Prevention> {
+        var i = 0
+        for (item in items) {
+            item.id = ids.get(i)
+            i += 1
+        }
+        return items
+    }
 
 }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.R
-import kotlinx.android.synthetic.main.activity_edit_myth.*
 import kotlinx.android.synthetic.main.activity_edit_risk_prevention.*
 
 const val RISKPREVENTION_EXTRA = "RISKPREVENTION_EXTRA"
@@ -18,29 +17,30 @@ class EditRiskPreventionActivity : AppCompatActivity() {
         setSupportActionBar(toolbareditRiskPrevention)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val riskPrevention = intent.getSerializableExtra(RISKPREVENTION_EXTRA) as RiskPrevention
-        val listPreventions = riskPrevention.recomanacions.values.toList()
+        val listPreventions = riskPrevention.recomanacionsAsList
 
-        val adapter = PreventionAdapter(listPreventions, true, { editPrevention(it) }, { })
+        val adapter = PreventionAdapter(listPreventions, true) { editPrevention(it, riskPrevention.id) }
         editRecyclerViewManageRiskPrevention.adapter = adapter
 
         setInfo(riskPrevention)
         editNewRiskPreventionButton.setOnClickListener {
-
+            saveChanges(riskPrevention.id)
             onSupportNavigateUp()
         }
         fabeditNewPrevention.setOnClickListener {
-            val intent = Intent(this, CreateRiskPreventionActivity::class.java)
+            val intent = Intent(this, CreatePreventionActivity::class.java)
+            intent.putExtra(ID_RISK_PREVENTION_EXTRA_CREATE, riskPrevention.id)
             startActivity(intent)
         }
     }
 
     private fun saveChanges(id: String?) {
         val title = editTitleTextRiskPrevention.text.toString()
-        val date = dateEditMyth.text.toString()
+        val date = editDateRiskPrevention.text.toString()
         val source = editSourceRiskPrevention.text.toString()
         val recomendationsAdapter = editRecyclerViewManageRiskPrevention.adapter as PreventionAdapter
         val recomendations = recomendationsAdapter.preventions
-        val riskPrevention = RiskPrevention(id as String, date, "", recomendations.associate { Pair(it.id, it) }, source, title)
+        val riskPrevention = RiskPrevention(id as String, date, "", recomendations.associateBy { it.id }, source, title)
         viewModel.modifyRiskPrevention(id, riskPrevention)
     }
 
@@ -50,9 +50,10 @@ class EditRiskPreventionActivity : AppCompatActivity() {
         editSourceRiskPrevention.setText(riskPrevention.source)
     }
 
-    private fun editPrevention(prevention: Prevention) {
+    private fun editPrevention(prevention: Prevention, idRiskPrevention: String) {
         val intent = Intent(this, EditPreventionActivity::class.java)
         intent.putExtra(PREVENTION_EXTRA, prevention)
+        intent.putExtra(ID_RISK_PREVENTION_EXTRA, idRiskPrevention)
         startActivity(intent)
     }
 

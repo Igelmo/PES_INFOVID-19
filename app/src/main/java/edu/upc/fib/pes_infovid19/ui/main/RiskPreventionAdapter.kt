@@ -7,7 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_inside_textview.view.*
 
-class RiskPreventionAdapter(private val isAdmin: Boolean, private val onEditListener: (RiskPrevention) -> Unit = {}, private val onDeleteListener: (id: String) -> Unit = {}) :
+class RiskPreventionAdapter(
+    private val isAdmin: Boolean,
+    private val onEditListener: (RiskPrevention) -> Unit = {},
+    private val onDeleteListener: (id: String) -> Unit = {},
+    private val onEditPreventionListener: (idRiskPrevention: String, Prevention) -> Unit = { _, _ -> },
+    private val onDeletePreventionListener: (idRiskPrevention: String, id: String) -> Unit = { _, _ -> }
+) :
     RecyclerView.Adapter<RiskPreventionAdapter.ViewHolder>() {
     private var expandedPosition = -1
     private var adviceList = emptyList<RiskPrevention>()
@@ -39,10 +45,14 @@ class RiskPreventionAdapter(private val isAdmin: Boolean, private val onEditList
         notifyDataSetChanged()
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(riskPrevention: RiskPrevention, isExpanded: Boolean, admin: Boolean) {
             itemView.titledropdown2.text = riskPrevention.title
-            val recyclerAdapter = PreventionAdapter(riskPrevention.recomanacions.values.toList(), false)
+            val recyclerAdapter = PreventionAdapter(
+                riskPrevention.recomanacionsAsList, false
+            ) {
+                onEditPreventionListener(riskPrevention.id, it)
+            }
             itemView.recyclerViewDropdown.adapter = recyclerAdapter
             if (!admin) {
                 itemView.arrowDropDown2.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
@@ -55,4 +65,3 @@ class RiskPreventionAdapter(private val isAdmin: Boolean, private val onEditList
         }
     }
 }
-

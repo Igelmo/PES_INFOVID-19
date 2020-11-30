@@ -13,7 +13,6 @@ import edu.upc.fib.pes_infovid19.ui.main.RiskPrevention
 import java.util.*
 
 private const val PREVENTION_NAME = "prevencio"
-private const val RECOMENDATION_NAME = "recomanacions"
 
 class RiskPreventionFirebaseRepository : RiskPreventionRepository {
     private val database = Firebase.database.reference.child(PREVENTION_NAME)
@@ -41,24 +40,24 @@ class RiskPreventionFirebaseRepository : RiskPreventionRepository {
         database.child(id).removeValue()
     }
 
-    override fun removePrevention(id: String) {
-        database.child(RECOMENDATION_NAME).child(id)
+    override fun removePrevention(idRiskPrevention: String, id: String) {
+        database.child(idRiskPrevention).child(id)
     }
 
     override fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention) {
         database.child(id).setValue(riskPrevention)
     }
 
-    override fun modifyPrevention(id: String, prevention: Prevention) {
-        database.child(RECOMENDATION_NAME).child(id).setValue(prevention)
+    override fun modifyPrevention(idRiskPrevention: String, id: String, prevention: Prevention) {
+        database.child(idRiskPrevention).child(id).setValue(prevention)
     }
 
     override fun createRiskPrevention(riskPrevention: RiskPrevention) {
         database.push().setValue(riskPrevention)
     }
 
-    override fun createPrevention(prevention: Prevention) {
-        database.child(RECOMENDATION_NAME).push().setValue(prevention)
+    override fun createPrevention(idRiskPrevention: String, prevention: Prevention) {
+        database.child(idRiskPrevention).push().setValue(prevention)
     }
 
     private fun setRiskPreventionId(items: List<RiskPrevention>, ids: List<String>): List<RiskPrevention> {

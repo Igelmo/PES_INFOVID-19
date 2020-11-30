@@ -8,11 +8,11 @@ interface RiskPreventionRepository {
     fun getRiskPrevention(): LiveData<List<RiskPrevention>>
 
     fun removeRiskPrevention(id: String)
-    fun removePrevention(id: String)
+    fun removePrevention(idRiskPrevention: String, id: String)
 
     fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention)
-    fun modifyPrevention(id: String, prevention: Prevention)
+    fun modifyPrevention(idRiskPrevention: String, id: String, prevention: Prevention)
 
     fun createRiskPrevention(riskPrevention: RiskPrevention)
-    fun createPrevention(prevention: Prevention)
+    fun createPrevention(idRiskPrevention: String, prevention: Prevention)
 }

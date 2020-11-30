@@ -38,4 +38,7 @@ data class RiskPrevention(
     var recomanacions: Map<String, Prevention> = emptyMap(),
     var source: String = "",
     var title: String = ""
-) : Serializable
+) : Serializable {
+    val recomanacionsAsList
+        get() = recomanacions.map { (key, value) -> value.copy(id = key) }
+}

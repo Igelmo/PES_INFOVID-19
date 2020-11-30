@@ -9,11 +9,15 @@ import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 
 class PreventionAdapter(
-    val preventions: List<Prevention>, private val isAdmin: Boolean, private val onEditListener: (Prevention) -> Unit = {}, private val onDeleteListener: (id: String) -> Unit = {}
+    initialPreventions: List<Prevention>, private val isAdmin: Boolean, private val onEditListener: (Prevention) -> Unit = {}
 ) : RecyclerView.Adapter<PreventionAdapter.ViewHolder>() {
+
+    private val _preventions = initialPreventions.toMutableList()
+    val preventions: List<Prevention> = _preventions
+
     private var expandedPosition = -1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return PreventionAdapter.ViewHolder(parent.inflate(R.layout.drop_down_textview_item))
+        return ViewHolder(parent.inflate(R.layout.drop_down_textview_item))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -29,7 +33,8 @@ class PreventionAdapter(
             onEditListener(prevention)
         }
         holder.itemView.deleteButton.setOnClickListener {
-            onDeleteListener(prevention.id)
+            _preventions -= prevention
+            notifyItemRemoved(position)
         }
     }
 

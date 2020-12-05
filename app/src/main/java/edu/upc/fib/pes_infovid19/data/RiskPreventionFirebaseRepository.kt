@@ -44,8 +44,12 @@ class RiskPreventionFirebaseRepository : RiskPreventionRepository {
         database.child(idRiskPrevention).child(id)
     }
 
-    override fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention) {
+    override fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention, listCreatedPrevention: List<Prevention>) {
         database.child(id).setValue(riskPrevention)
+        listCreatedPrevention.forEach {
+            createPrevention(id, it)
+        }
+
     }
 
     override fun modifyPrevention(idRiskPrevention: String, id: String, prevention: Prevention) {
@@ -57,7 +61,7 @@ class RiskPreventionFirebaseRepository : RiskPreventionRepository {
     }
 
     override fun createPrevention(idRiskPrevention: String, prevention: Prevention) {
-        database.child(idRiskPrevention).push().setValue(prevention)
+        database.child(idRiskPrevention).child("recomanacions").push().setValue(prevention)
     }
 
     private fun setRiskPreventionId(items: List<RiskPrevention>, ids: List<String>): List<RiskPrevention> {

@@ -1,6 +1,5 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,10 +16,6 @@ class CreateRiskPreventionActivity : AppCompatActivity() {
         createNewRiskPreventionButton.setOnClickListener {
             constructNewRiskPrevention()
             onSupportNavigateUp()
-        }
-        fabCreateNewPrevention.setOnClickListener {
-            val intent = Intent(this, CreatePreventionActivity::class.java)
-            startActivity(intent)
         }
     }
 

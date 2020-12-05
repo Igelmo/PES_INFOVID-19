@@ -14,7 +14,7 @@ class RiskPreventionViewModel : ViewModel() {
     fun deleteRiskPrevention(id: String) = repository.removeRiskPrevention(id)
     fun deletePrevention(idRiskPrevention: String, id: String) = repository.removePrevention(idRiskPrevention, id)
 
-    fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention) = repository.modifyRiskPrevention(id, riskPrevention)
+    fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention, listCreatedPrevention: List<Prevention>) = repository.modifyRiskPrevention(id, riskPrevention, listCreatedPrevention)
     fun modifyPrevention(idRiskPrevention: String, id: String, prevention: Prevention) = repository.modifyPrevention(idRiskPrevention, id, prevention)
 
     fun addRiskPrevention(riskPrevention: RiskPrevention) = repository.createRiskPrevention(riskPrevention)

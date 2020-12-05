@@ -10,7 +10,7 @@ interface RiskPreventionRepository {
     fun removeRiskPrevention(id: String)
     fun removePrevention(idRiskPrevention: String, id: String)
 
-    fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention)
+    fun modifyRiskPrevention(id: String, riskPrevention: RiskPrevention, listCreatedPrevention: List<Prevention>)
     fun modifyPrevention(idRiskPrevention: String, id: String, prevention: Prevention)
 
     fun createRiskPrevention(riskPrevention: RiskPrevention)

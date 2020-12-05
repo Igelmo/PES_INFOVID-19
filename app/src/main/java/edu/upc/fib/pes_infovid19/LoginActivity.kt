@@ -28,10 +28,10 @@ class LoginActivity : AppCompatActivity() {
         bundle.putString("message", "Integración de Firebase completa")
         analytics.logEvent("InitScreen", bundle)
 
-        session()
-
         // Setup
         setup()
+
+        session()
     }
 
     private fun setup() {
@@ -46,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(), PasswordEditText.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
                         val intent = Intent(this, MainActivity::class.java)
-                        intent.putExtra("emailLogin", emailEditText.text.toString())
                         startActivity(intent)
                     } else {
                         showAlert()

@@ -10,10 +10,8 @@ class InfectionProbabilityTestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infection_probability_test)
-        toolbarInfectionTest.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+        setSupportActionBar(toolbarInfectionTest)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun generateInfectionResult(View: View) {
@@ -32,5 +30,10 @@ class InfectionProbabilityTestActivity : AppCompatActivity() {
         val intent = Intent(this, ResultInfectionProbabilityTestActivity::class.java)
         intent.putExtra("percent", percent)
         startActivity(intent)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -22,6 +22,7 @@ class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
         buttonNearestCenter.setOnClickListener {
             val intent = Intent(this, HospitalCenterActivity::class.java)
             startActivity(intent)

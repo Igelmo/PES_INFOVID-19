@@ -9,7 +9,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signin.*
 
-private var user = User()
+var user = User()
+var userName = ""
 
 class SigninActivity : AppCompatActivity() {
 
@@ -70,13 +71,14 @@ class SigninActivity : AppCompatActivity() {
         et = findViewById<EditText>(R.id.contrasenyaEditTextSignin)
         val password = et.text.toString()
         val user = User()
+        userName = username
         user.addInfo(email, username, name, type, password)
         return user
     }
 
     fun guardaEnLaBaseDeDatos() {
         user = filluser()
-        val database = FirebaseDatabase.getInstance().getReference()
+        val database = FirebaseDatabase.getInstance().reference
         val id = FirebaseAuth.getInstance().currentUser?.uid
         if (id != null) {
             database.child("User").child(id).setValue(user).addOnCompleteListener {

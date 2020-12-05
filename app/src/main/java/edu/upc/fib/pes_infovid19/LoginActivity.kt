@@ -10,10 +10,16 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_login.*
+
 
 class LoginActivity : AppCompatActivity() {
 
+    var userName = ""
     private val GOOGLE_SIGN_IN = 100
 
 
@@ -43,6 +49,24 @@ class LoginActivity : AppCompatActivity() {
             if (emailEditText.text.isNotEmpty() && PasswordEditText.text.isNotEmpty()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(), PasswordEditText.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(emailEditText.text.toString())
+                        mDatabase.addValueEventListener(object : ValueEventListener {
+                            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                var userN: String = ""
+                                for (snapshot in dataSnapshot.children) {
+                                    userN = snapshot.child("username").getValue(String::class.java)!!
+                                }
+                                if (userN != null) {
+                                    userName = userN
+                                    val database1 = FirebaseDatabase.getInstance().getReference()
+                                    database1.child("Erte").child("44").setValue(userName)
+                                }
+                            }
+
+                            override fun onCancelled(databaseError: DatabaseError) {
+                                println("The read failed: " + databaseError.code)
+                            }
+                        })
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {

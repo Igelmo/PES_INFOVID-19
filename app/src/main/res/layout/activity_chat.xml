@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Futuro nombre de la persona con la que hablas"
+            android:text="nombre"
             android:textSize="15sp" />
     </LinearLayout>
 

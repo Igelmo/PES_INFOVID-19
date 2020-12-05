@@ -85,7 +85,7 @@ class ErteActivity : AppCompatActivity() {
     }
 
     fun guardaEnLaBaseDeDatos(erte: Erte) {
-        val database = FirebaseDatabase.getInstance().getReference()
+        val database = FirebaseDatabase.getInstance().reference
         val useId = Random().nextInt(100 - 1) + 2
         database.child("Erte").child("33").setValue(erte)
 

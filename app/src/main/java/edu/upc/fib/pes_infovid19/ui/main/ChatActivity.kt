@@ -44,7 +44,7 @@ class ChatActivity : AppCompatActivity() {
         botoneviar = findViewById<Button>(R.id.btnEnviar)
         adapter = AdapterMensaje(this)
         database = FirebaseDatabase.getInstance()
-        databaseReference = database.getReference("xatinfovid19") ///// SE HA DE CAMBIAR
+        databaseReference = database.getReference("xatinfovid19")
 
 
         val l: LinearLayoutManager = LinearLayoutManager(this)
@@ -75,6 +75,7 @@ class ChatActivity : AppCompatActivity() {
         })
 
 
+
     }
 
 
@@ -85,7 +86,10 @@ class ChatActivity : AppCompatActivity() {
         val currentDate = sdf.format(Date())
         var m: Mensaje = Mensaje()
         if (textmensaje.text.toString() != "") {
-            m.Mensaje("temporal", textmensaje.text.toString(), currentDate)
+            val userName = intent.extras?.getString("nombre")
+            if (userName != null) {
+                m.Mensaje(userName, textmensaje.text.toString(), currentDate)
+            }
             databaseReference.push().setValue(m)
         }
         textmensaje.setText("")

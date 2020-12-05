@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.google.firebase.database.*
-import edu.upc.fib.pes_infovid19.MainActivity
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_chat.*
 import java.text.SimpleDateFormat
@@ -35,7 +34,7 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
         toolbar_activity_chat.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ChatListActivity::class.java)
             startActivity(intent)
         }
         nombre = findViewById<TextView>(R.id.nombre)
@@ -44,7 +43,8 @@ class ChatActivity : AppCompatActivity() {
         botoneviar = findViewById<Button>(R.id.btnEnviar)
         adapter = AdapterMensaje(this)
         database = FirebaseDatabase.getInstance()
-        databaseReference = database.getReference("xatinfovid19")
+        val name = intent.extras?.getString("nombre")
+        if (name != null) databaseReference = database.getReference("xatinfovid19").child(name)
 
 
         val l: LinearLayoutManager = LinearLayoutManager(this)

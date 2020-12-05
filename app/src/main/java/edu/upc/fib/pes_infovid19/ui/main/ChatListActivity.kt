@@ -2,6 +2,7 @@ package edu.upc.fib.pes_infovid19.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.google.firebase.database.ValueEventListener
 import edu.upc.fib.pes_infovid19.MainActivity
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_chat.*
+import kotlinx.android.synthetic.main.tarjeta_xat.view.*
 
 class ChatListActivity : AppCompatActivity() {
     lateinit var rv: RecyclerView
@@ -24,6 +26,7 @@ class ChatListActivity : AppCompatActivity() {
         nom = intent.extras?.getString("nombre")!!
         toolbar_activity_chat.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("nombre", getIntent().extras?.getString("nombre"))
             startActivity(intent)
         }
         rv = findViewById<RecyclerView>(R.id.rvXats)
@@ -51,4 +54,13 @@ class ChatListActivity : AppCompatActivity() {
         if (nom != name) adapter.addPerson(name)
 
     }
+
+    fun anarXat(v: View) {
+        val xat = v.button.text.toString()
+        val intent = Intent(this, ChatActivity::class.java)
+        intent.putExtra("nombre", getIntent().extras?.getString("nombre"))
+        intent.putExtra("xat", xat)
+        startActivity(intent)
+    }
+
 }

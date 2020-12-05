@@ -27,6 +27,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var adapter: AdapterMensaje
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var databaseReference1: DatabaseReference
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -35,6 +36,7 @@ class ChatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chat)
         toolbar_activity_chat.setOnClickListener {
             val intent = Intent(this, ChatListActivity::class.java)
+            intent.putExtra("nombre", getIntent().extras?.getString("nombre"))
             startActivity(intent)
         }
         nombre = findViewById<TextView>(R.id.nombre)
@@ -44,7 +46,12 @@ class ChatActivity : AppCompatActivity() {
         adapter = AdapterMensaje(this)
         database = FirebaseDatabase.getInstance()
         val name = intent.extras?.getString("nombre")
-        if (name != null) databaseReference = database.getReference("xatinfovid19").child(name)
+        val xat = intent.extras?.getString("xat")
+        nombre.text = xat
+        if (name != null && xat != null) {
+            databaseReference = database.getReference("xatinfovid19").child(name).child(xat)
+            databaseReference1 = database.getReference("xatinfovid19").child(xat).child(name)
+        }
 
 
         val l: LinearLayoutManager = LinearLayoutManager(this)
@@ -91,6 +98,7 @@ class ChatActivity : AppCompatActivity() {
                 m.Mensaje(userName, textmensaje.text.toString(), currentDate)
             }
             databaseReference.push().setValue(m)
+            databaseReference1.push().setValue(m)
         }
         textmensaje.setText("")
     }

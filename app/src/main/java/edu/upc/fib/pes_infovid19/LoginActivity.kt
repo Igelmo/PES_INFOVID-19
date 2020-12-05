@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -27,6 +28,8 @@ class LoginActivity : AppCompatActivity() {
         bundle.putString("message", "Integración de Firebase completa")
         analytics.logEvent("InitScreen", bundle)
 
+        session()
+
         // Setup
         setup()
     }
@@ -43,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(), PasswordEditText.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
                         val intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("emailLogin", emailEditText.text.toString())
                         startActivity(intent)
                     } else {
                         showAlert()
@@ -66,6 +70,16 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun session() {
+        val prefs = getSharedPreferences("edu.upc.fib.pes_infovid19.PREFERENCE_FILE_KEY", Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+        if (email != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("emailLogin", email)
+            startActivity(intent)
+        }
     }
 
     private fun showAlert() {

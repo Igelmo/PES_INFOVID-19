@@ -54,9 +54,9 @@ class SigninActivity : AppCompatActivity() {
         var et = findViewById<EditText>(R.id.emailEditTextSignin)
         var email = et.text.toString()
         et = findViewById<EditText>(R.id.usernameEditTextSignin)
-        val username = et.text.toString()
+        var username = et.text.toString()
         et = findViewById<EditText>(R.id.nameEditTextSignin)
-        val name = et.text.toString()
+        var name = et.text.toString()
         var type = ""
         if (voluntariradioButton.isChecked) {
             type = "Voluntari"
@@ -80,6 +80,7 @@ class SigninActivity : AppCompatActivity() {
             database.child("User").child(id).setValue(user).addOnCompleteListener {
                 if (it.isSuccessful) {
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("emailSignin", user.email)
                     startActivity(intent)
                 } else {
                     showAlert()

@@ -1,6 +1,7 @@
 package edu.upc.fib.pes_infovid19
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+
+        var emailSignin = intent.extras?.getString("emailSignin")
+        var emailLogin = intent.extras?.getString("emailLogin")
+
+        val prefs = getSharedPreferences("edu.upc.fib.pes_infovid19.PREFERENCE_FILE_KEY", Context.MODE_PRIVATE).edit()
+        if (emailLogin.isNullOrBlank()) {
+            prefs.putString("email", emailSignin)
+        } else {
+            prefs.putString("email", emailLogin)
+        }
+        prefs.apply()
+
         buttonConsultarInfo.setOnClickListener {
             val intent = Intent(this, HealthMenuActivity::class.java)
             startActivity(intent)
@@ -32,6 +45,10 @@ class MainActivity : AppCompatActivity() {
 
         buttonProfile.setOnClickListener {
             val intent = Intent(this, UserProfileActivity::class.java)
+            if (emailLogin.isNullOrBlank())
+                intent.putExtra("email", emailSignin)
+            else
+                intent.putExtra("email", emailLogin)
             startActivity(intent)
         }
 

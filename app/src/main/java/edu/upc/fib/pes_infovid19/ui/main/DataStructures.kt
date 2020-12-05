@@ -26,9 +26,9 @@ data class RiskPopulation(
 
 data class Prevention(
     var id: String = "",
-    var image: String = "",
+    var title: String = "",
     var text: String = "",
-    var title: String = ""
+    var image: String = ""
 ) : Serializable
 
 data class RiskPrevention(

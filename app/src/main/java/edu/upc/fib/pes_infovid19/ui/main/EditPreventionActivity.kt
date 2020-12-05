@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +8,6 @@ import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_edit_prevention.*
 
 const val PREVENTION_EXTRA = "PREVENTION_EXTRA"
-const val ID_RISK_PREVENTION_EXTRA = "ID_RISK_PREVENTION_EXTRA"
 
 class EditPreventionActivity : AppCompatActivity() {
     private val viewModel: RiskPreventionViewModel by viewModels()
@@ -18,21 +18,22 @@ class EditPreventionActivity : AppCompatActivity() {
         setSupportActionBar(toolbarEditPrevention)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val prevention = intent.getSerializableExtra(PREVENTION_EXTRA) as Prevention
-        val idRiskPrevention = intent.getStringExtra(ID_RISK_PREVENTION_EXTRA) ?: throw IllegalStateException("Missing Risk Prevention id while editing a prevention")
 
         setInfo(prevention)
         editPreventionButton.setOnClickListener {
-            saveChanges(prevention.id, idRiskPrevention)
-            onSupportNavigateUp()
+            returnChanges(prevention.id)
         }
     }
 
-    private fun saveChanges(id: String?, idRiskPrevention: String) {
+    private fun returnChanges(id: String) {
         val title = titleTextEditPrevention.text.toString()
         val text = textEditPrevention.text.toString()
         val image = imageEditPrevention.text.toString()
-        val prevention = Prevention(id as String, title, text, image)
-        viewModel.modifyPrevention(idRiskPrevention, id, prevention)
+        val prevention = Prevention(id, title, text, image)
+        val intent = Intent()
+        intent.putExtra(EDIT_PREVENTION_EXTRA, prevention)
+        setResult(RESULT_OK, intent)
+        finish()
     }
 
     private fun setInfo(prevention: Prevention) {

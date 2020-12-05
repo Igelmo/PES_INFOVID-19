@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 class PreventionAdapter(
     initialPreventions: List<Prevention>, private val isAdmin: Boolean, private val onEditListener: (Prevention) -> Unit = {}
 ) : RecyclerView.Adapter<PreventionAdapter.ViewHolder>() {
-    private var createdPreventions = emptyList<Prevention>()
+    var createdPreventions = mutableListOf<Prevention>()
     private val _preventions = initialPreventions.toMutableList()
     val preventions: List<Prevention>
         get() = _preventions + createdPreventions
@@ -42,8 +42,15 @@ class PreventionAdapter(
     override fun getItemCount() = preventions.size
 
     fun updateCreatedPreventions(listCreatedPreventions: List<Prevention>) {
-        createdPreventions = listCreatedPreventions
+        createdPreventions = listCreatedPreventions.toMutableList()
         notifyItemRangeChanged(_preventions.size, createdPreventions.size)
+    }
+
+    fun updatePrevention(prevention: Prevention) {
+        val position = preventions.indexOfFirst { it.id == prevention.id }
+        if (position <= _preventions.lastIndex) _preventions[position] = prevention
+        else createdPreventions[position] = prevention
+        notifyItemChanged(position)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

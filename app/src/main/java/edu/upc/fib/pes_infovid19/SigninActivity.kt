@@ -83,6 +83,7 @@ class SigninActivity : AppCompatActivity() {
             database.child("User").child(id).setValue(user).addOnCompleteListener {
                 if (it.isSuccessful) {
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("nombre", userName)
                     startActivity(intent)
                 } else {
                     showAlert()

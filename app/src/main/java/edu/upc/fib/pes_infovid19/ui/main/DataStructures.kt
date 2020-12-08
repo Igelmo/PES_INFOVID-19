@@ -37,3 +37,9 @@ data class RiskPrevention(
     var source: String = "",
     var title: String = ""
 ) : Serializable
+
+data class QuestionProbabilityTest(
+    var id: String = "",
+    var text: String = "",
+    var points: String = ""
+) : Serializable

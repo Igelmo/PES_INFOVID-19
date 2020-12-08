@@ -24,6 +24,7 @@ class ChatActivity : AppCompatActivity() {
     lateinit var recicleview: RecyclerView
     lateinit var textmensaje: EditText
     lateinit var botoneviar: Button
+    lateinit var userName: String
     private lateinit var adapter: AdapterMensaje
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
@@ -36,7 +37,6 @@ class ChatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chat)
         toolbar_activity_chat.setOnClickListener {
             val intent = Intent(this, ChatListActivity::class.java)
-            intent.putExtra("nombre", getIntent().extras?.getString("nombre"))
             startActivity(intent)
         }
         nombre = findViewById<TextView>(R.id.nombre)
@@ -45,22 +45,17 @@ class ChatActivity : AppCompatActivity() {
         botoneviar = findViewById<Button>(R.id.btnEnviar)
         adapter = AdapterMensaje(this)
         database = FirebaseDatabase.getInstance()
-        val name = intent.extras?.getString("nombre")
+        val us: String? = intent.extras?.getString("nombre")
         val xat = intent.extras?.getString("xat")
-        nombre.text = xat
-        if (name != null && xat != null) {
-            databaseReference = database.getReference("xatinfovid19").child(name).child(xat)
-            databaseReference1 = database.getReference("xatinfovid19").child(xat).child(name)
-        }
-
+        fillAll(us, xat)
 
         val l: LinearLayoutManager = LinearLayoutManager(this)
         recicleview.layoutManager = l
-
         recicleview.adapter = adapter
         botoneviar.setOnClickListener {
             onClick(l)
         }
+
         databaseReference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
                 val m: Mensaje? = dataSnapshot.getValue(Mensaje::class.java)
@@ -74,29 +69,33 @@ class ChatActivity : AppCompatActivity() {
             override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
             override fun onCancelled(databaseError: DatabaseError) {}
         })
+
         adapter.registerAdapterDataObserver(object : AdapterDataObserver() {
             override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
                 super.onItemRangeInserted(positionStart, itemCount)
                 recicleview.scrollToPosition(adapter.itemCount - 1)
             }
         })
-
-
-
     }
 
+    fun fillAll(name: String?, xat: String?) {
+        nombre.text = xat
+        if (xat != null && name != null) {
+            this.userName = name
+            databaseReference = database.getReference("xatinfovid19").child(userName).child(xat)
+            databaseReference1 = database.getReference("xatinfovid19").child(xat).child(userName)
+        }
+
+    }
 
     @SuppressLint("SimpleDateFormat")
     fun onClick(l: LinearLayoutManager) {
 
         val sdf = SimpleDateFormat("hh:mm")
         val currentDate = sdf.format(Date())
-        var m: Mensaje = Mensaje()
+        val m: Mensaje = Mensaje()
         if (textmensaje.text.toString() != "") {
-            val userName = intent.extras?.getString("nombre")
-            if (userName != null) {
-                m.Mensaje(userName, textmensaje.text.toString(), currentDate)
-            }
+            m.Mensaje(userName, textmensaje.text.toString(), currentDate)
             databaseReference.push().setValue(m)
             databaseReference1.push().setValue(m)
         }

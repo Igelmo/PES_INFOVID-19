@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
             val intent = Intent(this, ChatListActivity::class.java)
-            intent.putExtra("nombre", getIntent().extras?.getString("nombre"))
             startActivity(intent)
         }
 

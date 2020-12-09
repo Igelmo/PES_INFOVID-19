@@ -41,5 +41,5 @@ data class RiskPrevention(
 data class QuestionProbabilityTest(
     var id: String = "",
     var text: String = "",
-    var points: String = ""
+    var points: Double = 0.0
 ) : Serializable

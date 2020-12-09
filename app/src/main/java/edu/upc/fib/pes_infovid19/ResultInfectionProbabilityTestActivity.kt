@@ -36,7 +36,7 @@ class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
     }
 
     private fun PrintInfectionResult() {
-        val perc = intent.extras?.getDouble("percent")
+        val perc = intent.extras?.getDouble("PERCENT_EXTRA")
 
         val textResultat = findViewById<TextView>(R.id.textResultInfection)
 

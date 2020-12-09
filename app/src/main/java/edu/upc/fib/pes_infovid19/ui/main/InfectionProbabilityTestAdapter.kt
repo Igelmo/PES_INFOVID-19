@@ -8,7 +8,8 @@ import kotlinx.android.synthetic.main.question_test_item.view.*
 
 class InfectionProbabilityTestAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<InfectionProbabilityTestAdapter.ViewHolder>() {
 
-    private var questionList = emptyList<QuestionProbabilityTest>()
+    var questionList = emptyList<QuestionProbabilityTest>()
+        private set
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(parent.inflate(R.layout.question_test_item))
 
@@ -19,7 +20,6 @@ class InfectionProbabilityTestAdapter(private val isAdmin: Boolean) : RecyclerVi
             notifyItemChanged(position)
         }
     }
-
 
     override fun getItemCount(): Int = questionList.size
 

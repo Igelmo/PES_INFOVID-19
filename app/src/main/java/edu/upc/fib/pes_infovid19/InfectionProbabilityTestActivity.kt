@@ -2,15 +2,20 @@ package edu.upc.fib.pes_infovid19
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.forEachIndexed
 import androidx.lifecycle.observe
 import edu.upc.fib.pes_infovid19.ui.main.InfectionProbabilityTestAdapter
+import edu.upc.fib.pes_infovid19.ui.main.QuestionProbabilityTest
 import kotlinx.android.synthetic.main.activity_infection_probability_test.*
+import kotlinx.android.synthetic.main.question_test_item.view.*
+
+const val PERCENT_EXTRA = "PERCENT_EXTRA"
 
 class InfectionProbabilityTestActivity : AppCompatActivity() {
     private val viewModel: InfectionProbabilityTestViewModel by viewModels()
+    private val adapter = InfectionProbabilityTestAdapter(false)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infection_probability_test)
@@ -20,9 +25,9 @@ class InfectionProbabilityTestActivity : AppCompatActivity() {
         buttonCheckProbability.setOnClickListener {
             val intent = Intent(this, ResultInfectionProbabilityTestActivity::class.java)
             startActivity(intent)
+            generateInfectionResult()
         }
 
-        val adapter = InfectionProbabilityTestAdapter(false)
         recyclerViewInfectionTest.adapter = adapter
 
         viewModel.questionsProbabilityTestLiveData.observe(this) { questionsSnapshot ->
@@ -30,10 +35,17 @@ class InfectionProbabilityTestActivity : AppCompatActivity() {
         }
     }
 
-    private fun generateInfectionResult(View: View) {
-        var percent = 0.0
+    private fun generateInfectionResult() {
+        val questionsCheckedList = mutableListOf<QuestionProbabilityTest>()
+        val questionsNotCheckedList = mutableListOf<QuestionProbabilityTest>()
+        recyclerViewInfectionTest.forEachIndexed { index, view ->
+            val question = adapter.questionList[index]
+            if (view.question.isChecked) questionsCheckedList.add(question)
+            else questionsNotCheckedList.add(question)
+        }
+        val percent = viewModel.calculateProbabilities(questionsCheckedList, questionsNotCheckedList)
         val intent = Intent(this, ResultInfectionProbabilityTestActivity::class.java)
-        intent.putExtra("percent", percent)
+        intent.putExtra("PERCENT_EXTRA", percent)
         startActivity(intent)
     }
 

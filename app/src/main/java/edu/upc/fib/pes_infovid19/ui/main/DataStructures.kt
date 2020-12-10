@@ -43,3 +43,10 @@ data class QuestionProbabilityTest(
     var text: String = "",
     var points: Double = 0.0
 ) : Serializable
+
+data class QuestionVulnerabilityTest(
+    var id: String = "",
+    var text: String = "",
+    var points: Double = 0.0,
+    var type: String = ""
+) : Serializable

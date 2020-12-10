@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.forEachIndexed
 import androidx.lifecycle.observe
+import edu.upc.fib.pes_infovid19.ui.main.ManageQuestionsVulnerabilityTestActivity
 import edu.upc.fib.pes_infovid19.ui.main.QuestionVulnerabilityTest
 import edu.upc.fib.pes_infovid19.ui.main.VulnerableTestAdapter
 import edu.upc.fib.pes_infovid19.ui.main.VulnerableTestViewModel
@@ -31,6 +32,8 @@ class VulnerableTestActivity : AppCompatActivity() {
         }
 
         buttonManageVulnerabilityTest.setOnClickListener {
+            val intent = Intent(this, ManageQuestionsVulnerabilityTestActivity::class.java)
+            startActivity(intent)
         }
 
         recyclerViewVulnerabilityTest.adapter = adapter

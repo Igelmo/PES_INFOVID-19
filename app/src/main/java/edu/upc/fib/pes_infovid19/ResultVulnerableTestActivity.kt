@@ -29,9 +29,9 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
     }
 
     private fun PrintResult() {
-        val res1 = intent.extras?.getInt("percSalut")
-        val res2 = intent.extras?.getInt("percEcon")
-        val res3 = intent.extras?.getInt("percSocial")
+        val res1 = intent.getDoubleExtra(PERCENT_HEALTH_EXTRA, 0.0).toInt()
+        val res2 = intent.getDoubleExtra(PERCENT_ECONOMIC_EXTRA, 0.0).toInt()
+        val res3 = intent.getDoubleExtra(PERCENT_SOCIAL_EXTRA, 0.0).toInt()
 
 
         val progress1 = findViewById<ProgressBar>(R.id.progressBar)

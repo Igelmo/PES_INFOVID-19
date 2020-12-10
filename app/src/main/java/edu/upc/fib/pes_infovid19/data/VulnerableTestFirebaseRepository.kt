@@ -34,9 +34,7 @@ class VulnerableTestFirebaseRepository : VulnerableTestRepository {
     }
 
 
-    override fun getQuestionsVulnerabilityTest(): LiveData<List<QuestionVulnerabilityTest>> {
-        TODO("Not yet implemented")
-    }
+    override fun getQuestionsVulnerabilityTest(): LiveData<List<QuestionVulnerabilityTest>> = _questionsVulnerabilityTestLiveData
 
     override fun removeQuestionVulnerabilityTest(id: String) {
         TODO("Not yet implemented")

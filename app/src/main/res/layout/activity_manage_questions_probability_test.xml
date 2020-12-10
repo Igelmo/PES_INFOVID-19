@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarManageQuestionsProbabilityTest"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/textFieldNewProbabilityQuestion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/go_back_icon"
+        app:title="@string/administrar_preguntes_del_test"
+        app:titleTextColor="@android:color/background_light" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textFieldNewProbabilityQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_de_la_nova_pregunta"
+        app:layout_constraintEnd_toStartOf="@id/addQuestion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarManageQuestionsProbabilityTest" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textFieldNewProbabilityQuestionPoints"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/punts_de_la_nova_pregunta"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@id/addQuestion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textFieldNewProbabilityQuestion" />
+
+    <ImageButton
+        android:id="@+id/addQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:contentDescription="@string/bot_per_afegir_pregunta"
+        android:src="@drawable/ic_baseline_add_black_24"
+        app:layout_constraintBottom_toBottomOf="@id/textFieldNewProbabilityQuestionPoints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarManageQuestionsProbabilityTest" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewManageInfectionTest"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="16dp"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/buttonProbabilityTestUpdateChanges"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textFieldNewProbabilityQuestionPoints"
+        tools:listitem="@layout/manage_question_test_item" />
+
+    <Button
+        android:id="@+id/buttonProbabilityTestUpdateChanges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="32dp"
+        android:text="@string/guardar_canvis"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewManageInfectionTest" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,6 +55,14 @@
         app:layout_constraintTop_toBottomOf="@id/questionEditableText"
         tools:visibility="gone" />
 
+    <Spinner
+        android:id="@+id/questionEditableSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/completeEditionQuestionTest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/questionEditablePoints" />
+
     <ImageButton
         android:id="@+id/completeEditionQuestionTest"
         android:layout_width="wrap_content"

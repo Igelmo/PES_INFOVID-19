@@ -75,6 +75,7 @@ class ManageInfectionProbabilityTestAdapter : RecyclerView.Adapter<ManageInfecti
             itemView.questionEditablePoints.isVisible = editing
             itemView.completeEditionQuestionTest.isVisible = editing
             itemView.cancelEditionQuestionTest.isVisible = editing
+            itemView.questionEditableSpinner.isVisible = false
         }
     }
 }

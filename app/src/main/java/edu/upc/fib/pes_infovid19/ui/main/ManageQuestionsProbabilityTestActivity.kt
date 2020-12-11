@@ -30,13 +30,15 @@ class ManageQuestionsProbabilityTestActivity : AppCompatActivity() {
         }
 
         buttonProbabilityTestUpdateChanges.setOnClickListener {
-            //TODO
-            adapter.questionList
+            adapter.questionDeletedList.forEach {
+                viewModel.deleteQuestionInfectionProbabilityTest(it)
+            }
+            adapter.questionList.forEach {
+                viewModel.addQuestionInfectionProbabilityTest(it)
+            }
+            onSupportNavigateUp()
         }
-
     }
-
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

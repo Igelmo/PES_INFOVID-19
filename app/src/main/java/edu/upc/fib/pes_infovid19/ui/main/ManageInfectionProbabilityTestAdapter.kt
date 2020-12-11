@@ -15,6 +15,11 @@ class ManageInfectionProbabilityTestAdapter : RecyclerView.Adapter<ManageInfecti
     val questionList
         get() = _questionList.map { it.first }
 
+    private var _questionDeletedList = mutableListOf<QuestionProbabilityTest>()
+
+    val questionDeletedList
+        get() = _questionDeletedList.filter { it.id.isNotBlank() }.map { it.id }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(parent.inflate(R.layout.manage_question_test_item))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -37,6 +42,7 @@ class ManageInfectionProbabilityTestAdapter : RecyclerView.Adapter<ManageInfecti
         }
         holder.itemView.deleteButtonQuestionTest.setOnClickListener {
             _questionList.removeAt(position)
+            _questionDeletedList.add(question)
             notifyItemRemoved(position)
         }
     }

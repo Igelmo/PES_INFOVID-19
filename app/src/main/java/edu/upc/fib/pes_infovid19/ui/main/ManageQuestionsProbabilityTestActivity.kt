@@ -22,6 +22,18 @@ class ManageQuestionsProbabilityTestActivity : AppCompatActivity() {
         viewModel.questionsProbabilityTestLiveData.observe(this) { questionsSnapshot ->
             adapter.updateQuestions(questionsSnapshot)
         }
+
+        addQuestion.setOnClickListener {
+            adapter.addQuestion(QuestionProbabilityTest(text = textFieldNewProbabilityQuestion.text.toString(), points = textFieldNewProbabilityQuestionPoints.text.toString().toDouble()))
+            textFieldNewProbabilityQuestion.setText("")
+            textFieldNewProbabilityQuestionPoints.setText("")
+        }
+
+        buttonProbabilityTestUpdateChanges.setOnClickListener {
+            //TODO
+            adapter.questionList
+        }
+
     }
 
 

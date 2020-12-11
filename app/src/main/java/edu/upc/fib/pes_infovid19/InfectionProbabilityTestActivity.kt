@@ -16,7 +16,7 @@ const val PERCENT_EXTRA = "PERCENT_EXTRA"
 
 class InfectionProbabilityTestActivity : AppCompatActivity() {
     private val viewModel: InfectionProbabilityTestViewModel by viewModels()
-    private val adapter = InfectionProbabilityTestAdapter(false)
+    private val adapter = InfectionProbabilityTestAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infection_probability_test)

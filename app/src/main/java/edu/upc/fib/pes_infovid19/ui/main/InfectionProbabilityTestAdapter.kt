@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.question_test_item.view.*
 
-class InfectionProbabilityTestAdapter(private val isAdmin: Boolean) : RecyclerView.Adapter<InfectionProbabilityTestAdapter.ViewHolder>() {
+class InfectionProbabilityTestAdapter : RecyclerView.Adapter<InfectionProbabilityTestAdapter.ViewHolder>() {
 
     var questionList = emptyList<QuestionProbabilityTest>()
         private set

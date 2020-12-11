@@ -97,6 +97,10 @@
     <string name="boto_per_a_esborrar_la_pregunta">Boto per a esborrar la pregunta</string>
     <string name="bot_per_afegir_pregunta">Botó per afegir pregunta</string>
     <string name="punts_de_la_nova_pregunta">punts de la nova pregunta</string>
+    <string name="boto_per_finalitzar_la_edicio">Boto per finalitzar la edicio</string>
+    <string name="text_de_la_pregunta">Text de la pregunta</string>
+    <string name="boto_que_cancela_la_edicio">boto que cancela la edicio</string>
+    <string name="punts_de_la_pregunta">punts de la pregunta</string>
     <string-array name="types">
         <item>salut</item>
         <item>economica</item>

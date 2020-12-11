@@ -33,7 +33,7 @@ class ManageInfectionProbabilityTestAdapter : RecyclerView.Adapter<ManageInfecti
             notifyItemChanged(position)
         }
         holder.itemView.completeEditionQuestionTest.setOnClickListener {
-            _questionList[position] = holder.newQuestion to false
+            _questionList[position] = holder.newQuestion.copy(id = question.id) to false
             notifyItemChanged(position)
         }
         holder.itemView.cancelEditionQuestionTest.setOnClickListener {

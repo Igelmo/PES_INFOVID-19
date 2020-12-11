@@ -37,15 +37,15 @@ class VulnerableTestFirebaseRepository : VulnerableTestRepository {
     override fun getQuestionsVulnerabilityTest(): LiveData<List<QuestionVulnerabilityTest>> = _questionsVulnerabilityTestLiveData
 
     override fun removeQuestionVulnerabilityTest(id: String) {
-        TODO("Not yet implemented")
+        database.child(id).removeValue()
     }
 
     override fun modifyQuestionVulnerabilityTest(id: String, question: QuestionVulnerabilityTest) {
-        TODO("Not yet implemented")
+        database.child(id).setValue(question)
     }
 
     override fun createQuestionVulnerabilityTest(question: QuestionVulnerabilityTest) {
-        TODO("Not yet implemented")
+        database.push().setValue(question)
     }
 
     private fun setQuestionId(items: List<QuestionVulnerabilityTest>, ids: List<String>): List<QuestionVulnerabilityTest> {

@@ -36,15 +36,15 @@ class InfectionProbabilityTestFirebaseRepository : InfectionProbabilityTestRepos
     override fun getQuestionsInfectionProbabilityTest(): LiveData<List<QuestionProbabilityTest>> = _questionsProbabilityTestLiveData
 
     override fun removeQuestionInfectionProbabilityTest(id: String) {
-        TODO("Not yet implemented")
+        database.child(id).removeValue()
     }
 
     override fun modifyQuestionInfectionProbabilityTest(id: String, question: QuestionProbabilityTest) {
-        TODO("Not yet implemented")
+        database.child(id).setValue(question)
     }
 
     override fun createQuestionInfectionProbabilityTest(question: QuestionProbabilityTest) {
-        TODO("Not yet implemented")
+        database.push().setValue(question)
     }
 
     private fun setQuestionId(items: List<QuestionProbabilityTest>, ids: List<String>): List<QuestionProbabilityTest> {

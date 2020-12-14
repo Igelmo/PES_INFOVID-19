@@ -16,6 +16,8 @@ class VulnerableTestViewModel : ViewModel() {
     val questionsVulnerabilityTestLiveData: LiveData<List<QuestionVulnerabilityTest>> = repository.getQuestionsVulnerabilityTest()
 
     fun calculateVulnerabilityByType(type: String, questionsChecked: List<QuestionVulnerabilityTest>, questionsNotChecked: List<QuestionVulnerabilityTest>): Double {
+        val totalQuestions = (questionsChecked + questionsNotChecked).filter { it.type == type }
+        val totalQuestionsPoints = totalQuestions.fold(0.0) { acumulador, actual -> acumulador + actual.points.absoluteValue }
         val negativeQuestionsPoints = questionsNotChecked
             .filter { it.type == type }
             .filter { it.points < 0.0 }
@@ -28,7 +30,7 @@ class VulnerableTestViewModel : ViewModel() {
             .fold(0.0) { acumulador, actual ->
                 acumulador + actual.points
             }
-        return positiveQuestionsPoints + negativeQuestionsPoints
+        return ((positiveQuestionsPoints + negativeQuestionsPoints) / totalQuestionsPoints) * 100.0
     }
 
 }

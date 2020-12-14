@@ -93,4 +93,24 @@
     <string name="nom_de_la_poblaci_de_risc">Nom de la població de risc</string>
     <string name="escribe_un_mensaje">Escribe un mensaje</string>
     <string name="enviar">Enviar</string>
+    <string name="text_de_la_nova_pregunta">Text de la nova pregunta</string>
+    <string name="administrar_preguntes_del_test">Administrar preguntes del test</string>
+    <string name="bot_per_a_editar_la_pregunta">Botó per a editar la pregunta</string>
+    <string name="boto_per_a_esborrar_la_pregunta">Boto per a esborrar la pregunta</string>
+    <string name="bot_per_afegir_pregunta">Botó per afegir pregunta</string>
+    <string name="punts_de_la_nova_pregunta">punts de la nova pregunta</string>
+    <string name="boto_per_finalitzar_la_edicio">Boto per finalitzar la edicio</string>
+    <string name="text_de_la_pregunta">Text de la pregunta</string>
+    <string name="boto_que_cancela_la_edicio">boto que cancela la edicio</string>
+    <string name="punts_de_la_pregunta">punts de la pregunta</string>
+    <string name="molt_baixa">Molt baixa</string>
+    <string name="baixa">Baixa</string>
+    <string name="normal">Normal</string>
+    <string name="alta">Alta</string>
+    <string name="molt_alta">Molt alta</string>
+    <string-array name="types">
+        <item>salut</item>
+        <item>economica</item>
+        <item>social</item>
+    </string-array>
 </resources>

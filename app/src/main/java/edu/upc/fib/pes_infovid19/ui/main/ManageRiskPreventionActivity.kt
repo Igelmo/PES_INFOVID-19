@@ -16,7 +16,11 @@ class ManageRiskPreventionActivity : AppCompatActivity() {
         setSupportActionBar(toolbarManageRiskPrevention)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = RiskPreventionAdapter(true, { editRiskPrevention(it) }, { })
+        val adapter = RiskPreventionAdapter(
+            true,
+            { editRiskPrevention(it) },
+            { viewModel.deleteRiskPrevention(it) }
+        )
         recyclerManageViewRiskPrevention.adapter = adapter
 
         viewModel.preventionLiveData.observe(this) { riskPreventionSnapshot ->
@@ -39,4 +43,5 @@ class ManageRiskPreventionActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
 }

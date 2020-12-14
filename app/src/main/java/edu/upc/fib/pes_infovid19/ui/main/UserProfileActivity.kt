@@ -94,7 +94,6 @@ class UserProfileActivity : AppCompatActivity() {
         var email: String? = ""
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
-            // Name, email address, and profile photo Url
             email = user.email
         }
         val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(email)

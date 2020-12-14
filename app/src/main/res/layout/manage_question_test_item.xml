@@ -61,7 +61,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/completeEditionQuestionTest"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/questionEditablePoints" />
+        app:layout_constraintTop_toBottomOf="@id/questionEditablePoints"
+        tools:visibility="gone" />
 
     <ImageButton
         android:id="@+id/completeEditionQuestionTest"

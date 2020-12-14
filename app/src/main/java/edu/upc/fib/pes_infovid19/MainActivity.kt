@@ -4,7 +4,7 @@ package edu.upc.fib.pes_infovid19
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import edu.upc.fib.pes_infovid19.ui.main.ChatActivity
+import edu.upc.fib.pes_infovid19.ui.main.ChatListActivity
 import edu.upc.fib.pes_infovid19.ui.main.HealthMenuActivity
 import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
 import edu.upc.fib.pes_infovid19.ui.main.UserProfileActivity
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
+            val intent = Intent(this, ChatListActivity::class.java)
             startActivity(intent)
         }
 

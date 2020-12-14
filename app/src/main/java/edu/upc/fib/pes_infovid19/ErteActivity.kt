@@ -14,7 +14,11 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.itextpdf.text.Document
 import com.itextpdf.text.PageSize
 import com.itextpdf.text.Paragraph
@@ -84,11 +88,30 @@ class ErteActivity : AppCompatActivity() {
         guarda.visibility = View.INVISIBLE
     }
 
-    fun guardaEnLaBaseDeDatos(erte: Erte) {
-        val database = FirebaseDatabase.getInstance().getReference()
-        val useId = Random().nextInt(100 - 1) + 2
-        database.child("Erte").child("33").setValue(erte)
+    fun guardaEnLaBaseDeDatos() {
 
+        val user = FirebaseAuth.getInstance().currentUser
+        val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(user?.email)
+        mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (snapshot in dataSnapshot.children) {
+                    val nom = snapshot.child("username").getValue(String::class.java)!!
+                    fillErte(nom)
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("The read failed: " + databaseError.code)
+            }
+
+        })
+
+
+    }
+
+    fun fillErte(name: String) {
+        val database = FirebaseDatabase.getInstance().reference
+        database.child("Erte").child(name).setValue(erte)
     }
 
     @SuppressLint("SetTextI18n")
@@ -121,7 +144,7 @@ class ErteActivity : AppCompatActivity() {
                 "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
                 "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" + "\n" +
                 "------------------------------------------Firma" + "\n"
-        guardaEnLaBaseDeDatos(erte)
+        guardaEnLaBaseDeDatos()
         et.visibility = View.VISIBLE
         benvia.visibility = View.VISIBLE
         baccept.visibility = View.INVISIBLE
@@ -162,11 +185,9 @@ class ErteActivity : AppCompatActivity() {
         var ruta: File?
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             ruta = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "ErtePdfs")
-            if (ruta != null) {
-                if (!ruta.mkdirs()) {
-                    if (!ruta.exists()) {
-                        return null;
-                    }
+            if (!ruta.mkdirs()) {
+                if (!ruta.exists()) {
+                    return null;
                 }
             }
             return ruta;

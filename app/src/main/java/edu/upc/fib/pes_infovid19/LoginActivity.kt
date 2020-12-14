@@ -10,11 +10,17 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
     private val GOOGLE_SIGN_IN = 100
+    var userName = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -31,6 +37,12 @@ class LoginActivity : AppCompatActivity() {
         setup()
     }
 
+    fun activate() {
+        var intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("nombre", userName)
+        startActivity(intent)
+    }
+
     private fun setup() {
 
         signupbutton.setOnClickListener {
@@ -42,14 +54,29 @@ class LoginActivity : AppCompatActivity() {
             if (emailEditText.text.isNotEmpty() && PasswordEditText.text.isNotEmpty()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(), PasswordEditText.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
+                        val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(emailEditText.text.toString())
+                        mDatabase.addValueEventListener(object : ValueEventListener {
+                            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                for (snapshot in dataSnapshot.children) {
+                                    userName = snapshot.child("username").getValue(String::class.java)!!
+                                    activate()
+                                }
+                            }
+
+                            override fun onCancelled(databaseError: DatabaseError) {
+                                println("The read failed: " + databaseError.code)
+                            }
+                        })
+
+
                     } else {
                         showAlert()
                     }
                 }
             }
         }
+
+
 
         googlebutton.setOnClickListener {
 

@@ -14,4 +14,7 @@ class User {
         this.type = type
         this.password = password
     }
+
+
 }
+

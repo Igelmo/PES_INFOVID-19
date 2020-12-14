@@ -7,8 +7,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import edu.upc.fib.pes_infovid19.domain.VulnerableTestRepository
-import edu.upc.fib.pes_infovid19.ui.main.QuestionVulnerabilityTest
+import edu.upc.fib.pes_infovid19.domain.repository.VulnerableTestRepository
+import edu.upc.fib.pes_infovid19.domain.structures.QuestionVulnerabilityTest
 import java.util.*
 
 private const val QUESTION_VULNERABILITY_TEST_NAME = "PreguntesVulnerabilitat"

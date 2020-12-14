@@ -7,8 +7,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import edu.upc.fib.pes_infovid19.domain.InfectionProbabilityTestRepository
-import edu.upc.fib.pes_infovid19.ui.main.QuestionProbabilityTest
+import edu.upc.fib.pes_infovid19.domain.repository.InfectionProbabilityTestRepository
+import edu.upc.fib.pes_infovid19.domain.structures.QuestionProbabilityTest
 import java.util.*
 
 private const val QUESTION_PROBABILITY_TEST_NAME = "PreguntesProbabilitatInfeccio"

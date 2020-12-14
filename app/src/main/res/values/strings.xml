@@ -101,6 +101,11 @@
     <string name="text_de_la_pregunta">Text de la pregunta</string>
     <string name="boto_que_cancela_la_edicio">boto que cancela la edicio</string>
     <string name="punts_de_la_pregunta">punts de la pregunta</string>
+    <string name="molt_baixa">Molt baixa</string>
+    <string name="baixa">Baixa</string>
+    <string name="normal">Normal</string>
+    <string name="alta">Alta</string>
+    <string name="molt_alta">Molt alta</string>
     <string-array name="types">
         <item>salut</item>
         <item>economica</item>

@@ -17,13 +17,15 @@ class InfectionProbabilityTestViewModel : ViewModel() {
     val questionsProbabilityTestLiveData: LiveData<List<QuestionProbabilityTest>> = repository.getQuestionsInfectionProbabilityTest()
 
     fun calculateProbabilities(questionsChecked: List<QuestionProbabilityTest>, questionsNotChecked: List<QuestionProbabilityTest>): Double {
+        val totalQuestions = questionsChecked + questionsNotChecked
+        val totalQuestionPoints = totalQuestions.fold(0.0) { acumulador, actual -> acumulador + actual.points }
         val negativeQuestionsPoints = questionsNotChecked.filter { it.points < 0.0 }.fold(0.0) { acumulador, actual ->
             acumulador + actual.points.absoluteValue
         }
         val positiveQuestionsPoints = questionsChecked.filter { it.points > 0.0 }.fold(0.0) { acumulador, actual ->
             acumulador + actual.points
         }
-        return positiveQuestionsPoints + negativeQuestionsPoints
+        return (positiveQuestionsPoints + negativeQuestionsPoints) / totalQuestionPoints
     }
 }
 

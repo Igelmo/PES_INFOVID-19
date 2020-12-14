@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -36,29 +35,13 @@ class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
     }
 
     private fun PrintInfectionResult() {
-        val perc = intent.extras?.getDouble("PERCENT_EXTRA")
-
-        val textResultat = findViewById<TextView>(R.id.textResultInfection)
-
-        if (perc != null) {
-            if (perc in 0.0..12.0)
-                textResultat.text = "Molt baixa"
-        }
-        if (perc != null) {
-            if (perc > 12.0 && perc <= 27.5)
-                textResultat.text = "Baixa"
-        }
-        if (perc != null) {
-            if (perc > 27.5 && perc <= 35.0)
-                textResultat.text = "Normal"
-        }
-        if (perc != null) {
-            if (perc > 35.0 && perc <= 50.0)
-                textResultat.text = "Alta"
-        }
-        if (perc != null) {
-            if (perc > 50.0 && perc <= 100.0)
-                textResultat.text = "Molt alta"
+        val perc = intent.getDoubleExtra("PERCENT_EXTRA", 0.0)
+        when (perc) {
+            in 0.0..12.0 -> textResultInfection.text = getString(R.string.molt_baixa)
+            in 12.0..27.5 -> textResultInfection.text = getString(R.string.baixa)
+            in 27.5..35.0 -> textResultInfection.text = getString(R.string.normal)
+            in 35.0..50.0 -> textResultInfection.text = getString(R.string.alta)
+            in 50.0..100.0 -> textResultInfection.text = getString(R.string.molt_alta)
         }
     }
 

@@ -9,11 +9,16 @@ import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.drop_down_textview_item.view.*
 
 class PreventionAdapter(
-    val preventions: List<Prevention>, private val isAdmin: Boolean, private val onEditListener: (Prevention) -> Unit = {}, private val onDeleteListener: (id: String) -> Unit = {}
+    initialPreventions: List<Prevention>, private val isAdmin: Boolean, private val onEditListener: (Prevention) -> Unit = {}
 ) : RecyclerView.Adapter<PreventionAdapter.ViewHolder>() {
+    var createdPreventions = mutableListOf<Prevention>()
+    private val _preventions = initialPreventions.toMutableList()
+    val preventions: List<Prevention>
+        get() = _preventions + createdPreventions
+
     private var expandedPosition = -1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return PreventionAdapter.ViewHolder(parent.inflate(R.layout.drop_down_textview_item))
+        return ViewHolder(parent.inflate(R.layout.drop_down_textview_item))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -28,9 +33,25 @@ class PreventionAdapter(
         holder.itemView.editButton.setOnClickListener {
             onEditListener(prevention)
         }
+        holder.itemView.deleteButton.setOnClickListener {
+            _preventions -= prevention
+            notifyItemRemoved(position)
+        }
     }
 
     override fun getItemCount() = preventions.size
+
+    fun updateCreatedPreventions(listCreatedPreventions: List<Prevention>) {
+        createdPreventions = listCreatedPreventions.toMutableList()
+        notifyItemRangeChanged(_preventions.size, createdPreventions.size)
+    }
+
+    fun updatePrevention(prevention: Prevention) {
+        val position = preventions.indexOfFirst { it.id == prevention.id }
+        if (position <= _preventions.lastIndex) _preventions[position] = prevention
+        else createdPreventions[position] = prevention
+        notifyItemChanged(position)
+    }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(prevention: Prevention, isExpanded: Boolean, admin: Boolean) {

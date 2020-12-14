@@ -31,7 +31,6 @@ class MythsAdapter(private val isAdmin: Boolean, private val onEditListener: (My
         }
     }
 
-
     override fun getItemCount(): Int = mythList.size
 
     fun updateMyths(myths: List<Myth>) {

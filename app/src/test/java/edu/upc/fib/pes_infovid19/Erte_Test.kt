@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19
 
+import edu.upc.fib.pes_infovid19.domain.structures.Erte
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

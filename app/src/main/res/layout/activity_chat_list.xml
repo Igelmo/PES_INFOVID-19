@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="0sp"
-    tools:context=".ui.main.ChatListActivity">
+    tools:context=".ui.main.activity.social.ChatListActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_activity_chat"

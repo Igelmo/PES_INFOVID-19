@@ -42,3 +42,16 @@ data class RiskPrevention(
     val recomanacionsAsList
         get() = recomanacions.map { (key, value) -> value.copy(id = key) }
 }
+
+data class QuestionProbabilityTest(
+    var id: String = "",
+    var text: String = "",
+    var points: Double = 0.0
+) : Serializable
+
+data class QuestionVulnerabilityTest(
+    var id: String = "",
+    var text: String = "",
+    var points: Double = 0.0,
+    var type: String = ""
+) : Serializable

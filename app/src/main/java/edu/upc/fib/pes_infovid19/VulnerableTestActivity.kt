@@ -2,17 +2,45 @@ package edu.upc.fib.pes_infovid19
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_health_menu.toolbar
+import androidx.core.view.forEachIndexed
+import androidx.lifecycle.observe
+import edu.upc.fib.pes_infovid19.ui.main.ManageQuestionsVulnerabilityTestActivity
+import edu.upc.fib.pes_infovid19.ui.main.QuestionVulnerabilityTest
+import edu.upc.fib.pes_infovid19.ui.main.VulnerableTestAdapter
+import edu.upc.fib.pes_infovid19.ui.main.VulnerableTestViewModel
 import kotlinx.android.synthetic.main.activity_vulnerable_test.*
+import kotlinx.android.synthetic.main.question_test_item.view.*
+
+const val PERCENT_HEALTH_EXTRA = "PERCENT_HEALTH_EXTRA"
+const val PERCENT_ECONOMIC_EXTRA = "PERCENT_ECONOMIC_EXTRA"
+const val PERCENT_SOCIAL_EXTRA = "PERCENT_SOCIAL_EXTRA"
+
 
 class VulnerableTestActivity : AppCompatActivity() {
+    private val viewModel: VulnerableTestViewModel by viewModels()
+    private val adapter = VulnerableTestAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vulnerable_test)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbarVulnerabilityTest)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        buttonCheckVulnerability.setOnClickListener {
+            generateVulnerabilityResults()
+        }
+
+        buttonManageVulnerabilityTest.setOnClickListener {
+            val intent = Intent(this, ManageQuestionsVulnerabilityTestActivity::class.java)
+            startActivity(intent)
+        }
+
+        recyclerViewVulnerabilityTest.adapter = adapter
+
+        viewModel.questionsVulnerabilityTestLiveData.observe(this) { questionsSnapshot ->
+            adapter.updateQuestions(questionsSnapshot)
+        }
 
     }
 
@@ -21,25 +49,21 @@ class VulnerableTestActivity : AppCompatActivity() {
         return true
     }
 
-    fun GenerateResult(View: View) {
-        var percSalut = 0
-        var percEcon = 0
-        var percSocial = 0
-        if (switch1.isChecked) percEcon += 40
-        if (switch2.isChecked) percSocial += 45
-        if (!switch3.isChecked) percSocial += 35
-        if (switch4.isChecked) percSalut += 30
-        if (switch5.isChecked) percSalut += 10
-        if (switch6.isChecked) percSalut += 30
-        if (switch7.isChecked) percSalut += 10
-        if (switch8.isChecked) percSalut += 20
-        if (!switch9.isChecked) percEcon += 45
-        if (!switch10.isChecked) percEcon += 15
-        if (!switch11.isChecked) percSocial += 20
+    fun generateVulnerabilityResults() {
+        val questionsCheckedList = mutableListOf<QuestionVulnerabilityTest>()
+        val questionsNotCheckedList = mutableListOf<QuestionVulnerabilityTest>()
+        recyclerViewVulnerabilityTest.forEachIndexed { index, view ->
+            val question = adapter.questionList[index]
+            if (view.question.isChecked) questionsCheckedList.add(question)
+            else questionsNotCheckedList.add(question)
+        }
+        val percentHealth = viewModel.calculateVulnerabilityByType("salut", questionsCheckedList, questionsNotCheckedList)
+        val percentEconomic = viewModel.calculateVulnerabilityByType("economica", questionsCheckedList, questionsNotCheckedList)
+        val percentSocial = viewModel.calculateVulnerabilityByType("social", questionsCheckedList, questionsNotCheckedList)
         val intent = Intent(this, ResultVulnerableTestActivity::class.java)
-        intent.putExtra("percEcon", percEcon)
-        intent.putExtra("percSocial", percSocial)
-        intent.putExtra("percSalut", percSalut)
+        intent.putExtra(PERCENT_HEALTH_EXTRA, percentHealth)
+        intent.putExtra(PERCENT_ECONOMIC_EXTRA, percentEconomic)
+        intent.putExtra(PERCENT_SOCIAL_EXTRA, percentSocial)
         startActivity(intent)
     }
 }

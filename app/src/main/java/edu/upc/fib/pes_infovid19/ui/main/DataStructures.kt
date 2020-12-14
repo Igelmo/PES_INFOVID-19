@@ -25,18 +25,23 @@ data class RiskPopulation(
 ) : Serializable
 
 data class Prevention(
-    var image: String = "",
+    var id: String = "",
+    var title: String = "",
     var text: String = "",
-    var title: String = ""
+    var image: String = ""
 ) : Serializable
 
 data class RiskPrevention(
+    var id: String = "",
     var date: String = "",
     var image: String = "",
     var recomanacions: Map<String, Prevention> = emptyMap(),
     var source: String = "",
     var title: String = ""
-) : Serializable
+) : Serializable {
+    val recomanacionsAsList
+        get() = recomanacions.map { (key, value) -> value.copy(id = key) }
+}
 
 data class QuestionProbabilityTest(
     var id: String = "",

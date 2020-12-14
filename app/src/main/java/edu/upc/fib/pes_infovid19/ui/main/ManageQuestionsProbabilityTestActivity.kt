@@ -33,12 +33,16 @@ class ManageQuestionsProbabilityTestActivity : AppCompatActivity() {
             adapter.questionDeletedList.forEach {
                 viewModel.deleteQuestionInfectionProbabilityTest(it)
             }
-            adapter.questionList.forEach {
+            adapter.questionList.filter { it.id.isNotBlank() }.forEach {
+                viewModel.modifyQuestionInfectionProbabilityTest(it.id, it)
+            }
+            adapter.questionList.filter { it.id.isBlank() }.forEach {
                 viewModel.addQuestionInfectionProbabilityTest(it)
             }
             onSupportNavigateUp()
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

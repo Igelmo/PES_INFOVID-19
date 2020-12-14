@@ -43,7 +43,7 @@ class ManageInfectionProbabilityTestAdapter : RecyclerView.Adapter<ManageInfecti
         holder.itemView.deleteButtonQuestionTest.setOnClickListener {
             _questionList.removeAt(position)
             _questionDeletedList.add(question)
-            notifyItemRemoved(position)
+            notifyDataSetChanged()
         }
     }
 

@@ -83,7 +83,9 @@ class ErteActivity : AppCompatActivity() {
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
         val guarda = findViewById<Button>(R.id.button4)
+        val info = findViewById<Button>(R.id.button5)
         et.visibility = View.INVISIBLE
+        info.visibility = View.VISIBLE
         benvia.visibility = View.INVISIBLE
         baccept.visibility = View.VISIBLE
         torna.visibility = View.INVISIBLE
@@ -125,6 +127,7 @@ class ErteActivity : AppCompatActivity() {
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
         val guarda = findViewById<Button>(R.id.button4)
+        val info = findViewById<Button>(R.id.button5)
         var c = 0
         var mes = seisMeses(calendar.get(Calendar.MONTH))
         if (mes > 12) {
@@ -148,10 +151,20 @@ class ErteActivity : AppCompatActivity() {
                 "------------------------------------------Firma" + "\n"
         guardaEnLaBaseDeDatos()
         et.visibility = View.VISIBLE
+        info.visibility = View.INVISIBLE
         benvia.visibility = View.VISIBLE
         baccept.visibility = View.INVISIBLE
         torna.visibility = View.VISIBLE
         guarda.visibility = View.VISIBLE
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun info(view: View) {
+        val et = findViewById<TextView>(R.id.editView)
+        val torna = findViewById<Button>(R.id.button2)
+        et.text = "Hola perro"
+        et.visibility = View.VISIBLE
+        torna.visibility = View.VISIBLE
     }
 
     fun guardaPdf() {

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorMainDropDown"
-        tools:context=".ui.main.RiskPreventionActivity">
+        tools:context=".ui.main.activity.health.information.RiskPreventionActivity">
 
         <TextView
             android:id="@+id/titledropdown2"

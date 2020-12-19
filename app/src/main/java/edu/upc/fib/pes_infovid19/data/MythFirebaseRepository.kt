@@ -7,8 +7,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import edu.upc.fib.pes_infovid19.domain.MythsRepository
-import edu.upc.fib.pes_infovid19.ui.main.Myth
+import edu.upc.fib.pes_infovid19.domain.repository.MythsRepository
+import edu.upc.fib.pes_infovid19.domain.structures.Myth
 import java.util.*
 
 private const val MYTHS_NAME = "myths"
@@ -21,7 +21,8 @@ class MythFirebaseRepository : MythsRepository {
                 var items = if (snapshot.exists()) snapshot.children.mapNotNull { it.getValue(Myth::class.java) }.toList()
                 else emptyList()
                 val ids: MutableList<String> = ArrayList()
-                for (snap in snapshot.children) {
+                for (snap
+                in snapshot.children) {
                     ids.add(snap.key.toString())
                 }
                 items = setMythId(items, ids)

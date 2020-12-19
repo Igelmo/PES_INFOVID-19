@@ -56,4 +56,6 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
         text2.text = "Vulnerabilitat d'un " + res2.toString() + "%\neconòmicament."
         text3.text = "Vulnerabilitat d'un " + res3.toString() + "%\nsocialment."
     }
+
+
 }

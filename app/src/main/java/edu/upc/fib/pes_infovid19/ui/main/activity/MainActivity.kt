@@ -6,6 +6,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import edu.upc.fib.pes_infovid19.R
 import edu.upc.fib.pes_infovid19.ui.main.activity.economic.ErteActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.HealthMenuActivity
@@ -14,15 +19,6 @@ import edu.upc.fib.pes_infovid19.ui.main.activity.health.tests.InfectionProbabil
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.tests.VulnerableTestActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.social.ChatListActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.user.UserProfileActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import edu.upc.fib.pes_infovid19.ui.main.ChatActivity
-import edu.upc.fib.pes_infovid19.ui.main.HealthMenuActivity
-import edu.upc.fib.pes_infovid19.ui.main.HospitalCenterActivity
-import edu.upc.fib.pes_infovid19.ui.main.UserProfileActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {

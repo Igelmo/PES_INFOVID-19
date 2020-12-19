@@ -1,4 +1,4 @@
-package edu.upc.fib.pes_infovid19.ui.main
+package edu.upc.fib.pes_infovid19.ui.main.activity.user
 
 import android.os.Bundle
 import android.widget.EditText

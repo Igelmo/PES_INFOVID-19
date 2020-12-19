@@ -12,7 +12,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import edu.upc.fib.pes_infovid19.LoginActivity
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_user_profile.*
 

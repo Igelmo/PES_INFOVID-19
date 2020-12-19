@@ -16,7 +16,6 @@ private var user = User()
 
 class SigninActivity : AppCompatActivity() {
 
-    var userName = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
@@ -73,7 +72,6 @@ class SigninActivity : AppCompatActivity() {
         et = findViewById<EditText>(R.id.contrasenyaEditTextSignin)
         val password = et.text.toString()
         val user = User()
-        userName = username
         user.addInfo(email, username, name, type, password)
         return user
     }
@@ -86,7 +84,6 @@ class SigninActivity : AppCompatActivity() {
             database.child("User").child(id).setValue(user).addOnCompleteListener {
                 if (it.isSuccessful) {
                     val intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra("nombre", userName)
                     startActivity(intent)
                 } else {
                     showAlert()

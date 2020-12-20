@@ -1,6 +1,7 @@
 package edu.upc.fib.pes_infovid19.ui.main.activity
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -55,6 +56,10 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+
+        val prefs = getSharedPreferences("edu.upc.fib.pes_infovid19.PREFERENCE_FILE_KEY", Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.apply()
 
         buttonConsultarInfo.setOnClickListener {
             val intent = Intent(this, HealthMenuActivity::class.java)

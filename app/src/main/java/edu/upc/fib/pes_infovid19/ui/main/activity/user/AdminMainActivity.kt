@@ -49,5 +49,9 @@ class AdminMainActivity : AppCompatActivity() {
             val intent = Intent(this, CreateNewAdminActivity::class.java)
             startActivity(intent)
         }
+        buttonModifyPermission.setOnClickListener {
+            val intent = Intent(this, ModifyPermissionsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

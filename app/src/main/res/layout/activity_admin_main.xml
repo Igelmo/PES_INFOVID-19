@@ -25,6 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
 
             <Button
@@ -32,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:text="Administrar mites"
                 app:layout_constraintBottom_toTopOf="@id/buttonManageRiskPopulation"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:text="Administrar població de risc"
                 app:layout_constraintBottom_toTopOf="@id/buttonManageRiskPrevention"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:text="Administrar prevenció de riscos"
                 app:layout_constraintBottom_toTopOf="@id/buttonManageTestsType"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:text="Administrar tipus de proves"
                 app:layout_constraintBottom_toTopOf="@id/buttonManageInfectionTestQuestions"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:text="Administrar preguntes test contagi"
                 app:layout_constraintBottom_toTopOf="@id/buttonManageVulnerableTestQuestions"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:text="Administrar preguntes test vulnerable"
                 app:layout_constraintBottom_toTopOf="@id/buttonCreateAdmin"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -104,12 +105,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:text="Crear nou admin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/buttonManageVulnerableTestQuestions" />
+
+            <Button
+                android:id="@+id/buttonModifyPermission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Modificar permisos d'usuari"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonManageVulnerableTestQuestions" />
+
         </LinearLayout>
     </LinearLayout>
 

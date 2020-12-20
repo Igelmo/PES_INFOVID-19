@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -16,14 +17,35 @@ import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_user_profile.*
 
 class UserProfileActivity : AppCompatActivity() {
-    var userName = ""
-    var email = ""
+    var Email: String? = ""
+    var admin: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
         setSupportActionBar(toolbarUserProfile)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            Email = user.email
+            val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(Email)
+            mDatabase.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    for (snapshot in dataSnapshot.children) {
+                        admin = snapshot.child("type").getValue(String::class.java)!!
+                    }
+                    if (admin == "Admin") {
+                        adminradioButtonProfile.visibility = View.VISIBLE
+                    } else {
+                        adminradioButtonProfile.visibility = View.INVISIBLE
+                    }
+                }
 
+                override fun onCancelled(databaseError: DatabaseError) {
+                    println("The read failed: " + databaseError.code)
+                }
+            })
+        }
         setValues()
 
         changePasswordButton.setOnClickListener {
@@ -57,6 +79,8 @@ class UserProfileActivity : AppCompatActivity() {
             type = "Vulnerable"
         } else if (bothradioButtonProfile.isChecked) {
             type = "Voluntari/Vulnerable"
+        } else if (adminradioButtonProfile.isChecked) {
+            type = "Admin"
         }
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
@@ -119,14 +143,22 @@ class UserProfileActivity : AppCompatActivity() {
                     voluntariradioButtonProfile.isChecked = true
                     vulnerableradioButtonProfile.isChecked = false
                     bothradioButtonProfile.isChecked = false
+                    adminradioButtonProfile.isChecked = false
                 } else if (type == "Vulnerable") {
                     voluntariradioButtonProfile.isChecked = false
                     vulnerableradioButtonProfile.isChecked = true
                     bothradioButtonProfile.isChecked = false
-                } else {
+                    adminradioButtonProfile.isChecked = false
+                } else if (type == "Voluntari/Vulnerable") {
                     voluntariradioButtonProfile.isChecked = false
                     vulnerableradioButtonProfile.isChecked = false
                     bothradioButtonProfile.isChecked = true
+                    adminradioButtonProfile.isChecked = false
+                } else if (type == "Admin") {
+                    voluntariradioButtonProfile.isChecked = false
+                    vulnerableradioButtonProfile.isChecked = false
+                    bothradioButtonProfile.isChecked = false
+                    adminradioButtonProfile.isChecked = true
                 }
             }
 

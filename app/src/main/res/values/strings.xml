@@ -109,6 +109,8 @@
     <string name="normal">Normal</string>
     <string name="alta">Alta</string>
     <string name="molt_alta">Molt alta</string>
+    <string name="delete">Delete</string>
+    <string name="button">Button</string>
     <string-array name="types">
         <item>salut</item>
         <item>economica</item>

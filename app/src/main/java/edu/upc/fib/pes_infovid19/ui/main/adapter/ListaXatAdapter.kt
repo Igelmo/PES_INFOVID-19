@@ -29,7 +29,8 @@ class ListaXatAdapter(val c: Context) : RecyclerView.Adapter<ListaXatAdapter.Hol
     override fun getItemCount(): Int = ListaXats.size
 
     override fun onBindViewHolder(holder: HolderXat, position: Int) {
-        holder.itemView.button.text = ListaXats[position]
+        holder.itemView.buttonNom.text = ListaXats[position]
+        holder.itemView.buttonBorra.hint = ListaXats[position]
 
     }
 

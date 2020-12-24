@@ -14,6 +14,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -83,7 +84,7 @@ class ErteActivity : AppCompatActivity() {
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
         val guarda = findViewById<Button>(R.id.button4)
-        val info = findViewById<Button>(R.id.button5)
+        val info = findViewById<FloatingActionButton>(R.id.fab)
         et.visibility = View.INVISIBLE
         info.visibility = View.VISIBLE
         benvia.visibility = View.INVISIBLE
@@ -127,7 +128,7 @@ class ErteActivity : AppCompatActivity() {
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
         val guarda = findViewById<Button>(R.id.button4)
-        val info = findViewById<Button>(R.id.button5)
+        val info = findViewById<FloatingActionButton>(R.id.fab)
         var c = 0
         var mes = seisMeses(calendar.get(Calendar.MONTH))
         if (mes > 12) {

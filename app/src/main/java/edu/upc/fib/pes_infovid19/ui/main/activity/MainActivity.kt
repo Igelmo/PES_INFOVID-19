@@ -1,9 +1,16 @@
 package edu.upc.fib.pes_infovid19.ui.main.activity
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import edu.upc.fib.pes_infovid19.R
 import edu.upc.fib.pes_infovid19.ui.main.activity.economic.ErteActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.HealthMenuActivity
@@ -15,10 +22,35 @@ import edu.upc.fib.pes_infovid19.ui.main.activity.user.UserProfileActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
-
+    var email: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            email = user.email
+            val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(email)
+            mDatabase.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var name: String = ""
+                    for (snapshot in dataSnapshot.children) {
+                        name = snapshot.child("name").getValue(String::class.java)!!
+                        var et = findViewById<TextView>(R.id.titleMainMenu)
+                        et.text = "Benvingut/da " + name
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    println("The read failed: " + databaseError.code)
+                }
+            })
+        }
+
+        val prefs = getSharedPreferences("edu.upc.fib.pes_infovid19.PREFERENCE_FILE_KEY", Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.apply()
+
         buttonConsultarInfo.setOnClickListener {
             val intent = Intent(this, HealthMenuActivity::class.java)
             startActivity(intent)

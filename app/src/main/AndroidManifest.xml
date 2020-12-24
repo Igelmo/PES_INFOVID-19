@@ -45,6 +45,7 @@
         <activity android:name=".ui.main.activity.health.tests.InfectionProbabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.hospitalcenter.HospitalCenterActivity" />
         <activity android:name=".ui.main.activity.health.information.MythsActivity" />
+        <activity android:name=".ui.main.activity.user.ChangePasswordActivity" />
         <activity
             android:name=".ui.main.activity.health.tests.VulnerableTestActivity"
             android:exported="true" />

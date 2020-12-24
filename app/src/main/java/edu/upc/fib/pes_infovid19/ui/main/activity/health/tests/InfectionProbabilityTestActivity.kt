@@ -61,3 +61,4 @@ class InfectionProbabilityTestActivity : AppCompatActivity() {
         return true
     }
 }
+

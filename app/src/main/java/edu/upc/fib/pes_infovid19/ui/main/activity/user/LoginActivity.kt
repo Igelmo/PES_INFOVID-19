@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main.activity.user
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -37,6 +38,8 @@ class LoginActivity : AppCompatActivity() {
 
         // Setup
         setup()
+
+        session()
     }
 
     fun activate() {
@@ -95,6 +98,16 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun session() {
+        val prefs = getSharedPreferences("edu.upc.fib.pes_infovid19.PREFERENCE_FILE_KEY", Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+        if (email != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("emailLogin", email)
+            startActivity(intent)
+        }
     }
 
     private fun showAlert() {

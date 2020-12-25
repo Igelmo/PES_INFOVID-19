@@ -111,6 +111,8 @@
     <string name="molt_alta">Molt alta</string>
     <string name="delete">Delete</string>
     <string name="button">Button</string>
+    <string name="cerca_a_alg">Cerca a algú</string>
+    <string name="cerca">Cerca</string>
     <string-array name="types">
         <item>salut</item>
         <item>economica</item>

@@ -108,10 +108,12 @@ class ChatListActivity : AppCompatActivity() {
         val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("username").equalTo(persona)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (snapshot in dataSnapshot.children) {
-                    val nom = snapshot.child("username").getValue(String::class.java)!!
-                    bPer(nom)
-                }
+                if (dataSnapshot.children.count() > 0) {
+                    for (snapshot in dataSnapshot.children) {
+                        val nom = snapshot.child("username").getValue(String::class.java)!!
+                        bPer(nom)
+                    }
+                } else error("El usuari es incorrecte o no existeix")
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -119,7 +121,7 @@ class ChatListActivity : AppCompatActivity() {
             }
 
         })
-        //error("El usuari es incorrecte o no existeix")
+
 
     }
 

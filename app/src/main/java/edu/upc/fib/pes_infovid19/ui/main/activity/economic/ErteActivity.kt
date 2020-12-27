@@ -163,7 +163,12 @@ class ErteActivity : AppCompatActivity() {
     fun info(view: View) {
         val et = findViewById<TextView>(R.id.editView)
         val torna = findViewById<Button>(R.id.button2)
-        et.text = "Hola perro"
+        et.text = "1. Omplir el formulari amb totes les dades.\n" +
+                "2. Enviar un correu electònic o fax al SEPE o un organisme que faci la mateixa funció.\n" +
+                "3. Esperar que et contestin via correu electrònic o reclamació.\n" +
+                "4. Aquesta al·legació pot ser acceptada o rebutjada.\n" +
+                "5. Si és rebutjada pots fer una reclamació al mateix organisme.\n" +
+                "6. Si la reclamació també és rebutjada pots anar al jutjat social i obrir una causa juridica.\n"
         et.visibility = View.VISIBLE
         torna.visibility = View.VISIBLE
     }
@@ -230,7 +235,7 @@ class ErteActivity : AppCompatActivity() {
         emailIntent.data = Uri.parse(erte.email)
         emailIntent.type = "text/plain"
         emailIntent.putExtra(Intent.EXTRA_EMAIL, "InfoVid-19")
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Paper de reclamació de Erte")
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Paper d' al·legació de Erte")
         emailIntent.putExtra(Intent.EXTRA_TEXT, findViewById<TextView>(R.id.editView).text)
         startActivity(Intent.createChooser(emailIntent, "Send mail..."));
         finish();

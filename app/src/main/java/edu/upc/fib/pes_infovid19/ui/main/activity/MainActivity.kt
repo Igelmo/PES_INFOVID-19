@@ -4,6 +4,7 @@ package edu.upc.fib.pes_infovid19.ui.main.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -18,11 +19,13 @@ import edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter.Hospital
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.tests.InfectionProbabilityTestActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.tests.VulnerableTestActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.social.ChatListActivity
+import edu.upc.fib.pes_infovid19.ui.main.activity.user.AdminMainActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.user.UserProfileActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
     var email: String? = ""
+    var admin: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -36,8 +39,15 @@ class MainActivity : AppCompatActivity() {
                     var name: String = ""
                     for (snapshot in dataSnapshot.children) {
                         name = snapshot.child("name").getValue(String::class.java)!!
+                        admin = snapshot.child("type").getValue(String::class.java)!!
+
                         var et = findViewById<TextView>(R.id.titleMainMenu)
                         et.text = "Benvingut/da " + name
+                    }
+                    if (admin == "Admin") {
+                        buttonNewAdmin.visibility = View.VISIBLE
+                    } else {
+                        buttonNewAdmin.visibility = View.INVISIBLE
                     }
                 }
 
@@ -71,6 +81,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        buttonNewAdmin.setOnClickListener {
+            val intent = Intent(this, AdminMainActivity::class.java)
+            startActivity(intent)
+        }
+
         fab.setOnClickListener {
             val intent = Intent(this, ChatListActivity::class.java)
             startActivity(intent)
@@ -80,8 +95,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ErteActivity::class.java)
             startActivity(intent)
         }
-
-
         buttonObrirTestVulnerable.setOnClickListener {
             startActivity(
                 Intent(

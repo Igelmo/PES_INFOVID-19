@@ -15,10 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.activity.health.tests.ManageQuestionsVulnerabilityTestActivity"></activity>
+        <activity android:name=".ui.main.activity.user.ModifyPermissionsActivity"></activity>
+        <activity android:name=".ui.main.activity.user.AdminMainActivity" />
+        <activity android:name=".ui.main.activity.user.CreateNewAdminActivity" />
+        <activity android:name=".ui.main.activity.user.AdminMain" />
+        <activity android:name=".ui.main.activity.health.tests.ManageQuestionsVulnerabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.tests.ManageQuestionsProbabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.information.EditRiskPopulationActivity" />
-        <activity android:name=".ui.main.activity.social.ChatListActivity"></activity>
+        <activity android:name=".ui.main.activity.social.ChatListActivity" />
         <activity android:name=".ui.main.activity.health.information.CreateRiskPopulationActivity" />
         <activity android:name=".ui.main.activity.health.information.ManageRiskPopulationActivity" />
         <activity android:name=".ui.main.activity.health.information.EditPreventionActivity" />

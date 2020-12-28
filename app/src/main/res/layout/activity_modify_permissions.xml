@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.activity.user.UserProfileActivity">
+    tools:context=".ui.main.activity.user.ModifyPermissionsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,14 +18,14 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarUserProfile"
+            android:id="@+id/toolbarModifyUser"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/go_back_icon"
-            app:title="@string/perfil_d_usuari"
+            app:title="Modificar permisos usuari"
             app:titleTextColor="@android:color/background_light" />
 
         <LinearLayout
@@ -37,65 +37,36 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/usernameTextProfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nom d'usuari:"
-                android:textSize="18dp" />
-
-            <EditText
-                android:id="@+id/usernameEditTextProfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp" />
-
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="8dp" />
-
-            <TextView
-                android:id="@+id/nameTextProfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nom:"
-                android:textSize="18dp" />
-
-            <EditText
-                android:id="@+id/nameEditTextProfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-
-            <TextView
-                android:id="@+id/emailTextProfile"
+                android:id="@+id/emailTextModify"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email:"
                 android:textSize="18dp" />
 
             <EditText
-                android:id="@+id/emailEditTextProfile"
+                android:id="@+id/emailEditTextModify"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="8dp" />
+
+            <Button
+                android:id="@+id/buttonsearchUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded"
+                android:text="Buscar usuari"
+                android:textAlignment="center" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="top"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/typeTextProfile"
+                    android:id="@+id/typeTextModify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -111,33 +82,33 @@
                     android:layout_height="8dp" />
 
                 <RadioGroup
-                    android:id="@+id/radioGroupButtonProfile"
+                    android:id="@+id/radioGroupButtonModify"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <RadioButton
-                        android:id="@+id/voluntariradioButtonProfile"
+                        android:id="@+id/voluntariradioButtonModify"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="false"
                         android:hint="Voluntari" />
 
                     <RadioButton
-                        android:id="@+id/vulnerableradioButtonProfile"
+                        android:id="@+id/vulnerableradioButtonModify"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="false"
                         android:hint="Vulnerable" />
 
                     <RadioButton
-                        android:id="@+id/bothradioButtonProfile"
+                        android:id="@+id/bothradioButtonModify"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="false"
                         android:hint="Voluntari/Vulnerable" />
 
                     <RadioButton
-                        android:id="@+id/adminradioButtonProfile"
+                        android:id="@+id/adminradioButtonModify"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="false"
@@ -145,63 +116,27 @@
                 </RadioGroup>
             </LinearLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/changePasswordButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_rounded"
-                    android:text="Canviar contrasenya"
-                    android:textAlignment="center" />
-
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="8dp" />
 
-                <LinearLayout
+
+                <Button
+                    android:id="@+id/saveProfileButtonModify"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/saveProfileButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_rounded_color"
-                        android:text="Guardar dades"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white" />
-
-                    <Space
-                        android:layout_width="8dp"
-                        android:layout_height="match_parent" />
-
-                    <Button
-                        android:id="@+id/logoutButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_rounded_color"
-                        android:text="Tancar sessió"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_rounded_color"
+                    android:text="Guardar dades"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
             </LinearLayout>
-
         </LinearLayout>
-
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

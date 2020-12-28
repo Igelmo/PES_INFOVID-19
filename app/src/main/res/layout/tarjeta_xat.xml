@@ -29,12 +29,23 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button"
-                    android:layout_width="366dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="anarXat"
-                    android:text="Button"
+                    android:text="@string/button"
                     android:textAllCaps="false" />
+
+
+                <Button
+                    android:id="@+id/buttonBorra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:onClick="borrarXat"
+                    android:text="@string/delete"
+                    android:textAllCaps="false" />
+
             </LinearLayout>
 
 

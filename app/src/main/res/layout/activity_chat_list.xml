@@ -27,5 +27,27 @@
         android:layout_marginEnd="4dp"
         android:layout_weight="1" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtCerca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/cerca_a_alg" />
+
+        <Button
+            android:id="@+id/btnCerca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/cerca"
+            android:onClick="buscaPersona" />
+    </LinearLayout>
+
 
 </LinearLayout>

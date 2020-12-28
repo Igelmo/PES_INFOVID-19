@@ -3,6 +3,8 @@ package edu.upc.fib.pes_infovid19.ui.main.activity.social
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,12 +40,13 @@ class ChatListActivity : AppCompatActivity() {
         rv.adapter = adapter
 
         val user = FirebaseAuth.getInstance().currentUser
-        var mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(user?.email)
+        val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(user?.email)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
                     val nom = snapshot.child("username").getValue(String::class.java)!!
                     fillUser(nom)
+                    listXats(nom)
                 }
             }
 
@@ -53,12 +56,19 @@ class ChatListActivity : AppCompatActivity() {
 
         })
 
-        mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("type").equalTo("Voluntari")
+
+    }
+
+    fun listXats(user: String) {
+        val mDatabase = FirebaseDatabase.getInstance().reference.child("xatinfovid19").child(user)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
-                    val name = snapshot.child("username").getValue(String::class.java)!!
-                    actualitza(name)
+                    val name = snapshot.key
+                    //val name = snapshot.child("username").getValue(String::class.java)!!
+                    if (name != null) {
+                        actualitza(name)
+                    }
                 }
             }
 
@@ -66,7 +76,6 @@ class ChatListActivity : AppCompatActivity() {
                 println("The read failed: " + databaseError.code)
             }
         })
-
     }
 
     fun fillUser(user: String) {
@@ -79,11 +88,63 @@ class ChatListActivity : AppCompatActivity() {
     }
 
     fun anarXat(v: View) {
-        val xat = v.button.text.toString()
+        val xat = v.buttonNom.text.toString()
         val intent = Intent(this, ChatActivity::class.java)
         intent.putExtra("xat", xat)
         intent.putExtra("nombre", nom)
         startActivity(intent)
+    }
+
+    fun borrarXat(v: View) {
+        val xat = v.buttonBorra.hint.toString()
+        val mDatabase = FirebaseDatabase.getInstance().reference.child("xatinfovid19").child(nom).child(xat)
+        mDatabase.removeValue()
+        val intent = Intent(this, ChatListActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun buscaPersona(v: View) {
+        val persona = findViewById<EditText>(R.id.txtCerca).text.toString()
+        val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("username").equalTo(persona)
+        mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.children.count() > 0) {
+                    for (snapshot in dataSnapshot.children) {
+                        val nom = snapshot.child("username").getValue(String::class.java)!!
+                        bPer(nom)
+                    }
+                } else error("El usuari es incorrecte o no existeix")
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("The read failed: " + databaseError.code)
+            }
+
+        })
+
+
+    }
+
+
+    fun bPer(persona: String) {
+        if (persona != nom) {
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("xat", persona)
+            intent.putExtra("nombre", nom)
+            startActivity(intent)
+        } else {
+            error("No pots buscar-te a tú mateix")
+        }
+
+    }
+
+    fun error(err: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage(err)
+        builder.setPositiveButton("Acceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
 

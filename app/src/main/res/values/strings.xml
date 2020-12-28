@@ -113,6 +113,7 @@
     <string name="button">Button</string>
     <string name="cerca_a_alg">Cerca a algú</string>
     <string name="cerca">Cerca</string>
+    <string name="infovid_19">Infovid-19</string>
     <string-array name="types">
         <item>salut</item>
         <item>economica</item>

@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.activity.user.ModifyPermissionsActivity"></activity>
+        <activity android:name=".ui.main.activity.user.ModifyPermissionsActivity" />
         <activity android:name=".ui.main.activity.user.AdminMainActivity" />
         <activity android:name=".ui.main.activity.user.CreateNewAdminActivity" />
         <activity android:name=".ui.main.activity.user.AdminMain" />
@@ -56,7 +56,9 @@
         <activity
             android:name=".ui.main.activity.health.HealthMenuActivity"
             android:exported="true" />
-        <activity android:name=".ui.main.activity.user.LoginActivity">
+        <activity
+            android:name=".ui.main.activity.user.LoginActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

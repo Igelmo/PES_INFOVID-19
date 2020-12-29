@@ -6,7 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +21,6 @@ import java.util.*
 
 
 class ChatActivity : AppCompatActivity() {
-    lateinit var nombre: TextView
     lateinit var recicleview: RecyclerView
     lateinit var textmensaje: EditText
     lateinit var botoneviar: Button
@@ -41,7 +39,6 @@ class ChatActivity : AppCompatActivity() {
             val intent = Intent(this, ChatListActivity::class.java)
             startActivity(intent)
         }
-        nombre = findViewById<TextView>(R.id.nombre)
         recicleview = findViewById<RecyclerView>(R.id.rvMensajes)
         textmensaje = findViewById<EditText>(R.id.txtMensaje)
         botoneviar = findViewById<Button>(R.id.btnEnviar)
@@ -81,7 +78,7 @@ class ChatActivity : AppCompatActivity() {
     }
 
     fun fillAll(name: String?, xat: String?) {
-        nombre.text = xat
+        toolbar_activity_chat.title = xat
         if (xat != null && name != null) {
             this.userName = name
             databaseReference = database.getReference("xatinfovid19").child(userName).child(xat)

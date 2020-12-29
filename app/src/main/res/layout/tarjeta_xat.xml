@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="16sp"
             android:layout_marginStart="32sp"
-            android:text="Username"
+            android:text=""
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"

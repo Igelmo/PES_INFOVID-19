@@ -11,4 +11,8 @@
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
+    <style name="SwitchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlActivated">#303F9F</item>
+    </style>
+
 </resources>

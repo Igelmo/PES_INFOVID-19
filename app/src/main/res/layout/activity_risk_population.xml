@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginVertical="16dp"
+        android:drawableStart="@drawable/ic_baseline_build_buttons_24"
         android:text="@string/administrar_poblaci_de_risc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

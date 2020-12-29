@@ -15,16 +15,28 @@
         app:title="Modificar població de risc"
         app:titleTextColor="@android:color/background_light" />
 
-    <EditText
-        android:id="@+id/titleTextEditRiskPopulation"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/editRiskPopulationButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarEditRiskPopulation" />
+        app:layout_constraintTop_toBottomOf="@id/toolbarEditRiskPopulation">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/titleTextEditRiskPopulation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/editRiskPopulationButton"

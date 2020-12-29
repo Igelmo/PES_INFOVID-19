@@ -15,52 +15,62 @@
         app:title="@string/crear_nova_prova_m_dica"
         app:titleTextColor="@android:color/background_light" />
 
-    <EditText
-        android:id="@+id/titleTextTestType"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:hint="@string/nom_de_la_prova_m_dica"
-        app:layout_constraintBottom_toTopOf="@id/textTestType"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarCreateTestType" />
-
-    <EditText
-        android:id="@+id/textTestType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:hint="@string/descripci_del_tipus_de_prova_m_dica"
-        app:layout_constraintBottom_toTopOf="@id/dateTestType"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextTestType" />
-
-    <EditText
-        android:id="@+id/dateTestType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:hint="@string/data_de_publicaci"
-        android:text="Data: "
-        app:layout_constraintBottom_toTopOf="@id/sourceTestType"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textTestType" />
-
-    <EditText
-        android:id="@+id/sourceTestType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:hint="@string/font_de_la_publicaci"
-        android:text="Font: "
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/createNewTestTypeButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateTestType" />
+        app:layout_constraintTop_toBottomOf="@id/toolbarCreateTestType">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/titleTextTestType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:hint="@string/nom_de_la_prova_m_dica"
+                app:layout_constraintBottom_toTopOf="@id/textTestType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/textTestType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:hint="@string/descripci_del_tipus_de_prova_m_dica"
+                app:layout_constraintBottom_toTopOf="@id/dateTestType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleTextTestType" />
+
+            <EditText
+                android:id="@+id/dateTestType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:hint="@string/data_de_publicaci"
+                android:text="Data: "
+                app:layout_constraintBottom_toTopOf="@id/sourceTestType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textTestType" />
+
+            <EditText
+                android:id="@+id/sourceTestType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:hint="@string/font_de_la_publicaci"
+                android:text="Font: "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateTestType" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/createNewTestTypeButton"

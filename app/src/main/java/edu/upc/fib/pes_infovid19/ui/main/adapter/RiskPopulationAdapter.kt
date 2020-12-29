@@ -53,6 +53,7 @@ class RiskPopulationAdapter(
             itemView.textdropdown.isVisible = !admin && isExpanded
             itemView.datedropdown.isVisible = !admin && isExpanded
             itemView.sourcedropdown.isVisible = !admin && isExpanded
+            itemView.imageDropDown.isVisible = !admin && isExpanded
         }
     }
 }

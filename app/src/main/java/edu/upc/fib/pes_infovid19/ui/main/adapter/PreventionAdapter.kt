@@ -61,7 +61,7 @@ class PreventionAdapter(
             itemView.textdropdown.text = prevention.text
             itemView.imageDropDown.load(prevention.image)
             if (!admin) {
-                itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
+                itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_up_24 else R.drawable.ic_baseline_keyboard_arrow_down_24)
             }
             itemView.editButton.isVisible = admin
             itemView.deleteButton.isVisible = admin

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.RiskPopulationActivity">
+    tools:context=".ui.main.activity.health.information.RiskPopulationActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarRiskPopulation"
@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/go_back_icon"
-        app:title="@string/informaci_rellevant"
+        app:title="@string/consultar_poblaci_de_risc"
         app:titleTextColor="@android:color/background_light" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -25,11 +25,23 @@
         android:paddingTop="16dp"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/manageRiskPopulationButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarRiskPopulation"
         tools:itemCount="40"
         tools:listitem="@layout/drop_down_textview_item" />
+
+    <Button
+        android:id="@+id/manageRiskPopulationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="32dp"
+        android:text="@string/administrar_poblaci_de_risc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewRiskPopulation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

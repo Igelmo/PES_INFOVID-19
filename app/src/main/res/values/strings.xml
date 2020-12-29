@@ -26,6 +26,7 @@
     <string name="boton_pdf">Envia</string>
     <string name="anterior_erte">Anterior</string>
     <string name="guardadPdf"> Guardar</string>
+    <string name="info">Informació</string>
     <string name="direccio_centre">Direcció </string>
     <string name="codi_postal_centre">Codi Postal</string>
     <string name="cerca_centre"> Centre hospitalari mes proper </string>
@@ -74,5 +75,51 @@
     <string name="string_text_info2_infection">Si tens una probabilitat normal o superior et\nrecomanem contactar amb el centre hospitalari\nmés proper a la teva localització</string>
     <string name="string_text_info3_infection">o truquis al</string>
     <string name="string_text_info4_infection">Si vols, pots fer també el test per veure\nsi ets vulnerable</string>
+    <string name="administrar_mites">Administrar mites</string>
+    <string name="crear_nou_mite">Crear nou mite</string>
+    <string name="titol_del_mite">Titol del mite</string>
+    <string name="descripci_del_mite">Descripció del mite</string>
+    <string name="data_de_publicaci">Data de publicació</string>
+    <string name="font_de_la_publicaci">Font de la publicació</string>
+    <string name="guardar_canvis">Guardar canvis</string>
+    <string name="administrar_tipus_de_proves">Administrar tipus de proves</string>
+    <string name="descripci_del_tipus_de_prova_m_dica">descripció del tipus de prova mèdica</string>
+    <string name="nom_de_la_prova_m_dica">Nom de la prova mèdica</string>
+    <string name="crear_nova_prova_m_dica">crear nova prova mèdica</string>
+    <string name="administrar_prevenci_de_riscos">Administrar prevenció de riscos</string>
+    <string name="crear_nova_prevenci">Crear nova prevenció</string>
+    <string name="titol_de_la_prevenci_de_risc">Titol de la prevenció de risc</string>
+    <string name="titol_de_la_prevenci">Titol de la prevenció</string>
+    <string name="url_de_la_imatge_que_es_vulgui_adjuntar">URL de la imatge que es vulgui adjuntar</string>
+    <string name="modifica_prevenci_de_riscos">Modifica prevenció de riscos</string>
+    <string name="administrar_poblaci_de_risc">Administrar població de risc</string>
+    <string name="crear_nova_poblaci_de_risc">Crear nova població de risc</string>
+    <string name="nom_de_la_poblaci_de_risc">Nom de la població de risc</string>
+    <string name="escribe_un_mensaje">Escribe un mensaje</string>
+    <string name="enviar">Enviar</string>
+    <string name="text_de_la_nova_pregunta">Text de la nova pregunta</string>
+    <string name="administrar_preguntes_del_test">Administrar preguntes del test</string>
+    <string name="bot_per_a_editar_la_pregunta">Botó per a editar la pregunta</string>
+    <string name="boto_per_a_esborrar_la_pregunta">Boto per a esborrar la pregunta</string>
+    <string name="bot_per_afegir_pregunta">Botó per afegir pregunta</string>
+    <string name="punts_de_la_nova_pregunta">punts de la nova pregunta</string>
+    <string name="boto_per_finalitzar_la_edicio">Boto per finalitzar la edicio</string>
+    <string name="text_de_la_pregunta">Text de la pregunta</string>
+    <string name="boto_que_cancela_la_edicio">boto que cancela la edicio</string>
+    <string name="punts_de_la_pregunta">punts de la pregunta</string>
+    <string name="molt_baixa">Molt baixa</string>
+    <string name="baixa">Baixa</string>
+    <string name="normal">Normal</string>
+    <string name="alta">Alta</string>
+    <string name="molt_alta">Molt alta</string>
+    <string name="delete">Delete</string>
+    <string name="button">Button</string>
+    <string name="cerca_a_alg">Cerca a algú</string>
+    <string name="cerca">Cerca</string>
+    <string-array name="types">
+        <item>salut</item>
+        <item>economica</item>
+        <item>social</item>
+    </string-array>
     <string name="title_activity_center">Map</string>
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MythsActivity">
+    tools:context=".ui.main.activity.health.information.MythsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMyths"
@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/go_back_icon"
-        app:title="@string/informaci_rellevant"
+        app:title="@string/mites_sobre_el_covid"
         app:titleTextColor="@android:color/background_light" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -28,8 +28,19 @@
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@+id/toolbarMyths"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:itemCount="40"
+        app:layout_constraintBottom_toTopOf="@id/manageMythsButton"
         tools:listitem="@layout/drop_down_textview_item" />
+
+    <Button
+        android:id="@+id/manageMythsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="32dp"
+        android:text="@string/administrar_mites"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewMyths" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

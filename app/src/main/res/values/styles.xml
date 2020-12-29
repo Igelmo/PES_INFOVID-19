@@ -15,4 +15,8 @@
         <item name="colorControlActivated">#303F9F</item>
     </style>
 
+    <style name="ProgressBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlActivated">#1A237E</item>
+    </style>
+
 </resources>

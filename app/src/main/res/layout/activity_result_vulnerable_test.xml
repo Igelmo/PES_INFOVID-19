@@ -24,6 +24,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:progressDrawable="@drawable/circle"
+        android:theme="@style/ProgressBarTheme"
         android:rotation="-90"
         android:progress="0"
         app:layout_constraintBottom_toTopOf="@id/progressBar2"
@@ -59,8 +60,11 @@
 
     <Button
         android:id="@+id/buttonChat"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32sp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:text="@string/string_button_chat"
         app:layout_constraintBottom_toTopOf="@id/textInfo2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,13 +73,14 @@
 
     <Button
         android:id="@+id/buttonTest"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32sp"
+        android:layout_marginVertical="16sp"
         android:text="@string/string_button_test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonChat" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
@@ -107,8 +112,11 @@
 
     <TextView
         android:id="@+id/textInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32sp"
+        android:gravity="center"
+        android:textSize="16sp"
         android:text="@string/string_info_ajuda_voluntari"
         app:layout_constraintBottom_toTopOf="@id/buttonChat"
         app:layout_constraintEnd_toEndOf="@id/buttonChat"
@@ -117,8 +125,10 @@
 
     <TextView
         android:id="@+id/textInfo2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32sp"
+        android:gravity="center"
         android:text="@string/string_test_contagi"
         app:layout_constraintBottom_toTopOf="@id/buttonTest"
         app:layout_constraintStart_toStartOf="@id/textInfo"

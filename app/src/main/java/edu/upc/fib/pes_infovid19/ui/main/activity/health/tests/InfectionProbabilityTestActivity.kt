@@ -54,8 +54,6 @@ class InfectionProbabilityTestActivity : AppCompatActivity() {
             })
         }
         buttonCheckProbability.setOnClickListener {
-            val intent = Intent(this, ResultInfectionProbabilityTestActivity::class.java)
-            startActivity(intent)
             generateInfectionResult()
         }
 

@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener
 import edu.upc.fib.pes_infovid19.R
 import edu.upc.fib.pes_infovid19.ui.main.activity.economic.ErteActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.HealthMenuActivity
-import edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter.HospitalCenterActivity
+import edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter.CenterActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.tests.InfectionProbabilityTestActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.health.tests.VulnerableTestActivity
 import edu.upc.fib.pes_infovid19.ui.main.activity.social.ChatListActivity
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonCentreHospitalari.setOnClickListener {
-            val intent = Intent(this, HospitalCenterActivity::class.java)
+            val intent = Intent(this, CenterActivity::class.java)
             startActivity(intent)
         }
 

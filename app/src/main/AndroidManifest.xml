@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,10 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.activity.user.ModifyPermissionsActivity"></activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".ui.main.activity.user.ModifyPermissionsActivity" />
         <activity android:name=".ui.main.activity.user.AdminMainActivity" />
         <activity android:name=".ui.main.activity.user.CreateNewAdminActivity" />
-        <activity android:name=".ui.main.activity.user.AdminMain" />
         <activity android:name=".ui.main.activity.health.tests.ManageQuestionsVulnerabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.tests.ManageQuestionsProbabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.information.EditRiskPopulationActivity" />
@@ -53,6 +57,7 @@
         <activity android:name=".ui.main.activity.user.UserProfileActivity" />
         <activity android:name=".ui.main.activity.health.tests.InfectionProbabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.hospitalcenter.HospitalCenterActivity" />
+        <activity android:name=".ui.main.activity.health.hospitalcenter.CenterActivity" />
         <activity android:name=".ui.main.activity.health.information.MythsActivity" />
         <activity android:name=".ui.main.activity.user.ChangePasswordActivity" />
         <activity

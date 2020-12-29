@@ -5,14 +5,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import edu.upc.fib.pes_infovid19.R
 import edu.upc.fib.pes_infovid19.ui.main.activity.MainActivity
-import edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter.HospitalCenterActivity
-import edu.upc.fib.pes_infovid19.ui.main.CenterActivity
+//import edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter.HospitalCenterActivity
+import edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter.CenterActivity
 import kotlinx.android.synthetic.main.activity_result_infection_probability_test.*
 
 class ResultInfectionProbabilityTestActivity : AppCompatActivity() {

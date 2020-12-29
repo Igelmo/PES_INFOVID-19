@@ -88,7 +88,7 @@ class ChatListActivity : AppCompatActivity() {
     }
 
     fun anarXat(v: View) {
-        val xat = v.buttonNom.text.toString()
+        val xat = v.userNameXat.text.toString()
         val intent = Intent(this, ChatActivity::class.java)
         intent.putExtra("xat", xat)
         intent.putExtra("nombre", nom)
@@ -96,11 +96,11 @@ class ChatListActivity : AppCompatActivity() {
     }
 
     fun borrarXat(v: View) {
-        val xat = v.buttonBorra.hint.toString()
-        val mDatabase = FirebaseDatabase.getInstance().reference.child("xatinfovid19").child(nom).child(xat)
-        mDatabase.removeValue()
-        val intent = Intent(this, ChatListActivity::class.java)
-        startActivity(intent)
+        //val xat = v.buttonDeleteXat.hint.toString()
+        //val mDatabase = FirebaseDatabase.getInstance().reference.child("xatinfovid19").child(nom).child(xat)
+        //mDatabase.removeValue()
+        //val intent = Intent(this, ChatListActivity::class.java)
+        //startActivity(intent)
     }
 
     fun buscaPersona(v: View) {

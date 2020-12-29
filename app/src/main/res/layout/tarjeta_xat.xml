@@ -4,51 +4,54 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginBottom="16dp"
-    app:cardCornerRadius="4dp">
+    android:layout_marginVertical="16dp"
+    android:onClick="anarXat"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
+    app:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorDropDownPrimaryBackground">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/userNameXat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="horizontal"
+            android:layout_marginVertical="16sp"
+            android:layout_marginStart="32sp"
+            android:text="Username"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/lastMessageXat"
+            app:layout_constraintEnd_toStartOf="@id/buttonDeleteXat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/buttonDeleteXat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="8sp"
+            android:layout_marginEnd="32sp"
+            android:background="@android:color/transparent"
+            android:onClick="borrarXat"
+            android:src="@drawable/ic_baseline_delete_white_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userNameXat"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lastMessageXat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16sp"
+            android:layout_marginVertical="16sp"
+            android:text="ultim missatge"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/buttonNom"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:onClick="anarXat"
-                    android:text="@string/button"
-                    android:textAllCaps="false" />
-
-
-                <Button
-                    android:id="@+id/buttonBorra"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:onClick="borrarXat"
-                    android:text="@string/delete"
-                    android:textAllCaps="false" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

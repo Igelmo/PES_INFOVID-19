@@ -50,10 +50,10 @@ class RiskPopulationAdapter(
             itemView.editButton.isVisible = admin
             itemView.deleteButton.isVisible = admin
             itemView.arrowDropDown.isVisible = false
-            itemView.textdropdown.isVisible = !admin && isExpanded
-            itemView.datedropdown.isVisible = !admin && isExpanded
-            itemView.sourcedropdown.isVisible = !admin && isExpanded
-            itemView.imageDropDown.isVisible = !admin && isExpanded
+            itemView.textdropdown.isVisible = false
+            itemView.datedropdown.isVisible = false
+            itemView.sourcedropdown.isVisible = false
+            itemView.imageDropDown.isVisible = false
         }
     }
 }

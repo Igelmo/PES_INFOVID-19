@@ -44,7 +44,7 @@
     <string name="fer_test_de_vulnerabilitat">Fer test de Vulnerabilitat</string>
     <string name="preparar_reclamaci_erte">Preparar reclamació ERTE</string>
     <string name="tittleMainMenu"><![CDATA[Benvingut/da <Usuari>]]></string>
-    <string name="subTitleMainMenu">Que vols fer?</string>
+    <string name="subTitleMainMenu">Què vols fer?</string>
     <string name="fab_xat_descriptor">Xat</string>
     <string name="perfil_d_usuari">Perfil usuari</string>
     <string name="l_all_prev_el_contagi">L\'all prevé el contagi</string>

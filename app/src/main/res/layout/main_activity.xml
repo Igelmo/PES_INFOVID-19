@@ -123,7 +123,7 @@
         android:layout_margin="16dp"
         android:contentDescription="@string/fab_xat_descriptor"
         android:src="@drawable/ic_baseline_chat_bubble_24"
-        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:backgroundTint="@color/colorPrimaryDark"
         app:maxImageSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -137,8 +137,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/fab_xat_descriptor"
-        android:src="@android:drawable/ic_menu_preferences"
-        app:backgroundTint="#FFFFFF"
+
+        android:src="@drawable/ic_baseline_build_24"
+        app:backgroundTint="@color/colorDropDownPrimaryBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="40dp" />

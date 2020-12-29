@@ -302,7 +302,7 @@
         android:backgroundTint="@color/design_default_color_primary_dark"
         android:contentDescription="@string/fab_xat_descriptor"
         android:onClick="info"
-        android:src="@drawable/ic_baseline_info_24"
+        android:src="@drawable/ic_baseline_info_fab_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="40dp" />

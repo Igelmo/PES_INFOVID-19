@@ -36,17 +36,12 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_center)
         setSupportActionBar(toolbar5)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         coder = Geocoder(this)
         fetchLocation()
-
-
-
     }
 
     private fun fetchLocation() {
@@ -65,7 +60,6 @@ class CenterActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.addMarker(MarkerOptions().position(pos).title("Sóc aquí"))
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 20.0f))
                 val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)!!
-
                 supportMapFragment.getMapAsync(this)
             }
         }

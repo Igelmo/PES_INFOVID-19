@@ -37,7 +37,7 @@ class MythsAdapter(private val isAdmin: Boolean, private val onEditListener: (My
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, myth.title)
-            shareIntent.putExtra(Intent.EXTRA_TEXT, myth.text)
+            shareIntent.putExtra(Intent.EXTRA_TEXT, myth.text + "\n \n Aplicació Infovid-19")
             shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
             shareIntent.type = "text/plain"
             startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)

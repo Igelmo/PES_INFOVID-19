@@ -45,7 +45,7 @@ class PreventionAdapter(
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, prevention.title)
-            shareIntent.putExtra(Intent.EXTRA_TEXT, prevention.text)
+            shareIntent.putExtra(Intent.EXTRA_TEXT, prevention.text + "\n \n Aplicació Infovid-19")
             shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
             shareIntent.type = "text/plain"
             ContextCompat.startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)

@@ -38,7 +38,7 @@ class TestTypeAdapter(private val isAdmin: Boolean, private val onEditListener: 
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, testType.name)
-            shareIntent.putExtra(Intent.EXTRA_TEXT, testType.description + "\n\n" + testType.procedure)
+            shareIntent.putExtra(Intent.EXTRA_TEXT, testType.description + "\n\n" + testType.procedure + "\n \n Aplicació Infovid-19")
             shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
             shareIntent.type = "text/plain"
             ContextCompat.startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)

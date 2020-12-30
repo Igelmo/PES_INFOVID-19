@@ -39,7 +39,7 @@ class RiskPopulationAdapter(
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Ets una persona de risc si davant el Coronavirus si...")
-            shareIntent.putExtra(Intent.EXTRA_TEXT, riskPopulation.risk)
+            shareIntent.putExtra(Intent.EXTRA_TEXT, riskPopulation.risk + "\n \n Aplicació Infovid-19")
             shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
             shareIntent.type = "text/plain"
             ContextCompat.startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)

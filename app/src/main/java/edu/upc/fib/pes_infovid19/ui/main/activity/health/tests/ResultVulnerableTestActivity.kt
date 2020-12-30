@@ -1,5 +1,6 @@
 package edu.upc.fib.pes_infovid19.ui.main.activity.health.tests
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -34,9 +35,9 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
         val resultEconomic = intent.getDoubleExtra(PERCENT_ECONOMIC_EXTRA, 0.0).toInt()
         val resultSocial = intent.getDoubleExtra(PERCENT_SOCIAL_EXTRA, 0.0).toInt()
 
-        progressBar.progress = resultHealth
-        progressBar2.progress = resultEconomic
-        progressBar3.progress = resultSocial
+        ObjectAnimator.ofInt(progressBar, "progress", resultHealth).setDuration(800).start()
+        ObjectAnimator.ofInt(progressBar2, "progress", resultEconomic).setDuration(800).start()
+        ObjectAnimator.ofInt(progressBar3, "progress", resultSocial).setDuration(800).start()
 
         textResultSalut.text = "Vulnerabilitat d'un $resultHealth%\nen salut."
         textResultEconomic.text = "Vulnerabilitat d'un $resultEconomic%\neconòmicament."

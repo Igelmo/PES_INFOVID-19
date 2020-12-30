@@ -13,7 +13,8 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result_vulnerable_test)
-        PrintResult()
+        printResult()
+
         toolbarResultVulnerable.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -28,7 +29,7 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
         }
     }
 
-    private fun PrintResult() {
+    private fun printResult() {
         val resultHealth = intent.getDoubleExtra(PERCENT_HEALTH_EXTRA, 0.0).toInt()
         val resultEconomic = intent.getDoubleExtra(PERCENT_ECONOMIC_EXTRA, 0.0).toInt()
         val resultSocial = intent.getDoubleExtra(PERCENT_SOCIAL_EXTRA, 0.0).toInt()

@@ -67,8 +67,9 @@ class MythsAdapter(private val isAdmin: Boolean, private val onEditListener: (My
             itemView.textdropdown.isVisible = !admin && isExpanded
             itemView.datedropdown.isVisible = !admin && isExpanded
             itemView.sourcedropdown.isVisible = !admin && isExpanded
-            itemView.imageDropDown.isVisible = false
             itemView.shareButton.isVisible = !admin && isExpanded
+            itemView.imageDropDown.isVisible = false
+            itemView.shareButtonOut.isVisible = false
         }
     }
 }

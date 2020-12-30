@@ -1,7 +1,9 @@
 package edu.upc.fib.pes_infovid19.ui.main.adapter
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -38,6 +40,15 @@ class PreventionAdapter(
         holder.itemView.deleteButton.setOnClickListener {
             _preventions -= prevention
             notifyItemRemoved(position)
+        }
+        holder.itemView.shareButton.setOnClickListener {
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, prevention.title)
+            shareIntent.putExtra(Intent.EXTRA_TEXT, prevention.text)
+            shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
+            shareIntent.type = "text/plain"
+            ContextCompat.startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)
         }
     }
 

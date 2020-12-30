@@ -1,7 +1,9 @@
 package edu.upc.fib.pes_infovid19.ui.main.adapter
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
@@ -31,6 +33,15 @@ class TestTypeAdapter(private val isAdmin: Boolean, private val onEditListener: 
         }
         holder.itemView.deleteButton.setOnClickListener {
             onDeleteListener(testType.id)
+        }
+        holder.itemView.shareButton.setOnClickListener {
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, testType.name)
+            shareIntent.putExtra(Intent.EXTRA_TEXT, testType.description + "\n\n" + testType.procedure)
+            shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
+            shareIntent.type = "text/plain"
+            ContextCompat.startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)
         }
     }
 

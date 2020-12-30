@@ -70,6 +70,7 @@ class PreventionAdapter(
             itemView.textdropdown.isVisible = !admin && isExpanded
             itemView.datedropdown.isVisible = !admin && isExpanded
             itemView.sourcedropdown.isVisible = !admin && isExpanded
+            itemView.shareButton.isVisible = !admin && isExpanded
         }
     }
 }

@@ -59,6 +59,7 @@ class TestTypeAdapter(private val isAdmin: Boolean, private val onEditListener: 
             itemView.datedropdown.isVisible = !admin && isExpanded
             itemView.sourcedropdown.isVisible = !admin && isExpanded
             itemView.imageDropDown.isVisible = !admin && isExpanded
+            itemView.shareButton.isVisible = !admin && isExpanded
         }
     }
 }

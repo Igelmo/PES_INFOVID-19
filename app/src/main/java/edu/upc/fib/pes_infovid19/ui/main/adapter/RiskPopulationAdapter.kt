@@ -54,6 +54,7 @@ class RiskPopulationAdapter(
             itemView.datedropdown.isVisible = false
             itemView.sourcedropdown.isVisible = false
             itemView.imageDropDown.isVisible = false
+            itemView.shareButton.isVisible = !admin
         }
     }
 }

@@ -18,4 +18,47 @@
         app:title="@string/centre_hospitalari_m_s_proper"
         app:titleTextColor="@android:color/background_light" />
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16sp"
+        android:layout_marginTop="100sp"
+        android:layout_marginBottom="160sp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCentreHospitalari" />
+
+    <TextView
+        android:id="@+id/hospitalName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/map" />
+
+    <TextView
+        android:id="@+id/hospitalLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hospitalName" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16sp"
+        android:layout_marginVertical="8sp"
+        android:background="@color/colorPrimaryDark"
+        android:drawableStart="@drawable/ic_baseline_call_24"
+        android:text="@string/truca"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hospitalLocation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

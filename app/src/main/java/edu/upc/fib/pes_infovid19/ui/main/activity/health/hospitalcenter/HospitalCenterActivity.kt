@@ -31,8 +31,6 @@ class HospitalCenterActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val permissionCode = 101
     private var hospitalPhone = ""
-    private var hospitalAddress = ""
-    private var hospitalName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,7 +95,7 @@ class HospitalCenterActivity : AppCompatActivity(), OnMapReadyCallback {
             .rankby(RankBy.DISTANCE)
             .type(PlaceType.HOSPITAL)
             .openNow(true)
-            .keyword("hospital public mes a prop")
+            .keyword("hospital public a prop meu")
             .await()
         return request.results.map {
             PlacesApi.placeDetails(searchContext, it.placeId).fields(

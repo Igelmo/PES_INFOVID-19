@@ -1,8 +1,7 @@
-package edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter
+ package edu.upc.fib.pes_infovid19.ui.main.activity.health.hospitalcenter
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.widget.TextView
@@ -15,23 +14,29 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.maps.GeoApiContext
+import com.google.maps.PlacesApi
+import com.google.maps.model.LatLng
+import com.google.maps.model.PlaceType
+import com.google.maps.model.PlacesSearchResponse
+import com.google.maps.model.RankBy
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.activity_hospital_center.*
+import com.google.android.gms.maps.model.LatLng as GmsLatLng
 
 
-class HospitalCenterActivity : AppCompatActivity(), OnMapReadyCallback {
+ class HospitalCenterActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var currentLocation: Location
-    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private val permissionCode = 101
+     private lateinit var currentLocation: Location
+     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+     private val permissionCode = 101
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hospital_center)
-        setSupportActionBar(toolbarCentreHospitalari)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_hospital_center)
+         setSupportActionBar(toolbarCentreHospitalari)
+         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         fetchLocation()
@@ -67,20 +72,31 @@ class HospitalCenterActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    override fun onMapReady(googleMap: GoogleMap?) {
-        val geocoder = Geocoder(this)
-        val list = geocoder.getFromLocationName("Hospital", 5, currentLocation.latitude - 30f, currentLocation.longitude - 30f, currentLocation.latitude + 30f, currentLocation.longitude + 30f)
-        val latLng = LatLng(list[0].latitude, list[0].longitude)
-        val localizationHospital: TextView = findViewById(R.id.hospitalLocation)
-        val nameHospital: TextView = findViewById(R.id.hospitalName)
-        localizationHospital.text = list[0].getAddressLine(0)
-        nameHospital.text = list[0].phone
+     private fun nearbySearch(): PlacesSearchResponse {
 
-        val markerOptions = MarkerOptions().position(latLng).title("Hospital més proper!")
-        googleMap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
-        googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
-        googleMap?.addMarker(markerOptions)
-    }
+         val searchContext = GeoApiContext.Builder().apiKey("AIzaSyBrZKY5DQjUK8X6TjrOUKjtkZmrvikYUdk").build()
+         val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
+
+         val request = PlacesApi.nearbySearchQuery(searchContext, latLng)
+             .rankby(RankBy.DISTANCE)
+             .type(PlaceType.HOSPITAL)
+             .keyword("hospital mes proper")
+             .await()
+         return request
+     }
+
+
+     override fun onMapReady(googleMap: GoogleMap?) {
+         val placesSearchResults = nearbySearch().results
+
+         val localizationHospital: TextView = findViewById(R.id.hospitalLocation)
+         val nameHospital: TextView = findViewById(R.id.hospitalName)
+         localizationHospital.text = placesSearchResults[0].vicinity
+         nameHospital.text = placesSearchResults[0].name
+         val locationHospital = GmsLatLng(placesSearchResults[0].geometry.location.lat, placesSearchResults[0].geometry.location.lng)
+         googleMap?.addMarker(MarkerOptions().position(locationHospital).title("Hospital més proper"))
+         googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(GmsLatLng(placesSearchResults[0].geometry.location.lat, placesSearchResults[0].geometry.location.lng), 17.0f))
+     }
 
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String?>,

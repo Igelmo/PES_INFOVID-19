@@ -21,11 +21,11 @@ private var user = User()
 
 class SigninGoogleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        filldata()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin_google)
         setSupportActionBar(toolbarsignin)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        filldata()
         setupsignin()
     }
 
@@ -48,11 +48,9 @@ class SigninGoogleActivity : AppCompatActivity() {
             }
         })
         var et = findViewById<EditText>(R.id.emailEditTextSigninGoogle)
-        if (et != null) {
-            et.text = FirebaseAuth.getInstance().currentUser!!.email!!.toEditable()
-            et = findViewById<EditText>(R.id.nameEditTextSigninGoogle)
-            et.text = FirebaseAuth.getInstance().currentUser!!.displayName!!.toEditable()
-        }
+        et.text = FirebaseAuth.getInstance().currentUser!!.email!!.toEditable()
+        et = findViewById<EditText>(R.id.nameEditTextSigninGoogle)
+        et.text = FirebaseAuth.getInstance().currentUser!!.displayName!!.toEditable()
     }
 
     private fun goToMain() {

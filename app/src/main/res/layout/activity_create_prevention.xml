@@ -15,47 +15,60 @@
         app:title="@string/crear_nova_prevenci"
         app:titleTextColor="@android:color/background_light" />
 
-    <EditText
-        android:id="@+id/titleTextPrevention"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="36dp"
-        android:hint="@string/titol_de_la_prevenci"
-        app:layout_constraintBottom_toTopOf="@id/textPrevention"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarCreatePrevention" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/createNewPreventionButton"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCreatePrevention">
 
-    <EditText
-        android:id="@+id/textPrevention"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="36dp"
-        android:hint="Descripció de la prevenció"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextPrevention" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/urlimage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="36dp"
-        android:hint="@string/url_de_la_imatge_que_es_vulgui_adjuntar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textPrevention" />
+            <EditText
+                android:id="@+id/titleTextPrevention"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="36dp"
+                android:hint="@string/titol_de_la_prevenci"
+                app:layout_constraintBottom_toTopOf="@id/textPrevention"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/textPrevention"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="36dp"
+                android:hint="Descripció de la prevenció"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleTextPrevention" />
+
+            <EditText
+                android:id="@+id/urlimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="36dp"
+                android:hint="@string/url_de_la_imatge_que_es_vulgui_adjuntar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textPrevention" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/createNewPreventionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="32dp"
+        android:layout_marginVertical="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:text="@string/crear_nova_prevenci"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textPrevention" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

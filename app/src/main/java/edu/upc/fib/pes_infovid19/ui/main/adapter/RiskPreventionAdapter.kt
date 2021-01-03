@@ -58,7 +58,7 @@ class RiskPreventionAdapter(
             }
             itemView.recyclerViewDropdown.adapter = recyclerAdapter
             if (!admin) {
-                itemView.arrowDropDown2.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
+                itemView.arrowDropDown2.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_up_24 else R.drawable.ic_baseline_keyboard_arrow_down_24)
                 itemView.recyclerViewDropdown.isVisible = isExpanded
             }
             itemView.editButton2.isVisible = admin

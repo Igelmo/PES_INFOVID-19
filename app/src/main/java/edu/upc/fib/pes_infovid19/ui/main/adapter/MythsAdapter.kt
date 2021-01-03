@@ -47,7 +47,7 @@ class MythsAdapter(private val isAdmin: Boolean, private val onEditListener: (My
             itemView.datedropdown.text = myth.date
             itemView.sourcedropdown.text = myth.source
             if (!admin) {
-                itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
+                itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_up_24 else R.drawable.ic_baseline_keyboard_arrow_down_24)
                 itemView.textdropdown.isVisible = isExpanded
             }
             itemView.editButton.isVisible = admin
@@ -56,7 +56,7 @@ class MythsAdapter(private val isAdmin: Boolean, private val onEditListener: (My
             itemView.textdropdown.isVisible = !admin && isExpanded
             itemView.datedropdown.isVisible = !admin && isExpanded
             itemView.sourcedropdown.isVisible = !admin && isExpanded
-
+            itemView.imageDropDown.isVisible = !admin && isExpanded
         }
     }
 }

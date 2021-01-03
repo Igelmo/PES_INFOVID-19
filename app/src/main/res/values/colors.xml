@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorDropDownExpandBackground">#FFFFFF</color>
-    <color name="colorDropDownPrimaryBackground">#BBB3DC</color>
-    <!--    <color name="colorDropDownExpandBackground">#CCCCCC</color>
-        <color name="colorDropDownPrimaryBackground">#A1A1A1</color> -->
-    <color name="colorMainDropDown">#6860D1</color>
+    <color name="colorPrimary">#303F9F</color>
+    <color name="colorPrimaryDark">#1A237E</color>
+    <color name="colorAccent">#303F9F</color>
+    <color name="colorDropDownExpandBackground">#C5CAE9</color>
+    <color name="colorDropDownPrimaryBackground">#7986CB</color>
+    <color name="colorMainDropDown">#3F51B5</color>
     <color name="colorDropDownText">#000000</color>
 </resources>

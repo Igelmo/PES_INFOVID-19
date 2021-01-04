@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import edu.upc.fib.pes_infovid19.R
 import edu.upc.fib.pes_infovid19.ui.main.activity.MainActivity
-import edu.upc.fib.pes_infovid19.ui.main.activity.social.ChatActivity
+import edu.upc.fib.pes_infovid19.ui.main.activity.social.ChatListActivity
 import kotlinx.android.synthetic.main.activity_result_vulnerable_test.*
 
 class ResultVulnerableTestActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class ResultVulnerableTestActivity : AppCompatActivity() {
             startActivity(intent)
         }
         buttonChat.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
+            val intent = Intent(this, ChatListActivity::class.java)
             startActivity(intent)
         }
         buttonTest.setOnClickListener {

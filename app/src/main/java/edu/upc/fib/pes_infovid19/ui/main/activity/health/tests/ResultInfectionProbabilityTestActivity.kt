@@ -38,7 +38,7 @@ class ResultInfectionProbabilityTestActivity : AppCompatActivity() {
     }
 
     private fun PrintInfectionResult() {
-        val perc = intent.getDoubleExtra("PERCENT_EXTRA", 0.0)
+        val perc = intent.getDoubleExtra("PERCENT_EXTRA", 0.0) * 100
         when (perc) {
             in 0.0..12.0 -> textResultInfection.text = getString(R.string.molt_baixa)
             in 12.0..27.5 -> textResultInfection.text = getString(R.string.baixa)

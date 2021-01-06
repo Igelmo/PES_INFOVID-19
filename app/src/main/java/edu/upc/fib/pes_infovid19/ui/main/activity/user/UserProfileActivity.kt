@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -31,13 +32,20 @@ class UserProfileActivity : AppCompatActivity() {
             val mDatabase = FirebaseDatabase.getInstance().reference.child("User").orderByChild("email").equalTo(Email)
             mDatabase.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var provider = ""
                     for (snapshot in dataSnapshot.children) {
                         admin = snapshot.child("type").getValue(String::class.java)!!
+                        provider = snapshot.child("provider").getValue(String::class.java)!!
                     }
                     if (admin == "Admin") {
                         adminradioButtonProfile.visibility = View.VISIBLE
                     } else {
                         adminradioButtonProfile.visibility = View.INVISIBLE
+                    }
+                    if (provider == "google") {
+                        changePasswordButton.visibility = View.INVISIBLE
+                    } else if (provider == "app") {
+                        changePasswordButton.visibility = View.VISIBLE
                     }
                 }
 
@@ -68,8 +76,8 @@ class UserProfileActivity : AppCompatActivity() {
     private fun saveProfileChanges() {
         var et = findViewById<EditText>(R.id.emailEditTextProfile)
         var email = et.text.toString()
-        et = findViewById<EditText>(R.id.usernameEditTextProfile)
-        var username = et.text.toString()
+        var etn = findViewById<TextView>(R.id.usernameEditTextProfile)
+        var username = etn.text.toString()
         et = findViewById<EditText>(R.id.nameEditTextProfile)
         var name = et.text.toString()
         var type = ""
@@ -130,10 +138,10 @@ class UserProfileActivity : AppCompatActivity() {
                     name = snapshot.child("name").getValue(String::class.java)!!
                     type = snapshot.child("type").getValue(String::class.java)!!
                 }
-                var et = findViewById<EditText>(R.id.usernameEditTextProfile)
-                et.text = userN.toEditable()
+                var etp = findViewById<TextView>(R.id.usernameEditTextProfile)
+                etp.text = userN
 
-                et = findViewById<EditText>(R.id.emailEditTextProfile)
+                var et = findViewById<EditText>(R.id.emailEditTextProfile)
                 et.text = email?.toEditable()
 
                 et = findViewById<EditText>(R.id.nameEditTextProfile)

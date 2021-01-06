@@ -133,7 +133,7 @@ class LoginActivity : AppCompatActivity() {
                     FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
 
                         if (it.isSuccessful) {
-                            val intent = Intent(this, MainActivity::class.java)
+                            val intent = Intent(this, SigninGoogleActivity::class.java)
                             startActivity(intent)
                         } else {
                             showAlert()

@@ -116,6 +116,7 @@
     <string name="infovid_19">Infovid-19</string>
     <string name="la_teva_probabilitat_d_haver_te_contagiat_s">La teva probabilitat d\'haver-te contagiat és</string>
     <string name="comprovar_vulnerabilitat">Comprovar vulnerabilitat</string>
+    <string name="truca">truca a l\'hospital</string>
     <string-array name="types">
         <item>salut</item>
         <item>economica</item>

@@ -99,7 +99,7 @@ class ChatListActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun borrarXat(v: View) {
-        val xat = v.buttonDeleteXat.tooltipText.toString()
+        val xat = v.buttonDeleteXat.hint.toString()
         val mDatabase = FirebaseDatabase.getInstance().reference.child("xatinfovid19").child(nom).child(xat)
         mDatabase.removeValue()
         val intent = Intent(this, ChatListActivity::class.java)

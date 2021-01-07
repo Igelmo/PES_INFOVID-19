@@ -13,8 +13,8 @@ import kotlinx.android.synthetic.main.tarjeta_mensaje.view.*
 import kotlinx.android.synthetic.main.tarjeta_xat.view.*
 import java.util.*
 
-class ListaXatAdapter(val c: Context) : RecyclerView.Adapter<ListaXatAdapter.HolderXat>() {
-    private var ListaXats: ArrayList<String> = ArrayList<String>()
+class ListaXatAdapter(val c: Context, private val onEditListener: () -> Unit = {}) : RecyclerView.Adapter<ListaXatAdapter.HolderXat>() {
+    private var ListaXats: ArrayList<String> = ArrayList()
 
 
     fun addPerson(name: String) {
@@ -33,7 +33,7 @@ class ListaXatAdapter(val c: Context) : RecyclerView.Adapter<ListaXatAdapter.Hol
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: HolderXat, position: Int) {
         holder.itemView.userNameXat.text = ListaXats[position]
-        holder.itemView.buttonDeleteXat.tooltipText = ListaXats[position]
+        holder.itemView.buttonDeleteXat.hint = ListaXats[position]
     }
 
     class HolderXat(view: View) : RecyclerView.ViewHolder(view) {

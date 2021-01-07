@@ -15,50 +15,62 @@
         app:title="@string/modifica_prevenci_de_riscos"
         app:titleTextColor="@android:color/background_light" />
 
-    <EditText
-        android:id="@+id/editTitleTextRiskPrevention"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:hint="@string/titol_de_la_prevenci_de_risc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbareditRiskPrevention" />
-
-    <EditText
-        android:id="@+id/editDateRiskPrevention"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:hint="@string/data_de_publicaci"
-        android:text="Data: "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTitleTextRiskPrevention" />
-
-    <EditText
-        android:id="@+id/editSourceRiskPrevention"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:hint="@string/font_de_la_publicaci"
-        android:text="Font: "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editDateRiskPrevention" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/editRecyclerViewManageRiskPrevention"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:paddingTop="16dp"
-        android:scrollbars="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/fabeditNewPrevention"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editSourceRiskPrevention" />
+        app:layout_constraintBottom_toTopOf="@id/editNewRiskPreventionButton"
+        app:layout_constraintTop_toBottomOf="@id/toolbareditRiskPrevention">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editTitleTextRiskPrevention"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:hint="@string/titol_de_la_prevenci_de_risc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editDateRiskPrevention"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:hint="@string/data_de_publicaci"
+                android:text="Data: "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTitleTextRiskPrevention" />
+
+            <EditText
+                android:id="@+id/editSourceRiskPrevention"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:hint="@string/font_de_la_publicaci"
+                android:text="Font: "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editDateRiskPrevention" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/editRecyclerViewManageRiskPrevention"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editSourceRiskPrevention" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabeditNewPrevention"
@@ -66,12 +78,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:contentDescription="@string/fab_xat_descriptor"
-        android:src="@drawable/ic_baseline_add_24"
+        android:src="@drawable/ic_baseline_add_fab_24"
         app:layout_constraintBottom_toTopOf="@id/editNewRiskPreventionButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editRecyclerViewManageRiskPrevention"
         app:maxImageSize="40dp" />
 
     <Button
@@ -79,11 +90,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="32dp"
-        android:text="@string/modifica_prevenci_de_riscos"
+        android:layout_marginVertical="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:drawableStart="@drawable/ic_baseline_save_24"
+        android:text="@string/guardar_canvis"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fabeditNewPrevention" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

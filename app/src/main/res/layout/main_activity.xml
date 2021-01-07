@@ -104,6 +104,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonERTE" />
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
@@ -122,9 +123,25 @@
         android:layout_margin="16dp"
         android:contentDescription="@string/fab_xat_descriptor"
         android:src="@drawable/ic_baseline_chat_bubble_24"
-        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:backgroundTint="@color/colorPrimaryDark"
         app:maxImageSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonNewAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/fab_xat_descriptor"
+
+        android:src="@drawable/ic_baseline_build_24"
+        app:backgroundTint="@color/colorDropDownPrimaryBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="40dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

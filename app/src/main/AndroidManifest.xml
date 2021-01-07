@@ -7,6 +7,23 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <permission
+        android:name="com.example.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.example.permission.MAPS_RECEIVE" />
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
 
     <application
         android:allowBackup="true"
@@ -15,10 +32,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.activity.health.tests.ManageQuestionsVulnerabilityTestActivity"></activity>
+        <activity android:name=".ui.main.activity.user.SigninGoogleActivity" />
+        <activity android:name=".ui.main.activity.user.ModifyPermissionsActivity" />
+        <activity android:name=".ui.main.activity.user.AdminMainActivity" />
+        <activity android:name=".ui.main.activity.user.CreateNewAdminActivity" />
+        <activity android:name=".ui.main.activity.health.tests.ManageQuestionsVulnerabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.tests.ManageQuestionsProbabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.information.EditRiskPopulationActivity" />
-        <activity android:name=".ui.main.activity.social.ChatListActivity"></activity>
+        <activity android:name=".ui.main.activity.social.ChatListActivity" />
         <activity android:name=".ui.main.activity.health.information.CreateRiskPopulationActivity" />
         <activity android:name=".ui.main.activity.health.information.ManageRiskPopulationActivity" />
         <activity android:name=".ui.main.activity.health.information.EditPreventionActivity" />
@@ -45,19 +66,28 @@
         <activity android:name=".ui.main.activity.health.tests.InfectionProbabilityTestActivity" />
         <activity android:name=".ui.main.activity.health.hospitalcenter.HospitalCenterActivity" />
         <activity android:name=".ui.main.activity.health.information.MythsActivity" />
+        <activity android:name=".ui.main.activity.user.ChangePasswordActivity" />
         <activity
             android:name=".ui.main.activity.health.tests.VulnerableTestActivity"
             android:exported="true" />
         <activity
             android:name=".ui.main.activity.health.HealthMenuActivity"
             android:exported="true" />
-        <activity android:name=".ui.main.activity.user.LoginActivity">
+        <activity
+            android:name=".ui.main.activity.user.LoginActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBrZKY5DQjUK8X6TjrOUKjtkZmrvikYUdk" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
 </manifest>

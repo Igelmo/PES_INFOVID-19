@@ -1,7 +1,9 @@
 package edu.upc.fib.pes_infovid19.ui.main.adapter
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -39,6 +41,15 @@ class PreventionAdapter(
             _preventions -= prevention
             notifyItemRemoved(position)
         }
+        holder.itemView.shareButton.setOnClickListener {
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, prevention.title)
+            shareIntent.putExtra(Intent.EXTRA_TEXT, prevention.text + "\n \n Aplicació Infovid-19")
+            shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
+            shareIntent.type = "text/plain"
+            ContextCompat.startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)
+        }
     }
 
     override fun getItemCount() = preventions.size
@@ -61,7 +72,7 @@ class PreventionAdapter(
             itemView.textdropdown.text = prevention.text
             itemView.imageDropDown.load(prevention.image)
             if (!admin) {
-                itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_down_24 else R.drawable.ic_baseline_keyboard_arrow_up_24)
+                itemView.arrowDropDown.setImageResource(if (isExpanded) R.drawable.ic_baseline_keyboard_arrow_up_24 else R.drawable.ic_baseline_keyboard_arrow_down_24)
             }
             itemView.editButton.isVisible = admin
             itemView.deleteButton.isVisible = admin
@@ -70,6 +81,8 @@ class PreventionAdapter(
             itemView.textdropdown.isVisible = !admin && isExpanded
             itemView.datedropdown.isVisible = !admin && isExpanded
             itemView.sourcedropdown.isVisible = !admin && isExpanded
+            itemView.shareButton.isVisible = !admin && isExpanded
+            itemView.shareButtonOut.isVisible = false
         }
     }
 }

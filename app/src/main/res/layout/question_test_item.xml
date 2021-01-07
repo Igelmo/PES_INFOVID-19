@@ -8,6 +8,7 @@
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/SwitchTheme"
         android:padding="10dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"

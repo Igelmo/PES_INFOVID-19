@@ -109,7 +109,7 @@
                 android:background="@drawable/button_rounded"
                 android:drawableStart="@drawable/googleg_standard_color_18"
                 android:paddingStart="16dp"
-                android:text="Registrar-se amb Google"
+                android:text="Iniciar sessió amb Google"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 app:layout_constraintTop_toBottomOf="@id/toolbarLogin" />

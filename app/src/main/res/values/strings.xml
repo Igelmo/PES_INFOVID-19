@@ -26,6 +26,7 @@
     <string name="boton_pdf">Envia</string>
     <string name="anterior_erte">Anterior</string>
     <string name="guardadPdf"> Guardar</string>
+    <string name="info">Informació</string>
     <string name="Obrir_Test_de_Vulnerabilitat"> Test de Vulneravilitat</string>
     <string name="P11Vulnerable">Tens fills o filles?</string>
     <string name="P10Vulnerable">Coneixes els tràmits a realtizar en cas \nd\'acomidadament en la feina?</string>
@@ -43,7 +44,7 @@
     <string name="fer_test_de_vulnerabilitat">Fer test de Vulnerabilitat</string>
     <string name="preparar_reclamaci_erte">Preparar reclamació ERTE</string>
     <string name="tittleMainMenu"><![CDATA[Benvingut/da <Usuari>]]></string>
-    <string name="subTitleMainMenu">Que vols fer?</string>
+    <string name="subTitleMainMenu">Què vols fer?</string>
     <string name="fab_xat_descriptor">Xat</string>
     <string name="perfil_d_usuari">Perfil usuari</string>
     <string name="l_all_prev_el_contagi">L\'all prevé el contagi</string>
@@ -51,8 +52,8 @@
     <string name="string_button_test">Fer test de probabilitat de contagi</string>
     <string name="string_button_chat">Demana ajuda a un voluntari</string>
     <string name="string_button_comprovar_vulnerabilitat">Comprovar Vulnerabilitat</string>
-    <string name="string_info_ajuda_voluntari">Si has donat més d\'un 50% en un o més \ndels grups vulnerables et recomanem que \net posis en contacte amb un voluntari que \net pugui ajudar/assessorar:</string>
-    <string name="string_test_contagi">Si vols, pots fer també el test sobre \nprobabilitat de contagi</string>
+    <string name="string_info_ajuda_voluntari">Si has donat més d\'un 50% en un o més dels grups vulnerables et recomanem que et posis en contacte amb un voluntari que et pugui ajudar/assessorar:</string>
+    <string name="string_test_contagi">Si vols, pots fer també el test sobre probabilitat de contagi</string>
     <string name="P1Infection">Tens o has tingut més de 37º de febre?</string>
     <string name="P2Infection">Tens tos seca?</string>
     <string name="P3Infection">Tens sensació de fatiga?</string>
@@ -69,8 +70,8 @@
     <string name="string_button_vulnerable_test">Fer test de vulnerabilitat</string>
     <string name="string_button_061">061</string>
     <string name="string_text_info2_infection">Si tens una probabilitat normal o superior et\nrecomanem contactar amb el centre hospitalari\nmés proper a la teva localització</string>
-    <string name="string_text_info3_infection">o truquis al</string>
-    <string name="string_text_info4_infection">Si vols, pots fer també el test per veure\nsi ets vulnerable</string>
+    <string name="string_text_info3_infection">o truca al</string>
+    <string name="string_text_info4_infection">Si vols, pots fer també el test per veure si ets vulnerable</string>
     <string name="administrar_mites">Administrar mites</string>
     <string name="crear_nou_mite">Crear nou mite</string>
     <string name="titol_del_mite">Titol del mite</string>
@@ -91,7 +92,7 @@
     <string name="administrar_poblaci_de_risc">Administrar població de risc</string>
     <string name="crear_nova_poblaci_de_risc">Crear nova població de risc</string>
     <string name="nom_de_la_poblaci_de_risc">Nom de la població de risc</string>
-    <string name="escribe_un_mensaje">Escribe un mensaje</string>
+    <string name="escribe_un_mensaje">Escriu un missatge</string>
     <string name="enviar">Enviar</string>
     <string name="text_de_la_nova_pregunta">Text de la nova pregunta</string>
     <string name="administrar_preguntes_del_test">Administrar preguntes del test</string>
@@ -108,6 +109,14 @@
     <string name="normal">Normal</string>
     <string name="alta">Alta</string>
     <string name="molt_alta">Molt alta</string>
+    <string name="delete">Delete</string>
+    <string name="button">Button</string>
+    <string name="cerca_a_alg">Cerca a algú</string>
+    <string name="cerca">Cerca</string>
+    <string name="infovid_19">Infovid-19</string>
+    <string name="la_teva_probabilitat_d_haver_te_contagiat_s">La teva probabilitat d\'haver-te contagiat és</string>
+    <string name="comprovar_vulnerabilitat">Comprovar vulnerabilitat</string>
+    <string name="truca">truca a l\'hospital</string>
     <string-array name="types">
         <item>salut</item>
         <item>economica</item>

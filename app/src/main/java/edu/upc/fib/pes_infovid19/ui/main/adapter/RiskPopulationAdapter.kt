@@ -1,7 +1,9 @@
 package edu.upc.fib.pes_infovid19.ui.main.adapter
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
@@ -33,6 +35,15 @@ class RiskPopulationAdapter(
         holder.itemView.deleteButton.setOnClickListener {
             onDeleteListener(riskPopulation.id)
         }
+        holder.itemView.shareButton.setOnClickListener {
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Ets una persona de risc si davant el Coronavirus si...")
+            shareIntent.putExtra(Intent.EXTRA_TEXT, riskPopulation.risk + "\n \n Aplicació Infovid-19")
+            shareIntent.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, "Aplicació Infovid-19")
+            shareIntent.type = "text/plain"
+            ContextCompat.startActivity(holder.itemView.context, Intent.createChooser(shareIntent, "Compartir via...:"), null)
+        }
     }
 
 
@@ -50,9 +61,13 @@ class RiskPopulationAdapter(
             itemView.editButton.isVisible = admin
             itemView.deleteButton.isVisible = admin
             itemView.arrowDropDown.isVisible = false
-            itemView.textdropdown.isVisible = !admin && isExpanded
-            itemView.datedropdown.isVisible = !admin && isExpanded
-            itemView.sourcedropdown.isVisible = !admin && isExpanded
+            itemView.textdropdown.isVisible = false
+            itemView.datedropdown.isVisible = false
+            itemView.sourcedropdown.isVisible = false
+            itemView.imageDropDown.isVisible = false
+            itemView.shareButton.isVisible = false
+            itemView.shareButtonOut.isVisible = true
+
         }
     }
 }

@@ -14,6 +14,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -83,11 +84,18 @@ class ErteActivity : AppCompatActivity() {
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
         val guarda = findViewById<Button>(R.id.button4)
+        val info = findViewById<FloatingActionButton>(R.id.fab)
+        val email = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val br = findViewById<EditText>(R.id.editTextTextMultiLine2)
+        email.visibility = View.VISIBLE
+        br.visibility = View.VISIBLE
         et.visibility = View.INVISIBLE
+        info.visibility = View.VISIBLE
         benvia.visibility = View.INVISIBLE
         baccept.visibility = View.VISIBLE
         torna.visibility = View.INVISIBLE
         guarda.visibility = View.INVISIBLE
+
     }
 
     fun guardaEnLaBaseDeDatos() {
@@ -125,6 +133,7 @@ class ErteActivity : AppCompatActivity() {
         val baccept = findViewById<Button>(R.id.button3)
         val torna = findViewById<Button>(R.id.button2)
         val guarda = findViewById<Button>(R.id.button4)
+        val info = findViewById<FloatingActionButton>(R.id.fab)
         var c = 0
         var mes = seisMeses(calendar.get(Calendar.MONTH))
         if (mes > 12) {
@@ -146,19 +155,44 @@ class ErteActivity : AppCompatActivity() {
                 "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
                 "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" + "\n" +
                 "------------------------------------------Firma" + "\n"
+        val email = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val br = findViewById<EditText>(R.id.editTextTextMultiLine2)
+        email.visibility = View.INVISIBLE
+        br.visibility = View.INVISIBLE
         guardaEnLaBaseDeDatos()
         et.visibility = View.VISIBLE
+        et.isEnabled = true
+        info.visibility = View.INVISIBLE
         benvia.visibility = View.VISIBLE
         baccept.visibility = View.INVISIBLE
         torna.visibility = View.VISIBLE
         guarda.visibility = View.VISIBLE
     }
 
+    @SuppressLint("SetTextI18n")
+    fun info(view: View) {
+        val et = findViewById<TextView>(R.id.editView)
+        val torna = findViewById<Button>(R.id.button2)
+        et.text = "1. Omplir el formulari amb totes les dades.\n" +
+                "2. Enviar un correu electònic o fax al SEPE o un organisme que faci la mateixa funció.\n" +
+                "3. Esperar que et contestin via correu electrònic o reclamació.\n" +
+                "4. Aquesta al·legació pot ser acceptada o rebutjada.\n" +
+                "5. Si és rebutjada pots fer una reclamació al mateix organisme.\n" +
+                "6. Si la reclamació també és rebutjada pots anar al jutjat social i obrir una causa juridica.\n"
+        val email = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val br = findViewById<EditText>(R.id.editTextTextMultiLine2)
+        email.visibility = View.INVISIBLE
+        br.visibility = View.INVISIBLE
+        et.visibility = View.VISIBLE
+        et.isEnabled = false
+        torna.visibility = View.VISIBLE
+    }
+
     fun guardaPdf() {
         val documents = Document(PageSize.A6)
         try {
             val file: File? = crearFichero("Erte")
-            val path = file?.absolutePath
+            val path = filesDir
             val ficheroPdf = FileOutputStream("$path.pdf")
             val writer = PdfWriter.getInstance(documents, ficheroPdf)
             documents.open()
@@ -168,7 +202,6 @@ class ErteActivity : AppCompatActivity() {
             Toast.makeText(this, "Erte.pdf\nis saved to \n$path", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
-
         }
     }
 
@@ -216,7 +249,7 @@ class ErteActivity : AppCompatActivity() {
         emailIntent.data = Uri.parse(erte.email)
         emailIntent.type = "text/plain"
         emailIntent.putExtra(Intent.EXTRA_EMAIL, "InfoVid-19")
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Paper de reclamació de Erte")
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Paper d' al·legació de Erte")
         emailIntent.putExtra(Intent.EXTRA_TEXT, findViewById<TextView>(R.id.editView).text)
         startActivity(Intent.createChooser(emailIntent, "Send mail..."));
         finish();

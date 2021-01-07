@@ -1,6 +1,7 @@
 package edu.upc.fib.pes_infovid19.ui.main.activity.health.information
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -48,8 +49,13 @@ class MythsActivity : AppCompatActivity() {
             })
         }
         manageMythsButton.setOnClickListener {
-            val intent = Intent(this, ManageMythsActivity::class.java)
-            startActivity(intent)
+            //val intent = Intent(this, ManageMythsActivity::class.java)
+            //startActivity(intent)
+            val tweet = Intent(Intent.ACTION_VIEW)
+            val message = "Pruebas"
+            tweet.data = Uri.parse("https://twitter.com/intent/tweet?text=! Warning new Covid mith ! + $message")
+            startActivity(tweet)
+
         }
 
         val adapter = MythsAdapter(false)

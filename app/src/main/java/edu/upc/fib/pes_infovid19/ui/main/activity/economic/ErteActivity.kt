@@ -85,12 +85,17 @@ class ErteActivity : AppCompatActivity() {
         val torna = findViewById<Button>(R.id.button2)
         val guarda = findViewById<Button>(R.id.button4)
         val info = findViewById<FloatingActionButton>(R.id.fab)
+        val email = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val br = findViewById<EditText>(R.id.editTextTextMultiLine2)
+        email.visibility = View.VISIBLE
+        br.visibility = View.VISIBLE
         et.visibility = View.INVISIBLE
         info.visibility = View.VISIBLE
         benvia.visibility = View.INVISIBLE
         baccept.visibility = View.VISIBLE
         torna.visibility = View.INVISIBLE
         guarda.visibility = View.INVISIBLE
+
     }
 
     fun guardaEnLaBaseDeDatos() {
@@ -150,8 +155,13 @@ class ErteActivity : AppCompatActivity() {
                 "Data final: " + calendar.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + (calendar.get(Calendar.YEAR) + c) + "\n" +
                 "Base reguladora: " + erte.base_reguladora + "\n" + "\n" + "\n" + "\n" +
                 "------------------------------------------Firma" + "\n"
+        val email = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val br = findViewById<EditText>(R.id.editTextTextMultiLine2)
+        email.visibility = View.INVISIBLE
+        br.visibility = View.INVISIBLE
         guardaEnLaBaseDeDatos()
         et.visibility = View.VISIBLE
+        et.isEnabled = true
         info.visibility = View.INVISIBLE
         benvia.visibility = View.VISIBLE
         baccept.visibility = View.INVISIBLE
@@ -169,7 +179,12 @@ class ErteActivity : AppCompatActivity() {
                 "4. Aquesta al·legació pot ser acceptada o rebutjada.\n" +
                 "5. Si és rebutjada pots fer una reclamació al mateix organisme.\n" +
                 "6. Si la reclamació també és rebutjada pots anar al jutjat social i obrir una causa juridica.\n"
+        val email = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val br = findViewById<EditText>(R.id.editTextTextMultiLine2)
+        email.visibility = View.INVISIBLE
+        br.visibility = View.INVISIBLE
         et.visibility = View.VISIBLE
+        et.isEnabled = false
         torna.visibility = View.VISIBLE
     }
 
@@ -177,7 +192,7 @@ class ErteActivity : AppCompatActivity() {
         val documents = Document(PageSize.A6)
         try {
             val file: File? = crearFichero("Erte")
-            val path = file?.absolutePath
+            val path = filesDir
             val ficheroPdf = FileOutputStream("$path.pdf")
             val writer = PdfWriter.getInstance(documents, ficheroPdf)
             documents.open()
@@ -187,7 +202,6 @@ class ErteActivity : AppCompatActivity() {
             Toast.makeText(this, "Erte.pdf\nis saved to \n$path", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
-
         }
     }
 

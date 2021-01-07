@@ -15,11 +15,11 @@
 
         <TextView
             android:id="@+id/userNameXat"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="16sp"
-            android:layout_marginStart="32sp"
-            android:text=""
+            android:layout_marginHorizontal="16sp"
+            android:text="Carles"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -28,15 +28,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
+        <TextView
             android:id="@+id/buttonDeleteXat"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginVertical="8sp"
             android:layout_marginEnd="32sp"
-            android:background="@android:color/transparent"
+            android:gravity="end"
             android:onClick="borrarXat"
-            android:src="@drawable/ic_baseline_delete_white_24"
+            android:text="Eliminar"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/userNameXat"
             app:layout_constraintTop_toTopOf="parent" />

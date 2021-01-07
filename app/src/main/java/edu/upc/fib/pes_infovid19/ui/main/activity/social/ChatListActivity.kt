@@ -1,9 +1,11 @@
 package edu.upc.fib.pes_infovid19.ui.main.activity.social
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -95,12 +97,13 @@ class ChatListActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun borrarXat(v: View) {
-        //val xat = v.buttonDeleteXat.hint.toString()
-        //val mDatabase = FirebaseDatabase.getInstance().reference.child("xatinfovid19").child(nom).child(xat)
-        //mDatabase.removeValue()
-        //val intent = Intent(this, ChatListActivity::class.java)
-        //startActivity(intent)
+        val xat = v.buttonDeleteXat.tooltipText.toString()
+        val mDatabase = FirebaseDatabase.getInstance().reference.child("xatinfovid19").child(nom).child(xat)
+        mDatabase.removeValue()
+        val intent = Intent(this, ChatListActivity::class.java)
+        startActivity(intent)
     }
 
     fun buscaPersona(v: View) {

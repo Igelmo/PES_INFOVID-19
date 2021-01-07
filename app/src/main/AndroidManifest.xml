@@ -32,7 +32,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.activity.user.SigninGoogleActivity"></activity>
+        <activity android:name=".ui.main.activity.user.SigninGoogleActivity" />
         <activity android:name=".ui.main.activity.user.ModifyPermissionsActivity" />
         <activity android:name=".ui.main.activity.user.AdminMainActivity" />
         <activity android:name=".ui.main.activity.user.CreateNewAdminActivity" />

@@ -152,6 +152,7 @@ class ErteActivity : AppCompatActivity() {
                 "------------------------------------------Firma" + "\n"
         guardaEnLaBaseDeDatos()
         et.visibility = View.VISIBLE
+        et.isEnabled = true
         info.visibility = View.INVISIBLE
         benvia.visibility = View.VISIBLE
         baccept.visibility = View.INVISIBLE
@@ -170,6 +171,7 @@ class ErteActivity : AppCompatActivity() {
                 "5. Si és rebutjada pots fer una reclamació al mateix organisme.\n" +
                 "6. Si la reclamació també és rebutjada pots anar al jutjat social i obrir una causa juridica.\n"
         et.visibility = View.VISIBLE
+        et.isEnabled = false
         torna.visibility = View.VISIBLE
     }
 
@@ -177,7 +179,7 @@ class ErteActivity : AppCompatActivity() {
         val documents = Document(PageSize.A6)
         try {
             val file: File? = crearFichero("Erte")
-            val path = file?.absolutePath
+            val path = filesDir
             val ficheroPdf = FileOutputStream("$path.pdf")
             val writer = PdfWriter.getInstance(documents, ficheroPdf)
             documents.open()
@@ -187,7 +189,6 @@ class ErteActivity : AppCompatActivity() {
             Toast.makeText(this, "Erte.pdf\nis saved to \n$path", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
-
         }
     }
 

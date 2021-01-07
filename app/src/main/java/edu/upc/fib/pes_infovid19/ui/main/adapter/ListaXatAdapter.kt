@@ -1,10 +1,12 @@
 package edu.upc.fib.pes_infovid19.ui.main.adapter
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import edu.upc.fib.pes_infovid19.R
 import kotlinx.android.synthetic.main.tarjeta_mensaje.view.*
@@ -28,9 +30,10 @@ class ListaXatAdapter(val c: Context) : RecyclerView.Adapter<ListaXatAdapter.Hol
 
     override fun getItemCount(): Int = ListaXats.size
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: HolderXat, position: Int) {
         holder.itemView.userNameXat.text = ListaXats[position]
-//        holder.itemView.buttonDeleteXat.hint = ListaXats[position]
+        holder.itemView.buttonDeleteXat.tooltipText = ListaXats[position]
     }
 
     class HolderXat(view: View) : RecyclerView.ViewHolder(view) {
